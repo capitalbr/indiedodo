@@ -10,6 +10,8 @@
 * Users can view species on Google Maps
 * Browse by an animal classification
 * Various animal classications and featured classifications on splash screen
+* Campaign comments
+* Campaign perks
 
 ## Technologies
 
@@ -18,7 +20,7 @@
 * **Hosting:** Heroku
 * Google Maps API
 * BCrypt for user authentication
-* AWS S3 for storage of images
+* AWS S3 for storage of images/videos
 * Docker for images and containers
 * Material UI for frontend design
 
@@ -26,7 +28,7 @@
 * Google maps
 * Mongoose data seed
 * User image upload
-* All things docker
+* Docker
 
 ## Bonus Features
 * Login with facebook / chrome
@@ -35,6 +37,8 @@
 * GraphQL scraper
 * Collections of campaigns
 * Google news for splash page bottom
+* Shopping Cart functionality
+* FAQ Q/A Submisson fields 
 
 ## Group Members and Work Breakdown
 
@@ -52,14 +56,19 @@
 * Campaign db model, validations, routes - all
 * Campaign indexes
 * Splash page polish
+* Species Creation
 
 ### Wednesday, July 31st
 * Campaign Show
 * Carousel component - Josh
+* Checkout page, consider cart bonus
+* Campaign Create
 
 ### Thursday, August 1st
 * Carousel subcomponents - Josh
 * Virtual pizza lunch
+* Perk List (possibly opens back campaign modal w/ perk list item as default)
+* Raised vs. goal progress bar - Zach
 
 ### Friday, August 2nd
 * Finish features
