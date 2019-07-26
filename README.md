@@ -33,6 +33,8 @@
 * Flex goals
 * Images sourced through api
 * GraphQL scraper
+* Collections of campaigns
+* Google news for splash page bottom
 
 ## Group Members and Work Breakdown
 
@@ -53,13 +55,16 @@
 
 ### Wednesday, July 31st
 * Campaign Show
+* Carousel component - Josh
 
 ### Thursday, August 1st
-* 
+* Carousel subcomponents - Josh
+* Virtual pizza lunch
 
 ### Friday, August 2nd
 * Finish features
 * Bonus
+* Bonus Google news - Josh
 
 ### Saturday, August 3rd
 * Readme
