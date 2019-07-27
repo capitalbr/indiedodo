@@ -39,6 +39,8 @@
 * Google news for splash page bottom
 * Shopping Cart functionality
 * FAQ Q/A Submisson fields 
+* Guest Checkout
+* Capcha
 
 ## Group Members and Work Breakdown
 
