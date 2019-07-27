@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
-const key = require("../../config/keys").secretOrkey;
+const key = require("../../config/keys").secretOrKey;
 
 const validateRegisterInput = require("../validation/register");
 const validateLoginInput = require("../validation/login");
