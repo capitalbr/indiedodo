@@ -11,7 +11,7 @@ import { Switch, Route, Link } from "react-router-dom";
 // import Cart from "./cart/Cart";
 const App = () => {
   return (
-    <h1>We <3 animals!</h1>
+    <h1>We love animals!</h1>
   )
 }
 
