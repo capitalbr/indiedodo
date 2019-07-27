@@ -1,0 +1,19 @@
+{
+  "name": "indiedodo",
+  "version": "1.0.0",
+  "description": "crowdfunding app for animal conservation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capitalbr/indiedodo.git"
+  },
+  "author": "Brad Barnes, Josh Burnwatt, Zach Oliver",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/capitalbr/indiedodo/issues"
+  },
+  "homepage": "https://github.com/capitalbr/indiedodo#readme"
+}
