@@ -1,18 +1,59 @@
 const mongoose = require("mongoose");
 const graphql = require("graphql");
-const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLID } = graphql;
+const { 
+  GraphQLObjectType,
+  GraphQLString, 
+  GraphQLInt, 
+  GraphQLID,
+  GraphQLFloat
+ } = graphql;
+
+import {
+  GraphQLDate
+} from 'graphql-iso-date';
 
 const UserType = require("./types/user_type");
+const CampaignType = require("./types/campaign_type");
 // const CategoryType = require("./types/category_type");
 // const ProductType = require("./types/product_type");
 const AuthService = require("../services/auth");
 
 // const Category = mongoose.model("categories");
 // const Product = mongoose.model("products");
+const Campaign = mongoose.model("campaigns");
 
 const mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: {
+    newCampaign: {
+      type: CampaignType,
+      args: {
+        title: { type: GraphQLString },
+        tagline: { type: GraphQLString },
+        overview: { type: GraphQLString },
+        story: { type: GraphQLString },
+        faq: { type: GraphQLString },
+        image_url: { type: GraphQLString },
+        category: { type: GraphQLString },
+        raised: { type: GraphQLFloat },
+        goal: { type: GraphQLFloat },
+        end_date: { type: GraphQLDate }
+      },
+      resolve(_, { title, tagline, overview, story, faq, image_url, category, raised, goal, end_date }) {
+        return new Campaign({
+          title, 
+          tagline, 
+          overview, 
+          story, 
+          faq, 
+          image_url, 
+          category, 
+          raised, 
+          goal, 
+          end_date
+        }).save();
+      }
+    },
     // newCategory: {
     //   type: CategoryType,
     //   args: {

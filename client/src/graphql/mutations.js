@@ -31,6 +31,34 @@ export default {
   //     }
   //   }
   // `,
+   CREATE_CAMPAIGN: gql`
+    mutation CreateCampaign(
+      $title: String!
+      $tagline: String!
+      $overview: String!
+      $story: String!
+      $faq: String!
+      $image_url: String!
+      $category: String!
+      $raised: Float!
+      $goal: Float!
+      $end_date: Date!
+    ) {
+      newCampaign(title: $title, tagline: $tagline, overview: $overview, story: $story, faq: $faq, image_url: $image_url, category: $category, raised: $raised, goal: $goal, end_date: $end_date) {
+        _id
+        title
+        tagline
+        overview
+        story
+        faq
+        image_url
+        category
+        raised
+        goal
+        end_date
+      }
+    }
+  `,
   VERIFY_USER: gql`
     mutation VerifyUser($token: String!) {
       verifyUser(token: $token) {
