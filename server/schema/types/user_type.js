@@ -13,7 +13,9 @@ const UserType = new GraphQLObjectType({
         name: { type: GraphQLString },
         email: { type: GraphQLString },
         token: { type: GraphQLString },
-        loggedIn: { type: GraphQLBoolean }
+        loggedIn: { type: GraphQLBoolean },
+        bio_header: { type: GraphQLString },
+        bio: { type: GraphQLString }
     }
 });
 

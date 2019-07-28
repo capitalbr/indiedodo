@@ -7,6 +7,7 @@ const validateRegisterInput = require("../validation/register");
 const validateLoginInput = require("../validation/login");
 
 const register = async data => {
+  debugger
   try {
     const { message, isValid } = validateRegisterInput(data);
 
@@ -14,7 +15,7 @@ const register = async data => {
       throw new Error(message);
     }
 
-    const { name, email, password } = data;
+    const { name, email, password, bio_header, bio } = data;
 
     const existingUser = await User.findOne({ email });
 
@@ -28,7 +29,9 @@ const register = async data => {
       {
         name,
         email,
-        password: hashedPassword
+        password_digest: hashedPassword,
+        bio_header,
+        bio
       },
       err => {
         if (err) throw err;
@@ -39,7 +42,7 @@ const register = async data => {
 
     const token = jwt.sign({ id: user._id }, key);
 
-    return { token, loggedIn: true, ...user._doc, password: null };
+    return { token, loggedIn: true, ...user._doc, password_digest: null };
   } catch (err) {
     throw err;
   }
@@ -58,12 +61,12 @@ const login = async data => {
     const user = await User.findOne({ email });
     if (!user) throw new Error("This user does not exist");
 
-    const isValidPassword = await bcrypt.compareSync(password, user.password);
+    const isValidPassword = await bcrypt.compareSync(password, user.password_digest);
     if (!isValidPassword) throw new Error("Invalid password");
 
     const token = jwt.sign({ id: user.id }, key);
 
-    return { token, loggedIn: true, ...user._doc, password: null };
+    return { token, loggedIn: true, ...user._doc, password_digest: null };
   } catch (err) {
     throw err;
   }
