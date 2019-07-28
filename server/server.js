@@ -23,6 +23,12 @@ app.use(
   })
 );
 
+// FOR TESTING ONLY DELETE WHEN DONE
+app.get("/", (req, res) => {
+  res.send("<h1>whats up</h1>")
+})
+// END TESTING
+
 if (!db) {
   throw new Error("You must provide a string to connect to MongoDB Atlas");
 }
