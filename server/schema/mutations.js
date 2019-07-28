@@ -54,6 +54,48 @@ const mutation = new GraphQLObjectType({
         }).save();
       }
     },
+    deleteCampaign: {
+      type: CampaignType,
+      args: { _id: { type: GraphQLID } },
+      resolve(_, { _id }) {
+        return Campaign.remove({ _id });
+      }
+    },
+    updateCampaign: {
+      type: CampaignType,
+      args: {
+        _id: { type: GraphQLID },
+        title: { type: GraphQLString },
+        tagline: { type: GraphQLString },
+        overview: { type: GraphQLString },
+        story: { type: GraphQLString },
+        faq: { type: GraphQLString },
+        image_url: { type: GraphQLString },
+        category: { type: GraphQLString },
+        raised: { type: GraphQLFloat },
+        goal: { type: GraphQLFloat },
+        end_date: { type: GraphQLFloat }
+      },
+      resolve(parentValue, { _id, title, tagline, overview, story, faq, image_url, category, raised, goal, end_date }) {
+        const updateObj = {};
+        // we can create our own object here and pass in the variables is they exist
+        updateObj._id = _id;
+        if (title) updateObj.title = title;
+        if (tagline) updateObj.tagline = tagline;
+        if (overview) updateObj.overview = overview;
+        if (story) updateObj.story = story;
+        if (faq) updateObj.faq = faq;
+        if (image_url) updateObj.image_url = image_url;
+        if (category) updateObj.category = category;
+        if (raised) updateObj.raised = raised;
+        if (goal) updateObj.goal = goal;
+        if (end_date) updateObj.end_date = end_date;
+
+        return Campaign.findOneAndUpdate({ _id: _id }, { $set: updateObj }, { new: true }, (err, campaign) => {
+          return campaign;
+        });
+      }
+    },
     // newCategory: {
     //   type: CategoryType,
     //   args: {
