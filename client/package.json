@@ -3,19 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "apollo-cache-inmemory": "^1.5.1",
-    "apollo-client": "^2.5.1",
-    "apollo-link": "^1.2.11",
-    "apollo-link-error": "^1.1.10",
-    "apollo-link-http": "^1.5.14",
+    "apollo-cache-inmemory": "^1.6.2",
+    "apollo-client": "^2.6.3",
+    "apollo-link": "^1.2.12",
+    "apollo-link-error": "^1.1.11",
+    "apollo-link-http": "^1.5.15",
     "apollo-link-state": "^0.4.2",
     "graphql-tag": "^2.10.1",
-    "graphql-tools": "^4.0.4",
+    "graphql-tools": "^4.0.5",
     "react": "^16.8.6",
-    "react-apollo": "^2.5.4",
+    "react-apollo": "^2.5.8",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8"
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

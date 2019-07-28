@@ -24,9 +24,9 @@ app.use(
 );
 
 // FOR TESTING ONLY DELETE WHEN DONE
-app.get("/", (req, res) => {
-  res.send("<h1>whats up</h1>")
-})
+// app.get("/", (req, res) => {
+//   res.send("<h1>whats up</h1>")
+// })
 // END TESTING
 
 if (!db) {

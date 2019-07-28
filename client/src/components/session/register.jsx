@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Mutation } from "react-apollo";
-import Mutations from "../graphql/mutations";
+import Mutations from "../../graphql/mutations";
 
 const { REGISTER_USER } = Mutations;
 
@@ -11,6 +11,8 @@ class Register extends Component {
     this.state = {
       name: "",
       email: "",
+      bio_header: "",
+      bio: "",
       password: ""
     };
   }
@@ -45,7 +47,9 @@ class Register extends Component {
                   variables: {
                     name: this.state.name,
                     email: this.state.email,
-                    password: this.state.password
+                    password: this.state.password,
+                    bio_header: this.state.bio_header,
+                    bio: this.state.bio
                   }
                 });
               }}
@@ -65,6 +69,16 @@ class Register extends Component {
                 onChange={this.update("password")}
                 type="password"
                 placeholder="Password"
+              />
+              <input
+                value={this.state.bio_header}
+                onChange={this.update("bio_header")}
+                placeholder="Bio header"
+              />
+              <input
+                value={this.state.bio}
+                onChange={this.update("bio")}
+                placeholder="User Bio"
               />
               <button type="submit">Register</button>
             </form>
