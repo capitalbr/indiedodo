@@ -11,8 +11,6 @@ class Register extends Component {
     this.state = {
       name: "",
       email: "",
-      bio_header: "",
-      bio: "",
       password: ""
     };
   }
@@ -39,8 +37,10 @@ class Register extends Component {
         update={(client, data) => this.updateCache(client, data)}
       >
         {registerUser => (
-          <div>
+          <div className='register-container'>
+
             <form
+              className='register-form'
               onSubmit={e => {
                 e.preventDefault();
                 registerUser({
@@ -54,34 +54,40 @@ class Register extends Component {
                 });
               }}
             >
-              <input
-                value={this.state.name}
-                onChange={this.update("name")}
-                placeholder="Name"
-              />
-              <input
-                value={this.state.email}
-                onChange={this.update("email")}
-                placeholder="Email"
-              />
-              <input
-                value={this.state.password}
-                onChange={this.update("password")}
-                type="password"
-                placeholder="Password"
-              />
-              <input
-                value={this.state.bio_header}
-                onChange={this.update("bio_header")}
-                placeholder="Bio header"
-              />
-              <input
-                value={this.state.bio}
-                onChange={this.update("bio")}
-                placeholder="User Bio"
-              />
+              <div className='register-header'>
+                <h1>Welcome!</h1>
+                <p>Sign up to join IndieDodo</p>
+              </div>
+
+              <div className='register-inputs'>
+                <input
+                  value={this.state.name}
+                  onChange={this.update("name")}
+                  placeholder=" Full Name"
+                />
+                <input
+                  value={this.state.email}
+                  onChange={this.update("email")}
+                  placeholder="Email"
+                />
+                <input
+                  value={this.state.password}
+                  onChange={this.update("password")}
+                  type="password"
+                  placeholder="Password"
+                />
+                <input type="checkbox" value='email-signup'/> Sign me up for the IndieDodo newsletter
+                <input type="checkbox" value='TOS-agree'/><span>
+                  I agree to the <a href="https://www.indiegogo.com/about/terms"> Terms of Use </a> and <a href="https://www.indiegogo.com/about/privacy">Privacy Policy</a>
+                </span>
+              </div>
               <button type="submit">Register</button>
             </form>
+
+            <footer className='session-switch'>
+              <span>Already have an account? <a href="#/login">Log In</a></span>
+            </footer>
+
           </div>
         )}
       </Mutation>
