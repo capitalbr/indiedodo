@@ -116,6 +116,38 @@ export default {
       }
     }
   `,
+  FETCH_CAMPAIGN_CONTRIBUTIONS: gql`
+    query fetchCampaignContributions($campaignId: ID!) {
+      campaignContributions(campaignId: $campaignId) {
+        _id
+        campaign_id
+        user_id
+        amount
+      }
+    }
+  `,
+  FETCH_USER_CONTRIBUTIONS: gql`
+    query fetchUserContributions($userId: ID!) {
+      userContributions(userId: $userId) {
+        _id
+        campaign_id
+        user_id
+        amount
+      }
+    }
+  `,
+  // TO SHOW THE COMBINED TOTAL OF HOW MUCH WE'VE RAISED TO BE DISPLAYED ON OUR SPLASH
+  FETCH_ALL_CONTRIBUTIONS: gql`
+    query fetchAllContributions {
+        contributions {
+        _id
+        campaign_id
+        user_id
+        amount
+      }
+    }
+  `,
+  
  
   // FETCH_PRODUCTS: gql`
   //   query fetchProducts {

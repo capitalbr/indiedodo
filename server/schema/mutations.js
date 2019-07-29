@@ -16,7 +16,10 @@ const GraphQLDate = require("graphql-iso-date");
 
 const UserType = require("./types/user_type");
 const CampaignType = require("./types/campaign_type");
-const SpeciesType = require("./types/species_type");
+// const SpeciesType = require("./types/species_type");
+const UpdateType = require("./types/update_type");
+const CommentType = require("./types/comment_type");
+const PerkType = require("./types/perk_type");
 // const CategoryType = require("./types/category_type");
 // const ProductType = require("./types/product_type");
 const AuthService = require("../services/auth");
@@ -93,6 +96,79 @@ const mutation = new GraphQLObjectType({
         return Campaign.findOneAndUpdate({ _id: _id }, { $set: updateObj }, { new: true }, (err, campaign) => {
           return campaign;
         });
+      }
+    },
+    newUpdate: {
+      type: UpdateType,
+      args: {
+        body: { type: GraphQLString },
+        user_id: { type: GraphQLID },
+        campaign_id: { type: GraphQLID }
+      },
+      resolve(_, { body, user_id, campaign_id }) {
+        return new Update({ body, user_id, campaign_id }).save();
+      }
+    },
+    deleteUpdate: {
+      type: UpdateType,
+      args: { _id: { type: GraphQLID } },
+      resolve(_, { _id }) {
+        return Update.remove({ _id });
+      }
+    },
+    updateUpdate: {
+      type: UpdateType,
+      args: {
+        _id: { type: GraphQLID },
+        body: { type: GraphQLString }
+      },
+      resolve(_, { _id, body }) {
+        return Update.findOneAndUpdate({ _id: _id }, { $set: { body: body } }, { new: true }, (err, update) => {
+          return update;
+        });
+      }
+    },
+    newComment: {
+      type: CommentType,
+      args: {
+        body: { type: GraphQLString },
+        user_id: { type: GraphQLID },
+        campaign_id: { type: GraphQLID }
+      },
+      resolve(_, { body, user_id, campaign_id }) {
+        return new Comment({ body, user_id, campaign_id }).save();
+      }
+    },
+    deleteComment: {
+      type: CommentType,
+      args: { _id: { type: GraphQLID } },
+      resolve(_, { _id }) {
+        return Comment.remove({ _id });
+      }
+    },
+    updateComment: {
+      type: CommentType,
+      args: {
+        _id: { type: GraphQLID },
+        body: { type: GraphQLString }
+      },
+      resolve(_, { _id, body }) {
+        return Comment.findOneAndUpdate({ _id: _id }, { $set: { body: body } }, { new: true }, (err, comment) => {
+          return comment;
+        });
+      }
+    },
+    newPerk: {
+      type: PerkType,
+      args: {
+        campaign_id: { type: GraphQLID },
+        cost: { type: GraphQLFloat },
+        description: { type: GraphQLString },
+        image_url: { type: GraphQLString },
+        option: { type: GraphQLString }
+      },
+      resolve(_, { campaign_id, cost, description, image_url, option }) {
+        return new Perk({ campaign_id, cost, description, image_url, option }).save();
       }
     },
     // newCategory: {
