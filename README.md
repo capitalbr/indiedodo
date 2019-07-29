@@ -42,6 +42,7 @@
 * Guest Checkout
 * Capcha
 * Robust inventory remaining/claimed
+* Cancel contribution functionality
 
 ## Group Members and Work Breakdown
 
