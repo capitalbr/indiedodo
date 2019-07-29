@@ -1,9 +1,10 @@
 //GLOBAL VARIABLES
-$dodo-blue: #346379;
-$fb-blue: #3b5998;
+$dodo-blue: #4e7a8f;
+$fb-blue: #4266B2;
+$roboto: 'Roboto', sans-serif;
+$test: #ffffff;
 
 //GLOBAL STYLES
 body{
-    font-family: 'Roboto', sans-serif;
-    // background: black;
+    font-family: $roboto;
 }

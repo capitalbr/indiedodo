@@ -1,48 +1,161 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @import url("https://kit.fontawesome.com/f300a92159.js");
-html, body, header, nav, h1, a,
-ul, li, strong, main, button, i,
-section, img, div, h2, p, form,
-fieldset, label, input, textarea,
-span, article, footer, time, small {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  outline: 0;
+  font-size: 100%;
   font: inherit;
-  color: inherit;
-  text-align: inherit;
-  text-decoration: inherit;
-  vertical-align: inherit;
-  box-sizing: inherit;
-  background: transparent; }
+  vertical-align: baseline;
+}
 
-ul, ol {
-  list-style: none; }
-
-img {
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
   display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.register-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: auto; }
+  margin: 30px;
+}
 
-input,
-textarea,
-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none; }
+.register-form button {
+  background-color: #4e7a8f;
+  height: 25px;
+  margin: 5px;
+}
 
-button,
-input[type="submit"], a {
-  cursor: pointer; }
+.register-header {
+  text-align: center;
+  margin: 10px;
+}
+.register-header h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 42px;
+}
 
-body {
-  font-family: 'Roboto', sans-serif; }
+.register-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.register-inputs input {
+  height: 25px;
+  margin: 5px;
+}
+.register-inputs span {
+  font-size: 12px;
+}
 
-body {
-  font-family: 'Roboto', sans-serif; }
+.register-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.register-buttons button {
+  height: 25px;
+  margin: 5px;
+}
 
-button {
-  background-color: #3487ad; }
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 30px;
+}
+
+.login-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login-buttons button {
+  height: 25px;
+  margin: 5px;
+}
+.login-buttons .login-button {
+  background-color: #4e7a8f;
+}
+.login-buttons .fb-button {
+  background-color: #4266B2;
+}
+
+.login-header {
+  text-align: center;
+}
+.login-header h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 42px;
+}
+
+.login-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login-inputs input {
+  height: 25px;
+  width: 100%;
+  margin: 5px;
+}
+
+.session-switch {
+  font-size: 12px;
+}
+
+.login-links {
+  font-size: 12px;
+  text-align: right;
+}
 
 /*# sourceMappingURL=output.css.map */
