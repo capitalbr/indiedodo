@@ -17,7 +17,6 @@ export default {
         faq
         image_url
         category
-        raised
         goal
         end_date
       }
@@ -34,7 +33,6 @@ export default {
         faq
         image_url
         category
-        raised
         goal
         end_date
       }
@@ -51,7 +49,6 @@ export default {
         faq
         image_url
         category
-        raised
         goal
         end_date
       }

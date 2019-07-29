@@ -38,11 +38,10 @@ const mutation = new GraphQLObjectType({
         faq: { type: GraphQLString },
         image_url: { type: GraphQLString },
         category: { type: GraphQLString },
-        raised: { type: GraphQLFloat },
         goal: { type: GraphQLFloat },
         end_date: { type: GraphQLDate }
       },
-      resolve(_, { title, tagline, overview, story, faq, image_url, category, raised, goal, end_date }) {
+      resolve(_, { title, tagline, overview, story, faq, image_url, category, goal, end_date }) {
         return new Campaign({
           title, 
           tagline, 
@@ -50,8 +49,7 @@ const mutation = new GraphQLObjectType({
           story, 
           faq, 
           image_url, 
-          category, 
-          raised, 
+          category,
           goal, 
           end_date
         }).save();
@@ -75,11 +73,10 @@ const mutation = new GraphQLObjectType({
         faq: { type: GraphQLString },
         image_url: { type: GraphQLString },
         category: { type: GraphQLString },
-        raised: { type: GraphQLFloat },
         goal: { type: GraphQLFloat },
         end_date: { type: GraphQLDate }
       },
-      resolve(parentValue, { _id, title, tagline, overview, story, faq, image_url, category, raised, goal, end_date }) {
+      resolve(parentValue, { _id, title, tagline, overview, story, faq, image_url, category, goal, end_date }) {
         const updateObj = {};
         // we can create our own object here and pass in the variables is they exist
         updateObj._id = _id;
@@ -90,7 +87,6 @@ const mutation = new GraphQLObjectType({
         if (faq) updateObj.faq = faq;
         if (image_url) updateObj.image_url = image_url;
         if (category) updateObj.category = category;
-        if (raised) updateObj.raised = raised;
         if (goal) updateObj.goal = goal;
         if (end_date) updateObj.end_date = end_date;
 

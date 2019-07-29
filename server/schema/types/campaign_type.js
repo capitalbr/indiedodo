@@ -24,7 +24,6 @@ const CampaignType = new GraphQLObjectType({
     faq: { type: GraphQLString },
     image_url: { type: GraphQLString },
     category: { type: GraphQLString },
-    raised: { type: GraphQLFloat },
     goal: { type: GraphQLFloat },
     end_date: { type: GraphQLDate },
   }
