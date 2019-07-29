@@ -54,33 +54,35 @@ export default {
       }
     }
   `,
-  FETCH_SPECIES: gql`
-    query fetchSpecies($name: String!) {
-      species(name: $name) {
-        name
-        description
-        type
-        status
-      }
-    }
-  `,
-  FETCH_ALL_SPECIES: gql`
-    query fetchAllSpecies {
-      allSpecies {
-        name
-        description
-        type
-        status
-      }
-    }
-  `,
+  // FETCH_SPECIES: gql`
+  //   query fetchSpecies($name: String!) {
+  //     species(name: $name) {
+  //       name
+  //       description
+  //       type
+  //       status
+  //     }
+  //   }
+  // `,
+  // FETCH_ALL_SPECIES: gql`
+  //   query fetchAllSpecies {
+  //     allSpecies {
+  //       name
+  //       description
+  //       type
+  //       status
+  //     }
+  //   }
+  // `,
   FETCH_CAMPAIGN_UPDATES: gql`
     query fetchCampaignUpdates($campaignId: ID!) {
       campaignUpdates(campaignId: $campaignId) {
         _id
         body
-        user_id
-        campaign_id
+        user
+        updates {
+          body
+        }
       }
     }
   `,
@@ -89,8 +91,13 @@ export default {
       campaignComments(campaignId: $campaignId) {
         _id
         body
-        user_id
-        campaign_id
+        user
+        comments {
+          body
+          user {
+            name
+          }
+        }
       }
     }
   `,
@@ -99,8 +106,13 @@ export default {
       userComments(userId: $userId) {
         _id
         body
-        user_id
-        campaign_id
+        user
+        comments {
+          body
+          user {
+            name
+          }
+        }
       }
     }
   `,
@@ -108,11 +120,12 @@ export default {
     query fetchCampaignPerks($campaignId: ID!) {
       campaignPerks(campaignId: $campaignId) {
         _id
-        campaign_id
+        campaign
         cost
         description
         image_url
         option
+        perks
       }
     }
   `,
@@ -120,8 +133,8 @@ export default {
     query fetchCampaignContributions($campaignId: ID!) {
       campaignContributions(campaignId: $campaignId) {
         _id
-        campaign_id
-        user_id
+        campaign
+        user
         amount
       }
     }
@@ -130,8 +143,8 @@ export default {
     query fetchUserContributions($userId: ID!) {
       userContributions(userId: $userId) {
         _id
-        campaign_id
-        user_id
+        campaign
+        user
         amount
       }
     }
@@ -141,38 +154,12 @@ export default {
     query fetchAllContributions {
         contributions {
         _id
-        campaign_id
-        user_id
+        campaign
+        user
         amount
       }
     }
   `,
-  
- 
-  // FETCH_PRODUCTS: gql`
-  //   query fetchProducts {
-  //     products {
-  //       _id
-  //       name
-  //       description
-  //       cost
-  //     }
-  //   }
-  // `,
-  // FETCH_PRODUCT: gql`
-  //   query fetchProduct($productId: ID!) {
-  //     product(_id: $productId) {
-  //       _id
-  //       name
-  //       cost
-  //       description
-  //       weight
-  //       category {
-  //         name
-  //       }
-  //     }
-  //   }
-  // `,
   // FETCH_CART_ITEMS: gql`
   //   query FetchCartItems {
   //     cart @client

@@ -11,7 +11,7 @@ const {
 //   GraphQLDate
 // } from 'graphql-iso-date';
 
-const GraphQLDate = require("graphql-iso-date");
+const { GraphQLDate } = require("graphql-iso-date");
 
 const CampaignType = new GraphQLObjectType({
   name: 'CampaignType',
@@ -20,7 +20,7 @@ const CampaignType = new GraphQLObjectType({
     title: { type: GraphQLString },
     tagline: { type: GraphQLString },
     overview: { type: GraphQLString },
-    story: { type: GraphQLBoolean },
+    story: { type: GraphQLString },
     faq: { type: GraphQLString },
     image_url: { type: GraphQLString },
     category: { type: GraphQLString },

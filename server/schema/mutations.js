@@ -12,7 +12,7 @@ const {
 //   GraphQLDate
 // } from 'graphql-iso-date';
 
-const GraphQLDate = require("graphql-iso-date");
+const { GraphQLDate } = require("graphql-iso-date");
 
 const UserType = require("./types/user_type");
 const CampaignType = require("./types/campaign_type");
@@ -20,13 +20,9 @@ const CampaignType = require("./types/campaign_type");
 const UpdateType = require("./types/update_type");
 const CommentType = require("./types/comment_type");
 const PerkType = require("./types/perk_type");
-// const CategoryType = require("./types/category_type");
-// const ProductType = require("./types/product_type");
 const AuthService = require("../services/auth");
 
-// const Category = mongoose.model("categories");
-// const Product = mongoose.model("products");
-// const Campaign = mongoose.model("campaigns");
+const Campaign = mongoose.model("campaigns");
 
 const mutation = new GraphQLObjectType({
   name: "Mutation",
