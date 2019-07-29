@@ -30,11 +30,6 @@ const CampaignSchema = new Schema({
     type: String,
     required: true
   },
-  raised: {
-    type: Number,
-    required: true,
-    max: 1000000000
-  },
   goal: {
     type: Number,
     required: true,

@@ -2,7 +2,7 @@ const Validator = require("validator");
 const validText = require("./valid-text");
 const Campaign = require("../models/Campaign");
 
-module.exports = function validateRegisterInput(data) {
+module.exports = function validateCampaignInput(data) {
   data.title = validText(data.title) ? data.title : "";
   data.tagline = validText(data.tagline) ? data.tagline : "";
   data.overview = validText(data.overview) ? data.overview : "";
@@ -24,7 +24,7 @@ module.exports = function validateRegisterInput(data) {
 
   if (!Validator.isLength(data.tagline, { min: 8, max: 32 })) {
     return {
-      message: "A campaing tagline must be between 8 and 32 characters",
+      message: "A campaign tagline must be between 8 and 32 characters",
       isValid: false
     };
   }
@@ -35,7 +35,7 @@ module.exports = function validateRegisterInput(data) {
 
   if (!Validator.isLength(data.overview, { min: 16, max: 128 })) {
     return {
-      message: "A campaing overview must be between 16 and 128 characters",
+      message: "A campaign overview must be between 16 and 128 characters",
       isValid: false
     };
   }
@@ -46,7 +46,7 @@ module.exports = function validateRegisterInput(data) {
 
   if (!Validator.isLength(data.story, { min: 16, max: 128 })) {
     return {
-      message: "Campaing story must be between 16 and 128 characters",
+      message: "A campaign story must be between 16 and 128 characters",
       isValid: false
     };
   }
@@ -57,7 +57,7 @@ module.exports = function validateRegisterInput(data) {
 
   if (!Validator.isLength(data.faq, { min: 16, max: 128 })) {
     return {
-      message: "Campaing FAQ must be between 16 and 128 characters",
+      message: "A campaign FAQ must be between 16 and 128 characters",
       isValid: false
     };
   }
@@ -66,9 +66,9 @@ module.exports = function validateRegisterInput(data) {
     return { message: "A campaign FAQ is required", isValid: false };
   }
 
-  if (!Validator.isLength(data.image_url, { min: 16, max: 256 })) {
+  if (!Validator.isLength(data.image_url, { min: 8, max: 256 })) {
     return {
-      message: "Campaign image URL must be between 8 and 256 characters",
+      message: "A campaign image URL must be between 8 and 256 characters",
       isValid: false
     };
   }
@@ -85,7 +85,7 @@ module.exports = function validateRegisterInput(data) {
   }
 
   if (Validator.isEmpty(data.category)) {
-    return { message: "A campaign category URL is required", isValid: false };
+    return { message: "A campaign category is required", isValid: false };
   }
   
   if (!Validator.isFloat(data.goal, { min: 1, max: 1000000000 })) {
@@ -95,12 +95,6 @@ module.exports = function validateRegisterInput(data) {
   if (!Validator.isAfter(data.end_date)) {
     return { message: "A campaign must have a date after today", isValid: false };
   }
-
-
-
-  // data.raised = validText(data.raised) ? data.raised : "";
-  // data.goal = validText(data.goal) ? data.goal : "";
-  // data.end_date = validText(data.end_date) ? data.end_date : "";
 
   return {
     message: "",
