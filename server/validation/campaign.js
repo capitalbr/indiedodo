@@ -11,6 +11,7 @@ module.exports = function validateCampaignInput(data) {
   data.image_url = validText(data.image_url) ? data.image_url : "";
   data.category = validText(data.category) ? data.category : "";
 
+
   if (!Validator.isLength(data.title, { min: 8, max: 32 })) {
     return {
       message: "A campaign title must be between 8 and 32 characters",
@@ -91,10 +92,15 @@ module.exports = function validateCampaignInput(data) {
   if (!Validator.isFloat(data.goal, { min: 1, max: 1000000000 })) {
     return { message: "The campaign goal must be at least $1 and less than $1,000,000,000", isValid: false };
   }
-  
-  if (!Validator.isAfter(data.end_date)) {
-    return { message: "A campaign must have a date after today", isValid: false };
-  }
+
+  // data.end_date = Validator.toDate(data.end_date);
+  // new Date('2011-04-11T10:20:30Z')
+  // if (!Validator.isAfter(Validator.toDate(data.end_date))) {
+  // if (!Validator.isAfter(new Date(data.end_date))) {
+  // if (!Validator.isAfter("1100-01-03")) {
+  // if (!Validator.isAfter("2/2/2001")) {
+  //   return { message: "A campaign must have a date after today", isValid: false };
+  // }
 
   return {
     message: "",

@@ -10,8 +10,8 @@ export default {
     }
   `,
   REGISTER_USER: gql`
-    mutation RegisterUser($email: String!, $name: String!, $password: String!, $bio_header: String!, $bio: String!) {
-      register(email: $email, name: $name, password: $password, bio_header: $bio_header, bio: $bio) {
+    mutation RegisterUser($email: String!, $name: String!, $password: String!) {
+      register(email: $email, name: $name, password: $password) {
         token
         loggedIn
       }
@@ -194,6 +194,16 @@ export default {
         description
         image_url
         option
+      }
+    }
+  `,
+  CREATE_CONTRIBUTION: gql`
+    mutation CreateContribution($campaign_id: ID!, $user_id: ID!, $amount: Float!) {
+      newContribution(campaign_id: $campaign_id, user_id: $user_id, amount: $amount) {
+        _id
+        campaign_id
+        user_id
+        amount
       }
     }
   `,

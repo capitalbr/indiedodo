@@ -11,12 +11,10 @@ const UserSchema = new Schema({
     required: true
   },
   bio_header: {
-    type: String,
-    required: true
+    type: String
   },
   bio: {
-    type: String,
-    required: true
+    type: String
   },
   password_digest: {
     type: String,

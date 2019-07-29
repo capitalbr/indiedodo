@@ -55,9 +55,7 @@ table {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  background: #346379;
-}
+  font-family: 'Roboto', sans-serif; }
 
 .register-container {
   display: flex;

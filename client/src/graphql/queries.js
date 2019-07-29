@@ -54,33 +54,31 @@ export default {
       }
     }
   `,
-  FETCH_SPECIES: gql`
-    query fetchSpecies($name: String!) {
-      species(name: $name) {
-        name
-        description
-        type
-        status
-      }
-    }
-  `,
-  FETCH_ALL_SPECIES: gql`
-    query fetchAllSpecies {
-      allSpecies {
-        name
-        description
-        type
-        status
-      }
-    }
-  `,
+  // FETCH_SPECIES: gql`
+  //   query fetchSpecies($name: String!) {
+  //     species(name: $name) {
+  //       name
+  //       description
+  //       type
+  //       status
+  //     }
+  //   }
+  // `,
+  // FETCH_ALL_SPECIES: gql`
+  //   query fetchAllSpecies {
+  //     allSpecies {
+  //       name
+  //       description
+  //       type
+  //       status
+  //     }
+  //   }
+  // `,
   FETCH_CAMPAIGN_UPDATES: gql`
     query fetchCampaignUpdates($campaignId: ID!) {
       campaignUpdates(campaignId: $campaignId) {
         _id
         body
-        user_id
-        campaign_id
       }
     }
   `,
@@ -89,8 +87,9 @@ export default {
       campaignComments(campaignId: $campaignId) {
         _id
         body
-        user_id
-        campaign_id
+        user {
+          name
+        }
       }
     }
   `,
@@ -99,8 +98,6 @@ export default {
       userComments(userId: $userId) {
         _id
         body
-        user_id
-        campaign_id
       }
     }
   `,
@@ -108,39 +105,46 @@ export default {
     query fetchCampaignPerks($campaignId: ID!) {
       campaignPerks(campaignId: $campaignId) {
         _id
-        campaign_id
+        campaign
         cost
         description
         image_url
         option
+        perks
       }
     }
   `,
- 
-  // FETCH_PRODUCTS: gql`
-  //   query fetchProducts {
-  //     products {
-  //       _id
-  //       name
-  //       description
-  //       cost
-  //     }
-  //   }
-  // `,
-  // FETCH_PRODUCT: gql`
-  //   query fetchProduct($productId: ID!) {
-  //     product(_id: $productId) {
-  //       _id
-  //       name
-  //       cost
-  //       description
-  //       weight
-  //       category {
-  //         name
-  //       }
-  //     }
-  //   }
-  // `,
+  FETCH_CAMPAIGN_CONTRIBUTIONS: gql`
+    query fetchCampaignContributions($campaignId: ID!) {
+      campaignContributions(campaignId: $campaignId) {
+        _id
+        campaign
+        user
+        amount
+      }
+    }
+  `,
+  FETCH_USER_CONTRIBUTIONS: gql`
+    query fetchUserContributions($userId: ID!) {
+      userContributions(userId: $userId) {
+        _id
+        campaign
+        user
+        amount
+      }
+    }
+  `,
+  // TO SHOW THE COMBINED TOTAL OF HOW MUCH WE'VE RAISED TO BE DISPLAYED ON OUR SPLASH
+  FETCH_ALL_CONTRIBUTIONS: gql`
+    query fetchAllContributions {
+        contributions {
+        _id
+        campaign
+        user
+        amount
+      }
+    }
+  `,
   // FETCH_CART_ITEMS: gql`
   //   query FetchCartItems {
   //     cart @client

@@ -37,28 +37,6 @@ module.exports = function validateRegisterInput(data) {
     };
   }
 
-  if (Validator.isEmpty(data.bio_header)) {
-    return { message: "Please enter a header for your bio!", isValid: false };
-  }
-
-  if (!Validator.isLength(data.bio_header, { min: 6, max: 32 })) {
-    return {
-      message: "Please enter a header for your bio that is at least 6 characters long!",
-      isValid: false
-    };
-  }
-
-  if (Validator.isEmpty(data.bio)) {
-    return { message: "Please enter a header for bio!", isValid: false };
-  }
-
-  if (!Validator.isLength(data.bio, { min: 6, max: 128 })) {
-    return {
-      message: "Please enter a bio that is at least 6 characters long!",
-      isValid: false
-    };
-  }
-
   return {
     message: "",
     isValid: true
