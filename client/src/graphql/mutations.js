@@ -95,6 +95,112 @@ export default {
       }
     }
   `,
+  CREATE_UPDATE: gql`
+    mutation CreateUpdate(
+      $body: String!
+      $user_id: ID!
+      $campaign_id: ID!
+    ) {
+      newUpdate(body: $body, user_id: $user_id, campaign_id: $campaign_id) {
+        _id
+        body
+        user_id
+        campaign_id
+      }
+    }
+  `,
+  DELETE_UPDATE: gql`
+    mutation DeleteUpdate($id: ID!) {
+      deleteUpdate(_id: $id) {
+        _id
+      }
+    }
+  `,
+  UPDATE_UPDATE: gql`
+    mutation updateUpdate(
+      $_id: ID!
+      $body: String!
+    ) {
+      updateUpdate(_id: $_id, body: $body) {
+        _id
+        body
+      }
+    }
+  `,
+  CREATE_COMMENT: gql`
+    mutation CreateComment(
+      $body: String!
+      $user_id: ID!
+      $campaign_id: ID!
+    ) {
+      newComment(body: $body, user_id: $user_id, campaign_id: $campaign_id) {
+        _id
+        body
+        user_id
+        campaign_id
+      }
+    }
+  `,
+  DELETE_COMMENT: gql`
+    mutation DeleteComment($id: ID!) {
+      deleteComment(_id: $id) {
+        _id
+      }
+    }
+  `,
+  UPDATE_COMMENT: gql`
+    mutation updateComment(
+      $_id: ID!
+      $body: String!
+    ) {
+      updateComment(_id: $_id, body: $body) {
+        _id
+        body
+      }
+    }
+  `,
+  CREATE_PERK: gql`
+    mutation CreatePerk(
+      $campaign_id: ID!
+      $cost: Float!
+      $description: String!
+      $image_url: String!
+      $option: String!
+    ) {
+      newPerk(campaign_id: $campaign_id, cost: $cost, description: $description, image_url: $image_url, option: $option) {
+        _id
+        campaign_id
+        cost
+        description
+        image_url
+        option
+      }
+    }
+  `,
+  DELETE_PERK: gql`
+    mutation DeletePerk($id: ID!) {
+      deletePerk(_id: $id) {
+        _id
+      }
+    }
+  `,
+  UPDATE_PERK: gql`
+    mutation updatePerk(
+      $_id: ID!
+      $cost: Float
+      $description: String
+      $image_url: String
+      $option: String
+    ) {
+      updatePerk(_id: $_id, cost: $cost, description: $description, image_url: $image_url, option: $option) {
+        _id
+        cost
+        description
+        image_url
+        option
+      }
+    }
+  `,
   VERIFY_USER: gql`
     mutation VerifyUser($token: String!) {
       verifyUser(token: $token) {

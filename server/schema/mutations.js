@@ -16,6 +16,7 @@ const GraphQLDate = require("graphql-iso-date");
 
 const UserType = require("./types/user_type");
 const CampaignType = require("./types/campaign_type");
+const SpeciesType = require("./types/species_type");
 // const CategoryType = require("./types/category_type");
 // const ProductType = require("./types/product_type");
 const AuthService = require("../services/auth");
