@@ -1,9 +1,12 @@
 require("../../models");
 const mongoose = require("mongoose");
 const graphql = require("graphql");
-const { GraphQLObjectType, GraphQLList, GraphQLID, GraphQLNonNull } = graphql;
+const { GraphQLObjectType, GraphQLList, GraphQLID, GraphQLNonNull, GraphQLString } = graphql;
 
 const UserType = require("./user_type");
+const CampaignType = require("./campaign_type");
+const SpeciesType = require("./species_type");
+
 // const CategoryType = require("./category_type");
 // const ProductType = require("./product_type");
 
@@ -11,17 +14,27 @@ const User = mongoose.model("users");
 // const Category = mongoose.model("categories");
 // const Product = mongoose.model("products");
 
-// Bonus Phase Day 1 - Adding the Lambda
-// const axios = require("axios");
-// const secret = require("../../../config/keys");
 
-// const authOptions = {
-//   method: "GET",
-//   url: `https://8pu3pcrwb0.execute-api.us-east-1.amazonaws.com/default/generate-price`,
-//   headers: {
-//     "x-api-key": secret.AWSKey
-//   }
-// };
+
+// SPECIES API REQUEST TO EXTERNAL API
+const axios = require("axios");
+const secret = require("../../../config/keys");
+
+const apiSpecies = {
+  // method: "GET",
+  // url: `???`,
+  // headers: {
+  //   "x-api-key": secret.AWSKey
+  // }
+};
+
+const apiAllSpecies = {
+  // method: "GET",
+  // url: `???`,
+  // headers: {
+  //   "x-api-key": secret.AWSKey
+  // }
+};
 
 const RootQueryType = new GraphQLObjectType({
   name: "RootQueryType",
@@ -39,6 +52,55 @@ const RootQueryType = new GraphQLObjectType({
         return User.findById(args._id);
       }
     },
+    campaigns: {
+      type: new GraphQLList(CampaignType),
+      resolve() {
+        return Campaign.find({});
+      }
+    },
+    campaign: {
+      type: CampaignType,
+      args: { _id: { type: new GraphQLNonNull(GraphQLID) } },
+      resolve(_, args) {
+        return Campaign.findById(args._id);
+      }
+    },
+    species: {
+      type: SpeciesType,
+      args: { name: { type: new GraphQLNonNull(GraphQLString) } },
+      resolve(_, {name} ) {
+        return axios(apiSpecies).then(res => {
+        species = {};
+        let speciesInfo = res.data.values.filter(species => species.name === name)
+
+        // I DONT THINK WE NEED A TABLE FOR THIS
+        // JUST ALWAYS HIT THE EXTERNAL API AND CREATE AN OBJECT
+        // THAT WE POPULATE WITH PARTS OF THE RESPONSE
+
+        // species.name = speciesInfo.???;
+        // species.description = speciesInfo.???;
+        // species.type = speciesInfo.???;
+        // species.status = speciesInfo.???;
+
+        return species;
+        })  
+      }
+    },
+    allSpecies: {
+      type: new GraphQLList(SpeciesType),
+      resolve(_) {
+        return axios(apiAllSpecies).then(res => {
+          // MIGHT BE USEFUL TO GET ALL SPECIES NAMES
+
+          species = [];
+          resKeys = res.data.keys;
+          resKeys.forEach(key => {
+            // species.push(res.data.key.name)
+          })
+          return species;
+        })
+      }
+    }
     // categories: {
     //   type: new GraphQLList(CategoryType),
     //   resolve() {

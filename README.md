@@ -41,6 +41,7 @@
 * FAQ Q/A Submisson fields 
 * Guest Checkout
 * Capcha
+* Robust inventory remaining/claimed
 
 ## Group Members and Work Breakdown
 
