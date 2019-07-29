@@ -7,12 +7,14 @@ const {
   GraphQLFloat
 } = graphql;
 
-import {
-  GraphQLDate
-} from 'graphql-iso-date';
+// import {
+//   GraphQLDate
+// } from 'graphql-iso-date';
 
-const UserType = new GraphQLObjectType({
-  name: 'UserType',
+const GraphQLDate = require("graphql-iso-date");
+
+const CampaignType = new GraphQLObjectType({
+  name: 'CampaignType',
   fields: {
     _id: { type: GraphQLID },
     title: { type: GraphQLString },

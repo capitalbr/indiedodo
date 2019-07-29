@@ -8,9 +8,11 @@ const {
   GraphQLFloat
  } = graphql;
 
-import {
-  GraphQLDate
-} from 'graphql-iso-date';
+// import {
+//   GraphQLDate
+// } from 'graphql-iso-date';
+
+const GraphQLDate = require("graphql-iso-date");
 
 const UserType = require("./types/user_type");
 const CampaignType = require("./types/campaign_type");
@@ -20,7 +22,7 @@ const AuthService = require("../services/auth");
 
 // const Category = mongoose.model("categories");
 // const Product = mongoose.model("products");
-const Campaign = mongoose.model("campaigns");
+// const Campaign = mongoose.model("campaigns");
 
 const mutation = new GraphQLObjectType({
   name: "Mutation",
@@ -74,7 +76,7 @@ const mutation = new GraphQLObjectType({
         category: { type: GraphQLString },
         raised: { type: GraphQLFloat },
         goal: { type: GraphQLFloat },
-        end_date: { type: GraphQLFloat }
+        end_date: { type: GraphQLDate }
       },
       resolve(parentValue, { _id, title, tagline, overview, story, faq, image_url, category, raised, goal, end_date }) {
         const updateObj = {};
