@@ -79,10 +79,6 @@ export default {
       campaignUpdates(campaignId: $campaignId) {
         _id
         body
-        user
-        updates {
-          body
-        }
       }
     }
   `,
@@ -91,12 +87,8 @@ export default {
       campaignComments(campaignId: $campaignId) {
         _id
         body
-        user
-        comments {
-          body
-          user {
-            name
-          }
+        user {
+          name
         }
       }
     }
@@ -106,13 +98,6 @@ export default {
       userComments(userId: $userId) {
         _id
         body
-        user
-        comments {
-          body
-          user {
-            name
-          }
-        }
       }
     }
   `,

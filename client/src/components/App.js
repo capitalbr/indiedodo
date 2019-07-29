@@ -5,6 +5,8 @@ import AuthRoute from "../util/route_util";
 // import Nav from "./Nav";
 import Login from "./session/login";
 import Register from "./session/register";
+import CampaignShow from "./campaigns/CampaignShow";
+import Splash from "./splash";
 // import ProductIndex from "./products/ProductIndex";
 // import ProductDetail from "./products/ProductDetail";
 // import CreateProduct from "./products/CreateProduct";
@@ -37,6 +39,8 @@ const App = () => {
           routeType="protected"
         /> */}
         {/* <AuthRoute exact path="/cart" component={Cart} routeType="protected" /> */}
+        <Route exact path="/splash" component={Splash} />
+        <Route exact path="/campaigns/:campaignId" component={CampaignShow} />
         <AuthRoute exact path="/login" component={Login} routeType="auth" />
         <AuthRoute
           exact

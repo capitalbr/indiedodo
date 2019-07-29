@@ -48,8 +48,8 @@ class Register extends Component {
                     name: this.state.name,
                     email: this.state.email,
                     password: this.state.password,
-                    bio_header: this.state.bio_header,
-                    bio: this.state.bio
+                    // bio_header: this.state.bio_header,
+                    // bio: this.state.bio
                   }
                 });
               }}

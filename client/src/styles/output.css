@@ -15,43 +15,34 @@ span, article, footer, time, small {
   text-decoration: inherit;
   vertical-align: inherit;
   box-sizing: inherit;
-  background: transparent;
-}
+  background: transparent; }
 
 ul, ol {
-  list-style: none;
-}
+  list-style: none; }
 
 img {
   display: block;
   width: 100%;
-  height: auto;
-}
+  height: auto; }
 
 input,
 textarea,
 button {
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
-}
+  appearance: none; }
 
 button,
-input[type=submit], a {
-  cursor: pointer;
-}
+input[type="submit"], a {
+  cursor: pointer; }
 
 body {
-  font-family: "Roboto", sans-serif;
-}
+  font-family: 'Roboto', sans-serif; }
 
 body {
-  font-family: "Roboto", sans-serif;
-  background: #346379;
-}
+  font-family: 'Roboto', sans-serif; }
 
 button {
-  background-color: #3487ad;
-}
+  background-color: #3487ad; }
 
 /*# sourceMappingURL=output.css.map */
