@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import AuthRoute from "../util/route_util";
 
-// import Nav from "./Nav";
+import Nav from "./nav";
 import Login from "./session/login";
 import Register from "./session/register";
 import CampaignShow from "./campaigns/CampaignShow";
@@ -20,11 +20,11 @@ const App = () => {
 
   return (
     <div>
-      {/* <h1>
-        <Link to="/">Online Store</Link>
-      </h1> */}
-      {/* <Route path="/" component={Nav} /> */}
-      <Switch>
+      <h1>
+        <Link to="/">IndieDodo</Link>
+      </h1>
+      <Route path="/" component={Nav} />
+       <Switch>
         {/* <Route exact path="/" component={ProductIndex} /> */}
         {/* <AuthRoute
           exact

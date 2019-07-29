@@ -76,12 +76,16 @@ class Register extends Component {
                   type="password"
                   placeholder="Password"
                 />
-                <input type="checkbox" value='email-signup'/> Sign me up for the IndieDodo newsletter
-                <input type="checkbox" value='TOS-agree'/><span>
-                  I agree to the <a href="https://www.indiegogo.com/about/terms"> Terms of Use </a> and <a href="https://www.indiegogo.com/about/privacy">Privacy Policy</a>
-                </span>
+                <label>
+                  <input type="checkbox" value='email-signup'/> <span className='email-signup'>Sign me up for the IndieDodo newsletter</span>
+                </label>
+                <label>
+                  <input type="checkbox" value='TOS-agree'/> <span className='tos-agree'>I agree to the <a href="https://www.indiegogo.com/about/terms"> Terms of Use </a> and <a href="https://www.indiegogo.com/about/privacy">Privacy Policy</a></span>
+                </label>
               </div>
-              <button type="submit">Register</button>
+              <div className='register-buttons'>
+                <button type="submit">Register</button>
+              </div>
             </form>
 
             <footer className='session-switch'>

@@ -55,7 +55,8 @@ table {
 }
 
 body {
-  font-family: 'Roboto', sans-serif; }
+  font-family: "Roboto", sans-serif;
+}
 
 .register-container {
   display: flex;
@@ -66,8 +67,15 @@ body {
   margin: 30px;
 }
 
+.register-form button {
+  background-color: #4e7a8f;
+  height: 25px;
+  margin: 5px;
+}
+
 .register-header {
   text-align: center;
+  margin: 10px;
 }
 .register-header h1 {
   font-family: "Times New Roman", Times, serif;
@@ -83,6 +91,19 @@ body {
   height: 25px;
   margin: 5px;
 }
+.register-inputs span {
+  font-size: 12px;
+}
+
+.register-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.register-buttons button {
+  height: 25px;
+  margin: 5px;
+}
 
 .login-container {
   display: flex;
@@ -91,6 +112,22 @@ body {
   align-items: center;
   width: 100%;
   margin: 30px;
+}
+
+.login-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login-buttons button {
+  height: 25px;
+  margin: 5px;
+}
+.login-buttons .login-button {
+  background-color: #4e7a8f;
+}
+.login-buttons .fb-button {
+  background-color: #4266B2;
 }
 
 .login-header {
@@ -108,7 +145,17 @@ body {
 }
 .login-inputs input {
   height: 25px;
+  width: 100%;
   margin: 5px;
+}
+
+.session-switch {
+  font-size: 12px;
+}
+
+.login-links {
+  font-size: 12px;
+  text-align: right;
 }
 
 /*# sourceMappingURL=output.css.map */

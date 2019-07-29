@@ -7,12 +7,17 @@
     margin: 30px;
 }
 
-register-form{
-
+.register-form{
+    button{
+        background-color: $dodo-blue;
+        height: 25px;
+        margin: 5px;
+    }
 }
 
 .register-header{
-    text-align: center; 
+    text-align: center;
+    margin: 10px; 
     h1{
         font-family: 'Times New Roman', Times, serif;
         font-size: 42px;
@@ -27,6 +32,19 @@ register-form{
         height: 25px;
         margin: 5px;
     }
+    span{
+        font-size: 12px;
+    }
+}
+
+.register-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    button{
+        height: 25px;
+        margin: 5px;
+    }
 }
 
 .login-container{
@@ -38,8 +56,20 @@ register-form{
     margin: 30px;
 }
 
-.login-form{
-    
+.login-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    button{
+        height: 25px;
+        margin: 5px;
+    }
+    .login-button{
+        background-color: $dodo-blue;
+    }
+    .fb-button{
+        background-color: $fb-blue;
+    }
 }
 
 .login-header{
@@ -56,6 +86,16 @@ register-form{
     justify-content: center;
     input{
         height: 25px;
+        width: 100%;
         margin: 5px;
     }
+}
+
+.session-switch{
+    font-size: 12px;
+}
+
+.login-links{
+    font-size: 12px;
+    text-align: right;
 }
