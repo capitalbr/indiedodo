@@ -197,6 +197,16 @@ export default {
       }
     }
   `,
+  CREATE_CONTRIBUTION: gql`
+    mutation CreateContribution($campaign_id: ID!, $user_id: ID!, $amount: Float!) {
+      newContribution(campaign_id: $campaign_id, user_id: $user_id, amount: $amount) {
+        _id
+        campaign_id
+        user_id
+        amount
+      }
+    }
+  `,
   VERIFY_USER: gql`
     mutation VerifyUser($token: String!) {
       verifyUser(token: $token) {

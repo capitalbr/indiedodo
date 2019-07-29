@@ -65,6 +65,15 @@ const RootQueryType = new GraphQLObjectType({
         return Campaign.findById(args._id);
       }
     },
+    userCampaigns: {
+      type: CampaignType,
+      args: { user_id: { type: new GraphQLNonNull(GraphQLID) } },
+      resolve(_, args) {
+        return User.find(
+          { _id: args.user_id }
+        )
+      }
+    },
     species: {
       type: SpeciesType,
       args: { name: { type: new GraphQLNonNull(GraphQLString) } },
