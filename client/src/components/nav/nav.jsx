@@ -32,7 +32,7 @@ const Nav = props => {
                                     </div>
                                     <div className='nav-right'>
                                         <div className='new-campaign'>
-                                            <Link to='/new-campaign'>Start a new Campaign</Link>
+                                            <Link className='new-link'to='/new-campaign'>Start a new Campaign</Link>
                                         </div>
                                         <NavUser />
                                     </div>

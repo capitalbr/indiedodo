@@ -10,8 +10,10 @@ import { createHttpLink } from "apollo-link-http";
 import { ApolloProvider } from "react-apollo";
 import { ApolloLink } from "apollo-link";
 import { onError } from "apollo-link-error";
-
+import Queries from "./graphql/queries";
 import Mutations from "./graphql/mutations";
+
+const {CURRENT_USER} = Queries;
 const { VERIFY_USER } = Mutations;
 
 const cache = new InMemoryCache({
@@ -41,11 +43,14 @@ const client = new ApolloClient({
 cache.writeData({
   data: {
     isLoggedIn: false,
+    currentUser: null,
     cart: []
   }
 });
 
 const token = localStorage.getItem("auth-token");
+const currentUser = client.query({query: CURRENT_USER, variables: {token}});
+
 if (token) {
   client
     .mutate({ mutation: VERIFY_USER, variables: { token } })
@@ -53,6 +58,7 @@ if (token) {
       cache.writeData({
         data: {
           isLoggedIn: data.verifyUser.loggedIn,
+          currentUser: currentUser,
           cart: []
         }
       });
