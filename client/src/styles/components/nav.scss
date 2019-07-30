@@ -1,0 +1,58 @@
+.nav-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    padding: 16px;
+    width: 100%;
+}
+
+.nav-container * {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    &:hover{
+        color: $dodo-blue;
+    }
+}
+
+.logo{
+    width: 30px;
+    height: 30px;
+}
+
+.brand{
+    display: flex;
+    width: 200px;
+}
+
+.wordmark{
+    font-family: $indiefonto;
+    font-size: 36px;
+    color: $dodo-blue;
+    width: 120px;
+}
+
+.search-container * {
+    padding: 6px;
+}
+
+.explore-container:hover * {
+    color: $dodo-blue;
+}
+
+.nav-right * {
+    padding: 6px;
+}
+
+.new-campaign * {
+    border-right: 1px solid black;
+    padding-right: 0px;
+}
+
+.login-signup * {
+    padding-left: 0px;
+}

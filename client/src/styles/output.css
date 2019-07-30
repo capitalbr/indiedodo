@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Passion+One|Roboto&display=swap");
 @import url("https://kit.fontawesome.com/f300a92159.js");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -156,6 +156,91 @@ body {
 .login-links {
   font-size: 12px;
   text-align: right;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  padding: 16px;
+  width: 100%;
+}
+
+.nav-container * {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+.nav-container *:hover {
+  color: #4e7a8f;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+}
+
+.brand {
+  display: flex;
+  width: 200px;
+}
+
+.wordmark {
+  font-family: "Passion One", sans-serif;
+  font-size: 36px;
+  color: #4e7a8f;
+  width: 120px;
+}
+
+.search-container * {
+  padding: 6px;
+}
+
+.explore-container:hover * {
+  color: #4e7a8f;
+}
+
+.nav-right * {
+  padding: 6px;
+}
+
+.new-campaign * {
+  border-right: 1px solid black;
+  padding-right: 0px;
+}
+
+.login-signup * {
+  padding-left: 0px;
+}
+
+.fo-o-fo {
+  background: url("https://media1.giphy.com/media/6uGhT1O4sxpi8/giphy.gif") 50% no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.oops {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.oops h1 {
+  font-size: 10em;
+}
+.oops h2 {
+  font-size: 2em;
 }
 
 /*# sourceMappingURL=output.css.map */
