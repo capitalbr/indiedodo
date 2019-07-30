@@ -2,11 +2,12 @@
 @import "./reset.scss";
 
 //FONTS/ICONS
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap"); //roboto fonts
+@import url('https://fonts.googleapis.com/css?family=Passion+One|Roboto&display=swap'); //roboto fonts
 @import url("https://kit.fontawesome.com/f300a92159.js"); //fontawesome icons
 
 //COMPONENTS
 @import "./components/global.scss";
 @import "./components/modal.scss";
 @import "./components/session.scss";
-
+@import "./components/nav.scss";
+@import "./components/404.scss";

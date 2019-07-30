@@ -1,0 +1,25 @@
+.fo-o-fo{
+    background: url("https://media1.giphy.com/media/6uGhT1O4sxpi8/giphy.gif")  50% no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: -1;
+    opacity: .5;
+}
+
+.oops{
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    h1{
+        font-size: 10em;
+    }
+    h2{
+        font-size: 2em;
+    }
+}
