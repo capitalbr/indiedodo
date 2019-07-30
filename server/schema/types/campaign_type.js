@@ -26,6 +26,7 @@ const CampaignType = new GraphQLObjectType({
     category: { type: GraphQLString },
     goal: { type: GraphQLFloat },
     end_date: { type: GraphQLDate },
+    user: {type: GraphQLID},
   }
 });
 

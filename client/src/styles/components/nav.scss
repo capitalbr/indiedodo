@@ -5,7 +5,6 @@
     align-content: center;
     align-items: center;
     padding: 16px;
-    width: 100%;
 }
 
 .nav-container * {
@@ -49,10 +48,14 @@
 }
 
 .new-campaign * {
-    border-right: 1px solid black;
-    padding-right: 0px;
+    border-right: .75px solid rgb(142, 142, 142);
+    padding-right: 6px;
 }
 
 .login-signup * {
     padding-left: 0px;
+}
+
+.new-link{
+    padding-right: 12px;
 }
