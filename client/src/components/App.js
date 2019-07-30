@@ -22,7 +22,7 @@ const App = () => {
     <div>
       <Route path="/" component={Nav} />
        <Switch>
-        <Route path="/" component={Splash} />
+        {/* <Route path="/" component={Splash} /> */}
         {/* <AuthRoute
           exact
           path="/products/:productId"
