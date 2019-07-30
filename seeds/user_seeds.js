@@ -18,10 +18,10 @@ const seedUsers = () => {
     // userArray.push(
     AuthService.register({
         name: "Albus Dumbledore",
-        email: "DemoUser@gmail.com",
+        email: "albus@hogwarts.edu",
         bio_header: "One can never have enough socks.",
         bio: "It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.",
-        password: "12345678"
+        password: "Qwerty1234!"
     })
 
 
