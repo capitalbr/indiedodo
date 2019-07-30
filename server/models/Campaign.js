@@ -39,7 +39,11 @@ const CampaignSchema = new Schema({
   end_date: {
     type: Date,
     required: true,
-  }
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "users"
+  },
 });
 
 module.exports = Campaign = mongoose.model('campaigns', CampaignSchema);

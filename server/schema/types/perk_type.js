@@ -11,7 +11,7 @@ const PerkType = new GraphQLObjectType({
   name: 'PerkType',
   fields: {
     _id: { type: GraphQLID },
-    campaign_id: { type: GraphQLID },
+    campaign: { type: GraphQLID },
     cost: { type: GraphQLFloat },
     description: { type: GraphQLString },
     image_url: { type: GraphQLString },

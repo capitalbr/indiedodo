@@ -11,8 +11,8 @@ const CommentType = new GraphQLObjectType({
   fields: {
     _id: { type: GraphQLID },
     body: { type: GraphQLString },
-    user_id: { type: GraphQLID },
-    campaign_id: { type: GraphQLID }
+    user: { type: GraphQLID },
+    campaign: { type: GraphQLID }
   }
 });
 

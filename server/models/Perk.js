@@ -37,8 +37,7 @@ const PerkSchema = new Schema({
     required: true
   },
   option: {
-    type: String,
-    required: true
+    type: String
   }
 });
 
