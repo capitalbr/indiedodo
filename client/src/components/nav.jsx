@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {FaSearch} from "react-icons/fa";
+import {FaSearch, FaAngleDown} from "react-icons/fa";
 import logo from "../../src/logo.png";
 import { Query, ApolloConsumer } from "react-apollo";
 import Queries from "../graphql/queries";
@@ -18,7 +18,7 @@ const Nav = props => {
                                 <nav className='nav-container'>
 
                                     <div className='nav-left'>
-                                        <Link to='/'>
+                                        <Link to='/splash'>
                                             <img  className="logo" src={logo} alt="IndieDodo"/>
                                         </Link>
                                     </div>
@@ -29,7 +29,7 @@ const Nav = props => {
                                                 e.preventDefault();
                                                 localStorage.removeItem("auth-token");
                                                 client.writeData({ data: { isLoggedIn: false } });
-                                                props.history.push("/");
+                                                props.history.push("/splash");
                                             }}
                                         >
                                             Logout
@@ -49,16 +49,26 @@ const Nav = props => {
                             return (
                                 <nav className='nav-container'>
                                     <div className='nav-left'>
-                                        <Link to='/'>
+                                        <Link className="brand"to='/splash'>
                                             <img  className="logo" src={logo} alt="IndieDodo"/>
+                                            <p className="wordmark">INDIEDODO</p>
                                         </Link>
-                                        <p>Explore</p>
-                                        <p>What We Do</p>
-                                        <FaSearch />
+                                        <div className='search-container'>
+                                            <div className='explore-container'>
+                                                <span>Explore <FaAngleDown /></span>
+                                            </div>
+                                            <Link to='/about'>What We Do</Link>
+                                            <FaSearch />
+                                        </div>
                                     </div>
                                     <div className='nav-right'>
-                                        <Link to="/login">Login</Link>
-                                        <Link to="/register">Register</Link>
+                                        <div className='new-campaign'>
+                                            <Link to='/new-campaign'>Start a new Campaign</Link>
+                                        </div>
+                                        <div className='login-signup'>
+                                            <Link to="/login">Login</Link>
+                                            <Link to="/register">Sign Up</Link>
+                                        </div>
                                     </div>
                                 </nav>
                             );
