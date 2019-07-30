@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {FaSearch, FaAngleDown} from "react-icons/fa";
-import logo from "../../src/logo.png";
 import { Query, ApolloConsumer } from "react-apollo";
-import Queries from "../graphql/queries";
+import {FaSearch, FaAngleDown} from "react-icons/fa";
+import logo from "../../logo.png";
+import NavUser from "./NavUser";
+import Queries from "../../graphql/queries";
 const { IS_LOGGED_IN } = Queries;
 
 
@@ -16,40 +17,32 @@ const Nav = props => {
                         if (data.isLoggedIn) {
                             return (
                                 <nav className='nav-container'>
-
                                     <div className='nav-left'>
-                                        <Link to='/splash'>
+                                        <Link className="brand"to='/landing'>
                                             <img  className="logo" src={logo} alt="IndieDodo"/>
+                                            <p className="wordmark">INDIEDODO</p>
                                         </Link>
+                                        <div className='search-container'>
+                                            <div className='explore-container'>
+                                                <span>Explore <FaAngleDown /></span>
+                                            </div>
+                                            <Link to='/about'>What We Do</Link>
+                                            <FaSearch />
+                                        </div>
                                     </div>
-
                                     <div className='nav-right'>
-                                        <button
-                                            onClick={e => {
-                                                e.preventDefault();
-                                                localStorage.removeItem("auth-token");
-                                                client.writeData({ data: { isLoggedIn: false } });
-                                                props.history.push("/splash");
-                                            }}
-                                        >
-                                            Logout
-                                        </button>
-                                        <button 
-                                            onClick={ e => {
-                                            e.preventDefault();
-                                            props.history.push("/new-campaign")
-                                        }}>
-                                            Start a new campaign
-                                        </button>
+                                        <div className='new-campaign'>
+                                            <Link className='new-link'to='/new-campaign'>Start a new Campaign</Link>
+                                        </div>
+                                        <NavUser />
                                     </div>
-
                                 </nav>
                             );
                         } else {
                             return (
                                 <nav className='nav-container'>
                                     <div className='nav-left'>
-                                        <Link className="brand"to='/splash'>
+                                        <Link className="brand"to='/landing'>
                                             <img  className="logo" src={logo} alt="IndieDodo"/>
                                             <p className="wordmark">INDIEDODO</p>
                                         </Link>
