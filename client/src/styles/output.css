@@ -158,4 +158,31 @@ body {
   text-align: right;
 }
 
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+  width: 100%;
+}
+
+.nav-left {
+  display: flex;
+}
+.nav-left a {
+  font-size: 2em;
+}
+
+.nav-right {
+  display: flex;
+}
+.nav-right a {
+  margin: 5px;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+}
+
 /*# sourceMappingURL=output.css.map */

@@ -8,7 +8,7 @@
     "client": "npm start --prefix client",
     "server": "nodemon index.js",
     "sass": "sass --watch client/src/styles/input.scss:client/src/styles/output.css",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run sass\""
+    "dev": "concurrently \"npm run sass\" \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",

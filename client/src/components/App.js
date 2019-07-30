@@ -20,9 +20,6 @@ const App = () => {
 
   return (
     <div>
-      <h1>
-        <Link to="/">IndieDodo</Link>
-      </h1>
       <Route path="/" component={Nav} />
        <Switch>
         {/* <Route exact path="/" component={ProductIndex} /> */}
