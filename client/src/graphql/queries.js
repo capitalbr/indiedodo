@@ -19,12 +19,13 @@ export default {
         category
         goal
         end_date
+        user
       }
     }
   `,
   FETCH_USER_CAMPAIGNS: gql`
-    query fetchUserCampaigns($user_id: ID!) {
-      userCampaigns(user_id: $user_id) {
+    query fetchUserCampaigns($userId: ID!) {
+      userCampaigns(userId: $userId) {
         _id
         title
         tagline
@@ -51,6 +52,7 @@ export default {
         category
         goal
         end_date
+        user
       }
     }
   `,
@@ -110,7 +112,6 @@ export default {
         description
         image_url
         option
-        perks
       }
     }
   `,

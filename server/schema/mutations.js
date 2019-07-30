@@ -16,6 +16,7 @@ const { GraphQLDate } = require("graphql-iso-date");
 
 const UserType = require("./types/user_type");
 const CampaignType = require("./types/campaign_type");
+const ContributionType = require("./types/contribution_type");
 // const SpeciesType = require("./types/species_type");
 const UpdateType = require("./types/update_type");
 const CommentType = require("./types/comment_type");
@@ -23,6 +24,11 @@ const PerkType = require("./types/perk_type");
 const AuthService = require("../services/auth");
 
 const Campaign = mongoose.model("campaigns");
+const Comment = mongoose.model("comments");
+const Contribution = mongoose.model("contributions");
+const Perk = mongoose.model("perks");
+const Update = mongoose.model("updates");
+const User = mongoose.model("users");
 
 const mutation = new GraphQLObjectType({
   name: "Mutation",
@@ -38,9 +44,10 @@ const mutation = new GraphQLObjectType({
         image_url: { type: GraphQLString },
         category: { type: GraphQLString },
         goal: { type: GraphQLFloat },
-        end_date: { type: GraphQLDate }
+        end_date: { type: GraphQLDate },
+        user: { type: GraphQLID }
       },
-      resolve(_, { title, tagline, overview, story, faq, image_url, category, goal, end_date }) {
+      resolve(_, { title, tagline, overview, story, faq, image_url, category, goal, end_date, user }) {
         return new Campaign({
           title, 
           tagline, 
@@ -50,7 +57,8 @@ const mutation = new GraphQLObjectType({
           image_url, 
           category,
           goal, 
-          end_date
+          end_date,
+          user
         }).save();
       }
     },
@@ -73,9 +81,10 @@ const mutation = new GraphQLObjectType({
         image_url: { type: GraphQLString },
         category: { type: GraphQLString },
         goal: { type: GraphQLFloat },
-        end_date: { type: GraphQLDate }
+        end_date: { type: GraphQLDate },
+        user: { type: GraphQLID }
       },
-      resolve(parentValue, { _id, title, tagline, overview, story, faq, image_url, category, goal, end_date }) {
+      resolve(parentValue, { _id, title, tagline, overview, story, faq, image_url, category, goal, end_date, user }) {
         const updateObj = {};
         // we can create our own object here and pass in the variables is they exist
         updateObj._id = _id;
@@ -88,6 +97,7 @@ const mutation = new GraphQLObjectType({
         if (category) updateObj.category = category;
         if (goal) updateObj.goal = goal;
         if (end_date) updateObj.end_date = end_date;
+        if (user) updateObj.user = user;
 
         return Campaign.findOneAndUpdate({ _id: _id }, { $set: updateObj }, { new: true }, (err, campaign) => {
           return campaign;
@@ -98,11 +108,11 @@ const mutation = new GraphQLObjectType({
       type: UpdateType,
       args: {
         body: { type: GraphQLString },
-        user_id: { type: GraphQLID },
-        campaign_id: { type: GraphQLID }
+        // user: { type: GraphQLID },
+        campaign: { type: GraphQLID }
       },
-      resolve(_, { body, user_id, campaign_id }) {
-        return new Update({ body, user_id, campaign_id }).save();
+      resolve(_, { body, campaign }) {
+        return new Update({ body, campaign }).save();
       }
     },
     deleteUpdate: {
@@ -128,11 +138,11 @@ const mutation = new GraphQLObjectType({
       type: CommentType,
       args: {
         body: { type: GraphQLString },
-        user_id: { type: GraphQLID },
-        campaign_id: { type: GraphQLID }
+        user: { type: GraphQLID },
+        campaign: { type: GraphQLID }
       },
-      resolve(_, { body, user_id, campaign_id }) {
-        return new Comment({ body, user_id, campaign_id }).save();
+      resolve(_, { body, user, campaign }) {
+        return new Comment({ body, user, campaign }).save();
       }
     },
     deleteComment: {
@@ -157,16 +167,50 @@ const mutation = new GraphQLObjectType({
     newPerk: {
       type: PerkType,
       args: {
-        campaign_id: { type: GraphQLID },
+        campaign: { type: GraphQLID },
         cost: { type: GraphQLFloat },
         description: { type: GraphQLString },
         image_url: { type: GraphQLString },
         option: { type: GraphQLString }
       },
-      resolve(_, { campaign_id, cost, description, image_url, option }) {
+      resolve(_, { campaign, cost, description, image_url, option }) {
         return new Perk({ campaign_id, cost, description, image_url, option }).save();
       }
     },
+    deletePerk: {
+      type: PerkType,
+      args: { _id: { type: GraphQLID } },
+      resolve(_, { _id }) {
+        return Perk.remove({ _id });
+      }
+    },
+    updatePerk: {
+      type: PerkType,
+      args: {
+        _id: { type: GraphQLID },
+        cost: { type: GraphQLFloat },
+        description: { type: GraphQLString },
+        image_url: { type: GraphQLString },
+        option: { type: GraphQLString },
+      },
+      resolve(_, { _id, cost, description, image_url, option }) {
+        return Perk.findOneAndUpdate({ _id: _id }, { $set: { cost: cost, description: description, image_url: image_url, option: option  } }, { new: true }, (err, perk) => {
+          return perk;
+        });
+      }
+    },
+    newContribution: {
+      type: ContributionType,
+      args: {
+        campaign: { type: GraphQLID },
+        user: { type: GraphQLID },
+        amount: { type: GraphQLFloat },
+      },
+      resolve(_, { campaign, user, amount }) {
+        return new Contribution({ campaign, user, amount }).save();
+      }
+    },
+    
     // newCategory: {
     //   type: CategoryType,
     //   args: {

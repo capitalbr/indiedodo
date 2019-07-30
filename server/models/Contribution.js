@@ -21,7 +21,7 @@ const ContributionSchema = new Schema({
     required: true,
     min: 1,
     max: 1000000000
-  },
+  }
 });
 
 module.exports = Contribution = mongoose.model('contributions', ContributionSchema);

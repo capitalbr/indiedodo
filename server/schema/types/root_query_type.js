@@ -5,14 +5,22 @@ const { GraphQLObjectType, GraphQLList, GraphQLID, GraphQLNonNull, GraphQLString
 
 const UserType = require("./user_type");
 const CampaignType = require("./campaign_type");
+const CommentType = require("./comment_type");
+const ContributionType = require("./contribution_type");
 const SpeciesType = require("./species_type");
+const UpdateType = require("./update_type");
+const PerkType = require("./perk_type");
 
 // const CategoryType = require("./category_type");
 // const ProductType = require("./product_type");
 
 const User = mongoose.model("users");
-// const Category = mongoose.model("categories");
-// const Product = mongoose.model("products");
+const Campaign = mongoose.model("campaigns");
+const Comment = mongoose.model("comments");
+const Contribution = mongoose.model("contributions");
+// const Species = mongoose.model("species");
+const Update = mongoose.model("updates");
+const Perk = mongoose.model("perks");
 
 
 
@@ -67,97 +75,111 @@ const RootQueryType = new GraphQLObjectType({
     },
     userCampaigns: {
       type: new GraphQLList(CampaignType),
-      args: { user_id: { type: new GraphQLNonNull(GraphQLID) } },
+      args: { userId: { type: new GraphQLNonNull(GraphQLID) } },
       resolve(_, args) {
-        return User.find(
-          { _id: args.user_id }
+        return Campaign.find(
+          { user: args.userId }
         )
       }
     },
-    species: {
-      type: SpeciesType,
-      args: { name: { type: new GraphQLNonNull(GraphQLString) } },
-      resolve(_, {name} ) {
-        return axios(apiSpecies).then(res => {
-        species = {};
-        let speciesInfo = res.data.values.filter(species => species.name === name)
-
-        // I DONT THINK WE NEED A TABLE FOR THIS
-        // JUST ALWAYS HIT THE EXTERNAL API AND CREATE AN OBJECT
-        // THAT WE POPULATE WITH PARTS OF THE RESPONSE
-
-        // species.name = speciesInfo.???;
-        // species.description = speciesInfo.???;
-        // species.type = speciesInfo.???;
-        // species.status = speciesInfo.???;
-
-        return species;
-        })  
+    userComments: {
+      type: new GraphQLList(CommentType),
+      args: { userId: { type: new GraphQLNonNull(GraphQLID) } },
+      resolve(_, args) {
+        return Comment.find(
+          { user: args.userId }
+        )
       }
     },
-    allSpecies: {
-      type: new GraphQLList(SpeciesType),
-      resolve(_) {
-        return axios(apiAllSpecies).then(res => {
-          // MIGHT BE USEFUL TO GET ALL SPECIES NAMES
-
-          species = [];
-          resKeys = res.data.keys;
-          resKeys.forEach(key => {
-            // species.push(res.data.key.name)
-          })
-          return species;
-        })
+    userContributions: {
+      type: new GraphQLList(ContributionType),
+      args: { userId: { type: new GraphQLNonNull(GraphQLID) } },
+      resolve(_, args) {
+        return Contribution.find(
+          { user: args.userId }
+        )
       }
-    }
-    // categories: {
-    //   type: new GraphQLList(CategoryType),
-    //   resolve() {
-    //     return Category.find({});
-    //   }
-    // },
-    // category: {
-    //   type: CategoryType,
-    //   args: { _id: { type: new GraphQLNonNull(GraphQLID) } },
-    //   resolve(_, args) {
-    //     return Category.findById(args._id);
-    //   }
-    // },
-    // products: {
-    //   type: new GraphQLList(ProductType),
-    //   resolve() {
-    //     return (
-    //       Product.find({})
-    //         // Bonus Phase Day 1 - Adding the Lambda
-    //         .then(products => {
-    //           const productsWithCost = products.map(product => {
-    //             return axios(authOptions).then(res => {
-    //               product.cost = res.data.cost;
-    //               return product;
-    //             });
-    //           });
+    },
+    campaignUpdates: {
+      type: new GraphQLList(UpdateType),
+      args: { campaignId: { type: new GraphQLNonNull(GraphQLID) } },
+      resolve(_, args) {
+        return Update.find(
+          { campaign: args.campaignId }
+        )
+      }
+    },
+    campaignComments: {
+      type: new GraphQLList(CommentType),
+      args: { campaignId: { type: new GraphQLNonNull(GraphQLID) } },
+      resolve(_, args) {
+        return Comment.find(
+          { campaign: args.campaignId }
+        )
+      }
+    },
+    campaignPerks: {
+      type: new GraphQLList(PerkType),
+      args: { campaignId: { type: new GraphQLNonNull(GraphQLID) } },
+      resolve(_, args) {
+        return Perk.find(
+          { campaign: args.campaignId }
+        )
+      }
+    },
+    campaignContributions: {
+      type: new GraphQLList(ContributionType),
+      args: { campaignId: { type: new GraphQLNonNull(GraphQLID) } },
+      resolve(_, args) {
+        return Contribution.find(
+          { campaign: args.campaignId }
+        )
+      }
+    },
+    contributions: {
+      type: new GraphQLList(ContributionType),
+      resolve() {
+        return Contribution.find({});
+      }
+    },
 
-    //           return productsWithCost;
-    //         })
-    //     );
+    // species: {
+    //   type: SpeciesType,
+    //   args: { name: { type: new GraphQLNonNull(GraphQLString) } },
+    //   resolve(_, {name} ) {
+    //     return axios(apiSpecies).then(res => {
+    //     species = {};
+    //     let speciesInfo = res.data.values.filter(species => species.name === name)
+
+    //     // I DONT THINK WE NEED A TABLE FOR THIS
+    //     // JUST ALWAYS HIT THE EXTERNAL API AND CREATE AN OBJECT
+    //     // THAT WE POPULATE WITH PARTS OF THE RESPONSE
+
+    //     // species.name = speciesInfo.???;
+    //     // species.description = speciesInfo.???;
+    //     // species.type = speciesInfo.???;
+    //     // species.status = speciesInfo.???;
+
+    //     return species;
+    //     })  
     //   }
     // },
-    // product: {
-    //   type: ProductType,
-    //   args: { _id: { type: new GraphQLNonNull(GraphQLID) } },
-    //   resolve(_, args) {
-    //     return (
-    //       Product.findById(args._id)
-    //         // Bonus Phase Day 1 - Adding the Lambda
-    //         .then(product => {
-    //           return axios(authOptions).then(res => {
-    //             product.cost = res.data.cost;
-    //             return product;
-    //           });
-    //         })
-    //     );
+    // allSpecies: {
+    //   type: new GraphQLList(SpeciesType),
+    //   resolve(_) {
+    //     return axios(apiAllSpecies).then(res => {
+    //       // MIGHT BE USEFUL TO GET ALL SPECIES NAMES
+
+    //       species = [];
+    //       resKeys = res.data.keys;
+    //       resKeys.forEach(key => {
+    //         // species.push(res.data.key.name)
+    //       })
+    //       return species;
+    //     })
     //   }
-    // }
+    // },
+    
   })
 });
 

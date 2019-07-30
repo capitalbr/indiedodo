@@ -42,8 +42,9 @@ export default {
       $category: String!
       $goal: Float!
       $end_date: Date!
+      $user: ID
     ) {
-      newCampaign(title: $title, tagline: $tagline, overview: $overview, story: $story, faq: $faq, image_url: $image_url, category: $category, goal: $goal, end_date: $end_date) {
+      newCampaign(title: $title, tagline: $tagline, overview: $overview, story: $story, faq: $faq, image_url: $image_url, category: $category, goal: $goal, end_date: $end_date, user: $user) {
         _id
         title
         tagline
@@ -54,6 +55,7 @@ export default {
         category
         goal
         end_date
+        user
       }
     }
   `,
@@ -76,8 +78,9 @@ export default {
       $category: String
       $goal: Float
       $end_date: Date
+      $user: ID
     ) {
-      updateCampaign(_id: $id, title: $title, tagline: $tagline, overview: $overview, story: $story, faq: $faq, image_url: $image_url, category: $category, goal: $goal, end_date: $end_date) {
+      updateCampaign(_id: $id, title: $title, tagline: $tagline, overview: $overview, story: $story, faq: $faq, image_url: $image_url, category: $category, goal: $goal, end_date: $end_date, user: $user) {
         _id
         title
         tagline
@@ -88,20 +91,19 @@ export default {
         category
         goal
         end_date
+        user
       }
     }
   `,
   CREATE_UPDATE: gql`
     mutation CreateUpdate(
       $body: String!
-      $user_id: ID!
-      $campaign_id: ID!
+      $campaign_id: ID
     ) {
-      newUpdate(body: $body, user_id: $user_id, campaign_id: $campaign_id) {
+      newUpdate(body: $body, campaign: $campaign_id) {
         _id
         body
-        user_id
-        campaign_id
+        campaign
       }
     }
   `,
@@ -126,14 +128,14 @@ export default {
   CREATE_COMMENT: gql`
     mutation CreateComment(
       $body: String!
-      $user_id: ID!
-      $campaign_id: ID!
+      $user_id: ID
+      $campaign_id: ID
     ) {
-      newComment(body: $body, user_id: $user_id, campaign_id: $campaign_id) {
+      newComment(body: $body, user: $user_id, campaign: $campaign_id) {
         _id
         body
-        user_id
-        campaign_id
+        user
+        campaign
       }
     }
   `,
@@ -157,15 +159,15 @@ export default {
   `,
   CREATE_PERK: gql`
     mutation CreatePerk(
-      $campaign_id: ID!
+      $campaign_id: ID
       $cost: Float!
       $description: String!
       $image_url: String!
-      $option: String!
+      $option: String
     ) {
-      newPerk(campaign_id: $campaign_id, cost: $cost, description: $description, image_url: $image_url, option: $option) {
+      newPerk(campaign: $campaign_id, cost: $cost, description: $description, image_url: $image_url, option: $option) {
         _id
-        campaign_id
+        campaign
         cost
         description
         image_url
@@ -198,11 +200,11 @@ export default {
     }
   `,
   CREATE_CONTRIBUTION: gql`
-    mutation CreateContribution($campaign_id: ID!, $user_id: ID!, $amount: Float!) {
-      newContribution(campaign_id: $campaign_id, user_id: $user_id, amount: $amount) {
+    mutation CreateContribution($campaign_id: ID, $user_id: ID, $amount: Float!) {
+      newContribution(campaign: $campaign_id, user: $user_id, amount: $amount) {
         _id
-        campaign_id
-        user_id
+        campaign
+        user
         amount
       }
     }
