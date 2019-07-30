@@ -1,7 +1,7 @@
 import React from "react";
 import CampaignIndex from './campaigns/CampaignIndex';
 
-const Splash = props => {
+const Landing = props => {
   return (
     <div>
       <CampaignIndex/>
@@ -9,4 +9,4 @@ const Splash = props => {
   )
 }
 
-export default Splash;
+export default Landing;

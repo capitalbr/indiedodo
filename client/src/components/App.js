@@ -2,11 +2,11 @@ import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import AuthRoute from "../util/route_util";
 import oops from "./404"
-import Nav from "./nav";
+import Nav from "./nav/nav";
 import Login from "./session/login";
 import Register from "./session/register";
 import CampaignShow from "./campaigns/CampaignShow";
-import Splash from "./splash";
+import Landing from "./landing";
 // import ProductIndex from "./products/ProductIndex";
 // import ProductDetail from "./products/ProductDetail";
 // import CreateProduct from "./products/CreateProduct";
@@ -22,7 +22,7 @@ const App = () => {
     <div>
       <Route path="/" component={Nav} />
        <Switch>
-        <Route path="/" component={Splash} />
+        {/* <Route extact path="/" component={Landing} /> */}
         {/* <AuthRoute
           exact
           path="/products/:productId"
@@ -36,7 +36,7 @@ const App = () => {
           routeType="protected"
         /> */}
         {/* <AuthRoute exact path="/cart" component={Cart} routeType="protected" /> */}
-        <Route path="/splash" component={Splash} />
+        <Route exact path="/landing" component={Landing} />
         <Route exact path="/campaigns/:campaignId" component={CampaignShow} />
         <AuthRoute exact path="/login" component={Login} routeType="auth" />
         <AuthRoute

@@ -6,6 +6,17 @@ export default {
       isLoggedIn @client
     }
   `,
+  CURRENT_USER: gql`
+    query currentUser($token: String!) {
+      user(token: $token){
+        _id
+        name
+        email
+        token
+        loggedIn
+      }
+    }
+  `,
   FETCH_CAMPAIGNS: gql`
     query fetchCampaigns {
       campaigns {
@@ -134,7 +145,7 @@ export default {
       }
     }
   `,
-  // TO SHOW THE COMBINED TOTAL OF HOW MUCH WE'VE RAISED TO BE DISPLAYED ON OUR SPLASH
+  // TO SHOW THE COMBINED TOTAL OF HOW MUCH WE'VE RAISED TO BE DISPLAYED ON OUR LANDING
   FETCH_ALL_CONTRIBUTIONS: gql`
     query fetchAllContributions {
         contributions {

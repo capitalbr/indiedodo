@@ -9,7 +9,7 @@
 * Users that are logged in are able to pledge to a campaign, create a campaign
 * Users can view species on Google Maps
 * Browse by an animal classification
-* Various animal classications and featured classifications on splash screen
+* Various animal classications and featured classifications on landing screen
 * Campaign comments
 * Campaign perks
 
@@ -36,7 +36,7 @@
 * Images sourced through api
 * GraphQL scraper
 * Collections of campaigns
-* Google news for splash page bottom
+* Google news for landing page bottom
 * Shopping Cart functionality
 * FAQ Q/A Submisson fields 
 * Guest Checkout
@@ -52,13 +52,16 @@
 ### Monday, Jul 29th
 * Wiki
 * Build skeleton react/apollo site - all
-* Basic splash page - all
+* Nav component - Josh
 * Backend/frontend login / register - all
+* Basic campaign index - Zach/Brad
 
 ### Tuesday, July 30th
-* Campaign db model, validations, routes - all
+* Campaign db model, validations, routes - Zach/Brad
+* Image uploads/AWS - Zach/Brad
+* Finish Nav/User profile - Josh 
 * Campaign indexes
-* Splash page polish
+* Landing Page
 * Species Creation
 
 ### Wednesday, July 31st
