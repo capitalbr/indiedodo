@@ -7,6 +7,7 @@ import Login from "./session/login";
 import Register from "./session/register";
 import CampaignShow from "./campaigns/CampaignShow";
 import Splash from "./splash";
+import Test from "./test";
 // import ProductIndex from "./products/ProductIndex";
 // import ProductDetail from "./products/ProductDetail";
 // import CreateProduct from "./products/CreateProduct";
@@ -22,7 +23,7 @@ const App = () => {
     <div>
       <Route path="/" component={Nav} />
        <Switch>
-        <Route path="/" component={Splash} />
+        {/* <Route path="/" component={Splash} /> */}
         {/* <AuthRoute
           exact
           path="/products/:productId"
@@ -45,6 +46,7 @@ const App = () => {
           component={Register}
           routeType="auth"
         />
+        <Route path="/upload" component={Test} />
         <Route path="/" component={oops} />
       </Switch>
     </div>

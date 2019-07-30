@@ -6,7 +6,30 @@ const db = require("../config/keys.js").MONGO_URI;
 const schema = require("./schema/schema");
 const expressGraphQL = require("express-graphql");
 const cors = require("cors");
+const aws = require('aws-sdk');
+const multer = require('multer');
+const multerS3 = require('multer-s3');
 const app = express();
+const s3 = new aws.S3({ /* ... */ });
+
+const upload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: 'indiedodo-dev',
+    acl: 'public-read',
+    // metadata: function (req, file, cb) {
+    //   cb(null, { fieldName: file.fieldname });
+    // },
+    key: function (req, file, cb) {
+      cb(null, Date.now().toString())
+    }
+  })
+})
+
+app.post('/upload', upload.single("picture"), function (req, res, next) {
+  // res.send('Successfully uploaded ' + req.file.length + ' file!');
+  res.json(req.file);
+});
 
 app.use(cors());
 

@@ -27,6 +27,7 @@ const CampaignIndex = () => {
                 <p>Category: {category}</p>
                 <p>Goal: {goal}</p>
                 <p>End Date: {goal}</p>
+                <img src="https://indiedodo-dev.s3-us-west-1.amazonaws.com/Card+bird.jpg"/>
               </li>
             ));
           }}
