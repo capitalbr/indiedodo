@@ -57,7 +57,7 @@ if (token) {
     .then(({ data }) => {
       cache.writeData({
         data: {
-          isLoggedIn: data.verifyUser.loggedIn,
+          isLoggedIn: data.payload.loggedIn,  
           currentUser: currentUser,
           cart: []
         }

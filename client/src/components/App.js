@@ -17,8 +17,8 @@ const App = () => {
 // }
   return (
     <div>
-      <Route path="/" component={Nav} />
-       <Switch>
+      {/* <Route path="/" component={Nav} /> */}
+      <Switch>
         <Route exact path="/landing" component={Landing} />
         <Route exact path="/new-campaign" component={CampaignCreate} />
         <Route exact path="/campaigns/:campaignId" component={CampaignShow} />

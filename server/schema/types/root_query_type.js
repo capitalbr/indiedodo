@@ -55,9 +55,17 @@ const RootQueryType = new GraphQLObjectType({
     },
     user: {
       type: UserType,
-      args: { _id: { type: new GraphQLNonNull(GraphQLID) } },
+      args: { _id: { type: new GraphQLNonNull(GraphQLString) } },
       resolve(_, args) {
-        return User.findById(args._id);
+        return User.findOne({ _id: args._id });
+      }
+    },
+    currentUser: {
+      type: UserType,
+      args: { token: { type: new GraphQLNonNull(GraphQLString) } },
+      resolve(_, args) {
+        return User.findOne({ token: args.token });
+        // Campaign.findOne({ name: req.body.name })
       }
     },
     campaigns: {
