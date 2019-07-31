@@ -19,14 +19,25 @@
             border-bottom: 1px solid gray;
         }
         .campaign-body{
-            padding-top: 6px;
-            h1{
-                font-weight: 700;
+            *{
+                margin-bottom: 6px;
+            }
+            padding-top: 12px;
+            p{
+                font-size: 13px;
+                color: $indiegray;
+            }
+            h3{
+                font-size: 11px;
+                font-weight: 700px;
+                text-transform: uppercase;
+                color: $indiegray;
             }
             .time-remaining{
                 display: flex;
                 align-items: center;
                 align-content: center;
+                color: $indiegray;
             }
         }
     }

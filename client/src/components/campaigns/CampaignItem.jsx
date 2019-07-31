@@ -37,8 +37,7 @@ export default class CampaignItem extends React.Component{
           <div className="campaign-body">
             <h1 className="title">{camp.title}</h1>
             <p>{camp.tagline}</p>
-            <p>{camp.category}</p>
-            <p>{camp.goal}</p>
+            <h3>{camp.category}</h3>
             <ContributionTracker />
             <div className='time-remaining'>
               <FaClock />
