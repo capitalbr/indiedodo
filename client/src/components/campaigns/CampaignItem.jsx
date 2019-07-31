@@ -25,23 +25,25 @@ export default class CampaignItem extends React.Component{
 
   render(){
     let camp = this.props.campaign; 
-    
+
     return(
       <div className='campaign-listing'>
         <img className='campaign-image' src={camp.image_url} alt="campaign"/>
-        <div className='campaign-funding'>
+        <div className='campaign-summary'>
           <div className='campaign-header'>
             <h3>Funding</h3>
             <FaHeart />
           </div>
-          <h1>{camp.title}</h1>
-          <p>{camp.tagline}</p>
-          <p>{camp.category}</p>
-          <p>{camp.goal}</p>
-          <ContributionTracker />
-          <div className='time-remaining'>
-            <FaClock />
-            <p>XX days left</p>
+          <div className="campaign-body">
+            <h1 className="title">{camp.title}</h1>
+            <p>{camp.tagline}</p>
+            <p>{camp.category}</p>
+            <p>{camp.goal}</p>
+            <ContributionTracker />
+            <div className='time-remaining'>
+              <FaClock />
+              <p>XX days left</p>
+            </div>
           </div>
         </div>
       </div>

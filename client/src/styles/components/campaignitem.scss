@@ -1,5 +1,37 @@
 .campaign-listing{
-    width: 20%;
+    border: 1px solid gray;
+    width: 275px;
+    min-width: 275px;
+    margin-right: 40px;
+    padding: 0;
+    .campaign-image{
+        width: 100%;
+        height: 275px;
+    }
+    .campaign-summary{
+        padding: 12px;
+        .campaign-header{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            color: $money;
+            padding-bottom: 6px;
+            border-bottom: 1px solid gray;
+        }
+        .campaign-body{
+            padding-top: 6px;
+            h1{
+                font-weight: 700;
+            }
+            .time-remaining{
+                display: flex;
+                align-items: center;
+                align-content: center;
+            }
+        }
+    }
+}
+.tracker{
     img{
         width: 100%;
     }

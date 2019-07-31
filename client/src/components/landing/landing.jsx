@@ -15,7 +15,7 @@ class Landing extends React.Component{
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error</p>;
             if(data){
-              
+
             }
             return(
               <div className='landing-main'>

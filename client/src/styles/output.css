@@ -245,10 +245,14 @@ body {
   font-size: 2em;
 }
 
+.landing-main {
+  margin: 6px;
+}
+
 .carousel {
   display: flex;
-  justify-content: space-between;
   overflow: hidden;
+  margin: 10px;
 }
 
 .news img {
@@ -256,9 +260,40 @@ body {
 }
 
 .campaign-listing {
-  width: 20%;
+  border: 1px solid gray;
+  width: 275px;
+  min-width: 275px;
+  margin-right: 40px;
+  padding: 0;
 }
-.campaign-listing img {
+.campaign-listing .campaign-image {
+  width: 100%;
+  height: 275px;
+}
+.campaign-listing .campaign-summary {
+  padding: 12px;
+}
+.campaign-listing .campaign-summary .campaign-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: #4FCA96;
+  padding-bottom: 6px;
+  border-bottom: 1px solid gray;
+}
+.campaign-listing .campaign-summary .campaign-body {
+  padding-top: 6px;
+}
+.campaign-listing .campaign-summary .campaign-body h1 {
+  font-weight: 700;
+}
+.campaign-listing .campaign-summary .campaign-body .time-remaining {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.tracker img {
   width: 100%;
 }
 
