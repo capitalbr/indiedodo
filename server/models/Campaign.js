@@ -44,6 +44,14 @@ const CampaignSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "users"
   },
+  featured: {
+    type: Schema.Types.Boolean,
+    default: false
+  },
+  trending: {
+    type: Schema.Types.Boolean,
+    default: false
+  }
 });
 
 module.exports = Campaign = mongoose.model('campaigns', CampaignSchema);

@@ -3,7 +3,6 @@
    License: none (public domain)
 */
 @import url("https://fonts.googleapis.com/css?family=Passion+One|Roboto&display=swap");
-@import url("https://kit.fontawesome.com/f300a92159.js");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -246,12 +245,21 @@ body {
   font-size: 2em;
 }
 
-.carousel img {
-  width: 100vw;
+.carousel {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
 .news img {
   width: 100vw;
+}
+
+.campaign-listing {
+  width: 20%;
+}
+.campaign-listing img {
+  width: 100%;
 }
 
 /*# sourceMappingURL=output.css.map */

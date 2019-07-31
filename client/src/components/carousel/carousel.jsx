@@ -1,27 +1,19 @@
 import React from "react";
+import CampaignItem from "../campaigns/CampaignItem";
 
 export default class Carousel extends React.Component{
-    render(){
-      let {type, campaigns} = this.props;
-      if(!type){
-        return null;
-      }
-      let carousel;
-      switch (type) {
-        case 'featured':
-          carousel = "https://i.imgur.com/aktoFCw.jpg";
-          break;
-        case 'trending':
-          carousel = "https://i.imgur.com/Bbwl4Mq.jpg";
-          break;
-        case 'recent':
-          carousel = "https://i.imgur.com/ANEH5Op.jpg";
-          break;
-        default:
-          return null;
-      }
-      return <div className='carousel'>
-        <img src={carousel} alt={type}/>
+  constructor(props){
+    super(props);
+  }
+  render(){
+    const items = this.props.campaigns.map(camp => <CampaignItem campaign={camp} key={camp.id}/>);
+    return (
+      <div className='carousel-wrapper'>
+        <ul className='carousel'>
+          {items}
+        </ul>
       </div>
-    }
+    )
+  }
 }
+

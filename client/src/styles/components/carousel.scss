@@ -1,5 +1,6 @@
 .carousel{
-    img{
-        width: 100vw;
-    }
+    display: flex;
+    justify-content: space-evenly;
+    overflow: hidden;
+    margin: 10px;
 }
