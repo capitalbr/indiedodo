@@ -212,7 +212,13 @@ export default {
   VERIFY_USER: gql`
     mutation VerifyUser($token: String!) {
       verifyUser(token: $token) {
-        payload
+        _id
+        name
+        email
+        token
+        loggedIn
+        bio_header
+        bio
       }
     }
   `

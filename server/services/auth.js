@@ -79,9 +79,9 @@ const verifyUser = async data => {
     const { id } = decoded;
 
     const payload = await User.findById(id).then(user => {
-      return user ? { user: user, loggedIn: true } : { loggedIn: false };
+      return user ? { ...user._doc, loggedIn: true } : { loggedIn: false };
     });
-    return { payload };
+    return payload;
   } catch (err) {
     return { loggedIn: false };
   }

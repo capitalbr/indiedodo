@@ -13,6 +13,8 @@ import { onError } from "apollo-link-error";
 import Queries from "./graphql/queries";
 import Mutations from "./graphql/mutations";
 
+import './styles/output.css';
+
 const {CURRENT_USER} = Queries;
 const { VERIFY_USER } = Mutations;
 
@@ -57,7 +59,7 @@ if (token) {
     .then(({ data }) => {
       cache.writeData({
         data: {
-          isLoggedIn: data.payload.loggedIn,  
+          isLoggedIn: data.payload ? data.payload.loggedIn : false,  
           currentUser: currentUser,
           cart: []
         }

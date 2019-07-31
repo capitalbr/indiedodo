@@ -9,6 +9,7 @@ import CampaignShow from "./campaigns/CampaignShow";
 import CampaignCreate from "./campaigns/CampaignCreate";
 import Landing from "./landing/landing";
 import Footer from "./footer/footer";
+import Test from "./test"
 
 const App = () => {
 //   return (
@@ -20,7 +21,7 @@ const App = () => {
       {/* <Route path="/" component={Nav} /> */}
       <Switch>
         <Route exact path="/landing" component={Landing} />
-        <Route exact path="/new-campaign" component={CampaignCreate} />
+        {/* <Route exact path="/new-campaign" component={CampaignCreate} /> */}
         <Route exact path="/campaigns/:campaignId" component={CampaignShow} />
         <AuthRoute exact path="/login" component={Login} routeType="auth" />
         <AuthRoute exact path="/register" component={Register} routeType="auth" />
