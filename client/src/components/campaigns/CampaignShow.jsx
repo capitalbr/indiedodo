@@ -1,5 +1,6 @@
 import React from "react";
 import { Query } from "react-apollo";
+import { FaAccusoft } from "react-icons/fa"; 
 
 import Queries from "../../graphql/queries";
 const { FETCH_CAMPAIGN, FETCH_USER } = Queries;
@@ -42,7 +43,7 @@ class CampaignShow extends React.Component {
                           if (loading) return <p>Loading...</p>;
                           if (error) return <p>Error</p>;
                           return <div className="campaign-owner">
-                            <div className="user-icon-show"><i className="fab fa-accusoft"></i></div>
+                            <div className="user-icon-show"><FaAccusoft/></div>
                             {data.user.name}
                             {data.user.bio_header}
                           </div>
