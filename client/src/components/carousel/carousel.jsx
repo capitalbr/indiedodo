@@ -1,17 +1,45 @@
 import React from "react";
+import {FaChevronLeft, FaChevronRight} from "react-icons/fa";
 import CampaignItem from "../campaigns/CampaignItem";
-
+import Arrow from "./arrow";
+import AliceCarousel from 'react-alice-carousel'
+import "react-alice-carousel/lib/alice-carousel.css"
 export default class Carousel extends React.Component{
   constructor(props){
     super(props);
+    this.state = {
+      currentIndex: 0,
+      responsive: { 1024: { items: 4 } },
+      campaignItems: this.campaignItems(),
+    }
   }
+
+  slideTo = (i) => this.setState({ currentIndex: i })
+
+  onSlideChanged = (e) => this.setState({ currentIndex: e.item })
+
+  slideNext = () => this.setState({ currentIndex: this.state.currentIndex + 4 })
+
+  slidePrev = () => this.setState({ currentIndex: this.state.currentIndex - 4 })
+
+  campaignItems() {
+    return this.props.campaigns.map(camp => <CampaignItem campaign={camp} key={camp._id}/>);
+  }
+
   render(){
-    const items = this.props.campaigns.map(camp => <CampaignItem campaign={camp} key={camp.id}/>);
+    const { campaignItems, responsive, currentIndex } = this.state
     return (
-      <div className='carousel-wrapper'>
-        <ul className='carousel'>
-          {items}
-        </ul>
+      <div>
+        <AliceCarousel
+          dotsDisabled={true}
+          buttonsDisabled={true}
+          items={campaignItems}
+          responsive={responsive}
+          slideToIndex={currentIndex}
+          onSlideChanged={this.onSlideChanged}
+        />
+        <FaChevronLeft onClick={() => this.slidePrev()}/>
+        <FaChevronRight button onClick={() => this.slideNext()}/>
       </div>
     )
   }

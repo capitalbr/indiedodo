@@ -260,11 +260,12 @@ body {
 }
 
 .campaign-listing {
-  border: 1px solid gray;
+  border: 1px solid #DDDDDD;
   width: 275px;
   min-width: 275px;
   margin-right: 40px;
   padding: 0;
+  transition: transform 300ms ease 100ms;
 }
 .campaign-listing .campaign-image {
   width: 100%;
@@ -279,7 +280,7 @@ body {
   width: 100%;
   color: #4FCA96;
   padding-bottom: 6px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #DDDDDD;
 }
 .campaign-listing .campaign-summary .campaign-body {
   padding-top: 12px;
