@@ -21,33 +21,41 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+}
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-  display: block; }
+  display: block;
+}
 
 body {
-  line-height: 1; }
+  line-height: 1;
+}
 
 ol, ul {
-  list-style: none; }
+  list-style: none;
+}
 
 blockquote, q {
-  quotes: none; }
+  quotes: none;
+}
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: '';
-  content: none; }
+  content: "";
+  content: none;
+}
 
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
 body {
-  font-family: "Roboto", sans-serif; }
+  font-family: "Roboto", sans-serif;
+}
 
 .register-container {
   display: flex;
@@ -55,37 +63,46 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 30px; }
+  margin: 30px;
+}
 
 .register-form button {
   background-color: #4e7a8f;
   height: 25px;
-  margin: 5px; }
+  margin: 5px;
+}
 
 .register-header {
   text-align: center;
-  margin: 10px; }
-  .register-header h1 {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 42px; }
+  margin: 10px;
+}
+.register-header h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 42px;
+}
 
 .register-inputs {
   display: flex;
   flex-direction: column;
-  justify-content: center; }
-  .register-inputs input {
-    height: 25px;
-    margin: 5px; }
-  .register-inputs span {
-    font-size: 12px; }
+  justify-content: center;
+}
+.register-inputs input {
+  height: 25px;
+  margin: 5px;
+}
+.register-inputs span {
+  font-size: 12px;
+}
 
 .register-buttons {
   display: flex;
   flex-direction: column;
-  justify-content: center; }
-  .register-buttons button {
-    height: 25px;
-    margin: 5px; }
+  justify-content: center;
+}
+.register-buttons button {
+  height: 25px;
+  margin: 5px;
+}
 
 .login-container {
   display: flex;
@@ -93,41 +110,52 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 30px; }
+  margin: 30px;
+}
 
 .login-buttons {
   display: flex;
   flex-direction: column;
-  justify-content: center; }
-  .login-buttons button {
-    height: 25px;
-    margin: 5px; }
-  .login-buttons .login-button {
-    background-color: #4e7a8f; }
-  .login-buttons .fb-button {
-    background-color: #4266B2; }
+  justify-content: center;
+}
+.login-buttons button {
+  height: 25px;
+  margin: 5px;
+}
+.login-buttons .login-button {
+  background-color: #4e7a8f;
+}
+.login-buttons .fb-button {
+  background-color: #4266B2;
+}
 
 .login-header {
-  text-align: center; }
-  .login-header h1 {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 42px; }
+  text-align: center;
+}
+.login-header h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 42px;
+}
 
 .login-inputs {
   display: flex;
   flex-direction: column;
-  justify-content: center; }
-  .login-inputs input {
-    height: 25px;
-    width: 100%;
-    margin: 5px; }
+  justify-content: center;
+}
+.login-inputs input {
+  height: 25px;
+  width: 100%;
+  margin: 5px;
+}
 
 .session-switch {
-  font-size: 12px; }
+  font-size: 12px;
+}
 
 .login-links {
   font-size: 12px;
-  text-align: right; }
+  text-align: right;
+}
 
 .nav-container {
   display: flex;
@@ -135,49 +163,61 @@ body {
   justify-content: space-between;
   align-content: center;
   align-items: center;
-  padding: 16px; }
+  padding: 16px;
+}
 
 .nav-container * {
   display: flex;
   align-content: center;
   align-items: center;
   text-decoration: none;
-  color: black; }
-  .nav-container *:hover {
-    color: #4e7a8f; }
+  color: black;
+}
+.nav-container *:hover {
+  color: #4e7a8f;
+}
 
 .logo {
   width: 30px;
-  height: 30px; }
+  height: 30px;
+}
 
 .brand {
   display: flex;
-  width: 200px; }
+  width: 200px;
+}
 
 .wordmark {
   font-family: "Passion One", sans-serif;
   font-size: 36px;
   color: #4e7a8f;
-  width: 120px; }
+  width: 120px;
+}
 
 .search-container * {
-  padding: 6px; }
+  padding: 6px;
+}
 
 .explore-container:hover * {
-  color: #4e7a8f; }
+  color: #4e7a8f;
+}
 
 .nav-right * {
-  padding: 6px; }
+  padding: 6px;
+}
 
 .new-campaign * {
   border-right: 0.75px solid #8e8e8e;
-  padding-right: 6px; }
+  padding-right: 6px;
+}
 
 .login-signup * {
-  padding-left: 0px; }
+  padding-left: 0px;
+}
 
 .new-link {
-  padding-right: 12px; }
+  padding-right: 12px;
+}
 
 .fo-o-fo {
   background: url("https://media1.giphy.com/media/6uGhT1O4sxpi8/giphy.gif") 50% no-repeat;
@@ -188,18 +228,22 @@ body {
   height: 100%;
   background-size: cover;
   z-index: -1;
-  opacity: .5; }
+  opacity: 0.5;
+}
 
 .oops {
   text-align: center;
   position: absolute;
   width: 100%;
   top: 50%;
-  transform: translateY(-50%); }
-  .oops h1 {
-    font-size: 10em; }
-  .oops h2 {
-    font-size: 2em; }
+  transform: translateY(-50%);
+}
+.oops h1 {
+  font-size: 10em;
+}
+.oops h2 {
+  font-size: 2em;
+}
 
 .landing-main {
   margin: 6px;
@@ -210,31 +254,10 @@ body {
   overflow: hidden;
   margin: 10px;
 }
-.carousel img {
-  width: 100vw; }
 
 .news img {
-  width: 100vw; }
-
-.campaign-show-header {
-  display: flex;
-  justify-content: center; }
-  .campaign-show-header .campaign-show-header-info {
-    margin-left: 20px;
-    width: 483px;
-    height: 456px; }
-    .campaign-show-header .campaign-show-header-info .funding {
-      font-size: 14px;
-      margin-bottom: 20px;
-      color: #098466; }
-    .campaign-show-header .campaign-show-header-info .campaign-show-title {
-      font-size: 32px;
-      margin-bottom: 20px; }
-    .campaign-show-header .campaign-show-header-info .campaign-show-overview {
-      font-size: 20px; }
-
-.campaign-show-header img {
-  max-width: 700px; }
+  width: 100vw;
+}
 
 .campaign-listing {
   border: 1px solid #DDDDDD;
@@ -284,6 +307,32 @@ body {
 
 .tracker img {
   width: 100%;
+}
+
+.campaign-show-header {
+  display: flex;
+  justify-content: center;
+}
+.campaign-show-header .campaign-show-header-info {
+  margin-left: 20px;
+  width: 483px;
+  height: 456px;
+}
+.campaign-show-header .campaign-show-header-info .funding {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #098466;
+}
+.campaign-show-header .campaign-show-header-info .campaign-show-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.campaign-show-header .campaign-show-header-info .campaign-show-overview {
+  font-size: 20px;
+}
+
+.campaign-show-header img {
+  max-width: 700px;
 }
 
 /*# sourceMappingURL=output.css.map */

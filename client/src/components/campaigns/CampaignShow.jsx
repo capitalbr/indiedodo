@@ -3,7 +3,29 @@ import { Query } from "react-apollo";
 import { FaAccusoft } from "react-icons/fa"; 
 
 import Queries from "../../graphql/queries";
-const { FETCH_CAMPAIGN, FETCH_USER } = Queries;
+const { FETCH_CAMPAIGN, FETCH_USER, FETCH_ALL_CONTRIBUTIONS } = Queries;
+
+const AllContributions = (campaign_id) => {
+  return (
+    <Query
+      query={FETCH_CAMPAIGN_CONTRIBUTIONS}
+      variables={{ campaignId: campaign_id }}
+    >
+      {({ loading, error, data }) => {
+        if (loading) return 0;
+        if (error) return 0;
+        const { campaignContributions } = data;
+        let total = 0;
+        campaignContributions.forEach((contribution) => {
+          total = total + contribution.amount
+        })
+        return (
+          <div>{total}</div>
+        )
+      }}
+    </Query>
+  )
+}
 
 class CampaignShow extends React.Component {
   constructor(props) {
