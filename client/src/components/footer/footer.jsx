@@ -6,8 +6,8 @@ const Footer = (props) => {
     return (
         <div className="footer-container">
             <div className="footer-content">
-                <div className="column">
-                    <h2 className="column-header">
+                <div className="tech-used">
+                    <h2>
                         Technologies
                     </h2>
                     <ul>
@@ -18,8 +18,8 @@ const Footer = (props) => {
                         <li>NodeJS</li>
                     </ul>
                 </div>
-                <div className="column">
-                    <h2 className="column-header">
+                <div className="dev-team">
+                    <h2>
                         Developers
                     </h2>
                     <ul>
@@ -28,8 +28,8 @@ const Footer = (props) => {
                         <li>Zachary Oliver</li>
                     </ul>
                 </div>
-                <div className="column">
-                    <h2 className="column-header">
+                <div className="description">
+                    <h2 className>
                         Description
                     </h2>
                     <p>This is a full-stack clone of Indigogo created in one week.</p>

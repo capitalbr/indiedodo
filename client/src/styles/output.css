@@ -249,6 +249,25 @@ body {
   margin: 6px;
 }
 
+.featured-container {
+  width: 100%;
+  height: 468px;
+}
+
+.trending-container {
+  margin-left: 80px;
+  margin-right: 80px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.recents-container {
+  margin-left: 80px;
+  margin-right: 80px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .carousel {
   display: flex;
   overflow: hidden;
@@ -307,6 +326,16 @@ body {
 
 .tracker img {
   width: 100%;
+}
+
+.footer-container {
+  border-top: 3px solid #DDDDDD;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 12px;
 }
 
 /*# sourceMappingURL=output.css.map */

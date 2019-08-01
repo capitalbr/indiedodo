@@ -1,0 +1,9 @@
+.footer-container{
+    border-top: 3px solid $bordergray;
+}
+
+.footer-content{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 12px;
+}
