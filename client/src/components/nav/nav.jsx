@@ -18,7 +18,7 @@ const Nav = props => {
                             return (
                                 <nav className='nav-container'>
                                     <div className='nav-left'>
-                                        <Link className="brand"to='/landing'>
+                                        <Link className="brand" to='/landing'>
                                             <img  className="logo" src={logo} alt="IndieDodo"/>
                                             <p className="wordmark">INDIEDODO</p>
                                         </Link>
@@ -32,7 +32,7 @@ const Nav = props => {
                                     </div>
                                     <div className='nav-right'>
                                         <div className='new-campaign'>
-                                            <Link className='new-link'to='/new-campaign'>Start a new Campaign</Link>
+                                            <Link className='new-link' to='/new-campaign'>Start a new Campaign</Link>
                                         </div>
                                         <NavUser />
                                     </div>
@@ -42,7 +42,7 @@ const Nav = props => {
                             return (
                                 <nav className='nav-container'>
                                     <div className='nav-left'>
-                                        <Link className="brand"to='/landing'>
+                                        <Link className="brand" to='/landing'>
                                             <img  className="logo" src={logo} alt="IndieDodo"/>
                                             <p className="wordmark">INDIEDODO</p>
                                         </Link>

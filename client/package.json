@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:1662",
   "dependencies": {
     "@material-ui/core": "^4.3.0",
     "apollo-cache-inmemory": "^1.6.2",
@@ -10,6 +11,7 @@
     "apollo-link-error": "^1.1.11",
     "apollo-link-http": "^1.5.15",
     "apollo-link-state": "^0.4.2",
+    "axios": "^0.19.0",
     "graphql-tag": "^2.10.1",
     "graphql-tools": "^4.0.5",
     "node-sass": "^4.12.0",

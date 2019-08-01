@@ -7,8 +7,9 @@
     "client-install": "npm install --prefix client",
     "client": "npm start --prefix client",
     "server": "nodemon index.js",
+    "server:debug": "nodemon --inspect index.js",
     "sass": "sass --watch client/src/styles/input.scss:client/src/styles/output.css",
-    "dev": "concurrently \"npm run sass\" \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run sass\" \"npm run server:debug\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/capitalbr/indiedodo#readme",
   "dependencies": {
+    "aws-sdk": "^2.502.0",
     "axios": "^0.19.0",
     "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
@@ -33,8 +35,11 @@
     "graphql-iso-date": "^3.6.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.6.7",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.1",
+    "uuid": "^3.3.2",
     "validator": "^11.1.0"
   }
 }

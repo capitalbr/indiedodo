@@ -11,10 +11,12 @@ import { ApolloProvider } from "react-apollo";
 import { ApolloLink } from "apollo-link";
 import { onError } from "apollo-link-error";
 import Queries from "./graphql/queries";
-import Mutations from "./graphql/mutations";
+// import Mutations from "./graphql/mutations";
+
+import './styles/output.css';
 
 const {CURRENT_USER} = Queries;
-const { VERIFY_USER } = Mutations;
+// const { VERIFY_USER } = Mutations;
 
 const cache = new InMemoryCache({
   dataIdFromObject: object => object._id || null
@@ -34,6 +36,7 @@ const httpLink = createHttpLink({
 const client = new ApolloClient({
   link: ApolloLink.from([errorLink, httpLink]),
   cache,
+  resolvers: {},
   onError: ({ networkError, graphQLErrors }) => {
     console.log("graphQLErrors", graphQLErrors);
     console.log("networkError", networkError);
@@ -49,18 +52,19 @@ cache.writeData({
 });
 
 const token = localStorage.getItem("auth-token");
-const currentUser = client.query({query: CURRENT_USER, variables: {token}});
+
 
 if (token) {
+  const currentUser = client.query({query: CURRENT_USER, variables: {token}});
   client
-    .mutate({ mutation: VERIFY_USER, variables: { token } })
+    .mutate({ mutation: CURRENT_USER, variables: { token } })
     .then(({ data }) => {
       cache.writeData({
-        data: {
-          isLoggedIn: data.verifyUser.loggedIn,
-          currentUser: currentUser,
-          cart: []
-        }
+          data: {
+            isLoggedIn: data.currentUser.loggedIn,
+            currentUser: Object.assign(currentUser, {__typename: "user"}),
+            cart: []
+          }
       });
     });
 }

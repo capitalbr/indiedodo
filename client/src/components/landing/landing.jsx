@@ -7,9 +7,9 @@ import News from '../news/news';
 class Landing extends React.Component{
   constructor(props){
     super(props);
-    this.setState({
+    this.state = {
       campaigns: {}
-    });
+    };
   }
 
   render(){

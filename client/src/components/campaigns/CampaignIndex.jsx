@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import { Query } from "react-apollo";
 import Queries from "../../graphql/queries";
 const { FETCH_CAMPAIGNS } = Queries;
@@ -26,7 +25,8 @@ const CampaignIndex = () => {
                 <p>Image URL: {image_url}</p>
                 <p>Category: {category}</p>
                 <p>Goal: {goal}</p>
-                <p>End Date: {goal}</p>
+                <p>End Date: {end_date}</p>
+                <img src={image_url} alt="Campaign"/>
               </li>
             ));
           }}

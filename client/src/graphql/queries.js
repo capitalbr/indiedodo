@@ -6,9 +6,20 @@ export default {
       isLoggedIn @client
     }
   `,
+  FETCH_USER: gql`
+    query fetchUser($id: ID!) {
+      user(_id: $id){
+        _id
+        name
+        email
+        token
+        loggedIn
+      }
+    }
+  `,
   CURRENT_USER: gql`
     query currentUser($token: String!) {
-      user(token: $token){
+      currentUser(token: $token){
         _id
         name
         email

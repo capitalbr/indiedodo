@@ -2,7 +2,7 @@ import React from "react";
 
 export default class Carousel extends React.Component{
     render(){
-      let {type, campaigns} = this.props;
+      let { type } = this.props; //campaigns
       if(!type){
         return null;
       }
