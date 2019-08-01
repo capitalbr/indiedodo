@@ -14,6 +14,7 @@ export default {
         email
         token
         loggedIn
+        bio_header
       }
     }
   `,

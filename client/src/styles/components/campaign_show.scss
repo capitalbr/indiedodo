@@ -1,0 +1,27 @@
+.campaign-show-header{
+  display: flex;
+  justify-content: center;
+  // flex-wrap: wrap;
+  .campaign-show-header-info{
+    margin-left: 20px;
+    width: 483px;
+    height: 456px;
+    .funding{
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #098466;
+    }
+    .campaign-show-title{
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .campaign-show-overview{
+      font-size: 20px;
+    }
+  }
+}
+
+.campaign-show-header img{
+  max-width: 700px;
+}
+
