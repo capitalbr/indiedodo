@@ -1,5 +1,5 @@
 .carousel{
-    img{
-        width: 100vw;
-    }
+    display: flex;
+    overflow: hidden;
+    margin: 10px;
 }

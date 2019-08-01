@@ -1,0 +1,50 @@
+.campaign-listing{
+    border: 1px solid $bordergray;
+    width: 275px;
+    min-width: 275px;
+    margin-right: 40px;
+    padding: 0;
+    transition: transform 300ms ease 100ms;
+    .campaign-image{
+        width: 100%;
+        height: 275px;
+    }
+    .campaign-summary{
+        padding: 12px;
+        .campaign-header{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            color: $money;
+            padding-bottom: 6px;
+            border-bottom: 1px solid $bordergray;
+        }
+        .campaign-body{
+            *{
+                margin-bottom: 6px;
+            }
+            padding-top: 12px;
+            p{
+                font-size: 13px;
+                color: $indiegray;
+            }
+            h3{
+                font-size: 11px;
+                font-weight: 700px;
+                text-transform: uppercase;
+                color: $indiegray;
+            }
+            .time-remaining{
+                display: flex;
+                align-items: center;
+                align-content: center;
+                color: $indiegray;
+            }
+        }
+    }
+}
+.tracker{
+    img{
+        width: 100%;
+    }
+}
