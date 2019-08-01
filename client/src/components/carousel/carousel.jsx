@@ -1,7 +1,6 @@
 import React from "react";
 import {FaChevronLeft, FaChevronRight} from "react-icons/fa";
 import CampaignItem from "../campaigns/CampaignItem";
-import Arrow from "./arrow";
 import AliceCarousel from 'react-alice-carousel'
 import "react-alice-carousel/lib/alice-carousel.css"
 export default class Carousel extends React.Component{
