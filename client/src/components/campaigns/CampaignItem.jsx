@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "react-router-dom";
+import { Link } from "react-router-dom";
 import {FaHeart, FaClock} from "react-icons/fa";
 import ContributionTracker from "../contributions/ContributionTracker";
 
@@ -28,23 +28,25 @@ export default class CampaignItem extends React.Component{
 
     return(
       <div className='campaign-listing'>
-        <img className='campaign-image' src={camp.image_url} alt="campaign"/>
-        <div className='campaign-summary'>
-          <div className='campaign-header'>
-            <h3>Funding</h3>
-            <FaHeart />
-          </div>
-          <div className="campaign-body">
-            <h1 className="title">{camp.title}</h1>
-            <p>{camp.tagline}</p>
-            <h3>{camp.category}</h3>
-            <ContributionTracker />
-            <div className='time-remaining'>
-              <FaClock />
-              <p>XX days left</p>
+        <Link to={`/campaigns/${camp._id}`}>
+          <img className='campaign-image' src={camp.image_url} alt="campaign"/>
+          <div className='campaign-summary'>
+            <div className='campaign-header'>
+              <h3>Funding</h3>
+              <FaHeart />
+            </div>
+            <div className="campaign-body">
+              <h1 className="title">{camp.title}</h1>
+              <p>{camp.tagline}</p>
+              <h3>{camp.category}</h3>
+              <ContributionTracker />
+              <div className='time-remaining'>
+                <FaClock />
+                <p>XX days left</p>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
     )
   }

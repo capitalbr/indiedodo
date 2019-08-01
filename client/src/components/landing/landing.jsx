@@ -2,6 +2,7 @@ import React from "react";
 import CampaignIndex from '../campaigns/CampaignIndex';
 import CategoryIndex from '../categories/CategoryIndex';
 import Carousel from '../carousel/carousel';
+import FeaturedCarousel from "../carousel/featuredCarousel";
 import News from '../news/news';
 
 import { Query } from "react-apollo";
@@ -14,13 +15,10 @@ class Landing extends React.Component{
           {({ loading, error, data }) => {
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error</p>;
-            if(data){
-
-            }
             return(
               <div className='landing-main'>
                 <div className='featured-container'>
-                  <Carousel campaigns={data.campaigns} type='featured' />
+                  <FeaturedCarousel campaigns={data.campaigns} />
                 </div>
                 <div className='trending-container'>
                   <Carousel campaigns={data.campaigns} type='trending' />
@@ -29,7 +27,7 @@ class Landing extends React.Component{
                   <CategoryIndex />
                 </div>
                 <div className='recents-container'>
-                  <CampaignIndex campaigns={data.campaigns}/>
+                  <Carousel campaigns={data.campaigns} type='recent' />
                 </div>
                 <div className='news-container'>
                   <News />
