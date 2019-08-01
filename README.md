@@ -26,6 +26,7 @@
 
 ## Technical Challenges
 * Google maps
+* 3rd party API Access
 * Mongoose data seed
 * User image upload
 * Docker
