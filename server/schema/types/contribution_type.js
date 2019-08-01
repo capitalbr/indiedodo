@@ -15,7 +15,7 @@ const ContributionType = new GraphQLObjectType({
     _id: { type: GraphQLID },
     campaign: { type: GraphQLID },
     user: { type: GraphQLID },
-    amount: { type: GraphQLString }
+    amount: { type: GraphQLFloat }
   }
 })
 

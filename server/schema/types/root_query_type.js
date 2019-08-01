@@ -141,8 +141,8 @@ const RootQueryType = new GraphQLObjectType({
       type: new GraphQLList(ContributionType),
       args: { campaignId: { type: new GraphQLNonNull(GraphQLID) } },
       resolve(_, args) {
-        return Contribution.find(
-          { campaign: args.campaignId }
+        return (
+          Contribution.find({ campaign: args.campaignId })
         )
       }
     },
