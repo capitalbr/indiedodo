@@ -329,10 +329,15 @@ body {
 }
 .campaign-show-header .campaign-show-header-info .campaign-show-overview {
   font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .campaign-show-header img {
   max-width: 700px;
+}
+
+.campaign-owner {
+  display: flex;
 }
 
 /*# sourceMappingURL=output.css.map */

@@ -3,9 +3,9 @@ import { Query } from "react-apollo";
 import { FaAccusoft } from "react-icons/fa"; 
 
 import Queries from "../../graphql/queries";
-const { FETCH_CAMPAIGN, FETCH_USER, FETCH_ALL_CONTRIBUTIONS } = Queries;
+const { FETCH_CAMPAIGN, FETCH_USER, FETCH_CAMPAIGN_CONTRIBUTIONS } = Queries;
 
-const AllContributions = (campaign_id) => {
+const AllContributions = (campaign_id, goal) => {
   return (
     <Query
       query={FETCH_CAMPAIGN_CONTRIBUTIONS}
@@ -17,10 +17,17 @@ const AllContributions = (campaign_id) => {
         const { campaignContributions } = data;
         let total = 0;
         campaignContributions.forEach((contribution) => {
-          total = total + contribution.amount
+          total = total + Number(contribution.amount)
         })
         return (
-          <div>{total}</div>
+          <div>
+            <div>
+              ${total} USD raised
+            </div>
+            <div>
+              {total / goal * 100}%
+            </div>
+          </div>
         )
       }}
     </Query>
@@ -45,6 +52,7 @@ class CampaignShow extends React.Component {
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error</p>;
             this.user = data.campaign.user;
+            this.contributions = AllContributions(this.props.match.params.campaignId, data.campaign.goal);
             // { title, tagline, overview, story, faq, image_url, category, goal, end_date } = data.campaign;
             return (
               <div>
@@ -73,14 +81,13 @@ class CampaignShow extends React.Component {
                       </Query>
                   </div>
                 </div>
-                
                 <p>Tagline: {data.campaign.tagline}</p>
                 <p>Overview: {data.campaign.overview}</p>
                 <p>Story: {data.campaign.story}</p>
                 <p>Faq: {data.campaign.faq}</p>
                 <p>Image URL: {data.campaign.image_url}</p>
                 <p>Category: {data.campaign.category}</p>
-                <p>Goal: {data.campaign.goal}</p>
+                {this.contributions}
                 <p>End Date: {data.campaign.end_date}</p>
               </div>
             );
