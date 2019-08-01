@@ -202,8 +202,7 @@ body {
     font-size: 2em; }
 
 .landing-main {
-  margin: 6px;
-}
+  margin: 6px; }
 
 .featured-container {
   width: 100%;
@@ -227,13 +226,50 @@ body {
 .carousel {
   display: flex;
   overflow: hidden;
-  margin: 10px;
-}
-.carousel img {
-  width: 100vw; }
+  margin: 10px; }
 
 .news img {
   width: 100vw; }
+
+.campaign-listing {
+  border: 1px solid #DDDDDD;
+  width: 275px;
+  min-width: 275px;
+  margin-right: 40px;
+  padding: 0;
+  transition: transform 300ms ease 100ms; }
+  .campaign-listing .campaign-image {
+    width: 100%;
+    height: 275px; }
+  .campaign-listing .campaign-summary {
+    padding: 12px; }
+    .campaign-listing .campaign-summary .campaign-header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      color: #4FCA96;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #DDDDDD; }
+    .campaign-listing .campaign-summary .campaign-body {
+      padding-top: 12px; }
+      .campaign-listing .campaign-summary .campaign-body * {
+        margin-bottom: 6px; }
+      .campaign-listing .campaign-summary .campaign-body p {
+        font-size: 13px;
+        color: #6A6A6A; }
+      .campaign-listing .campaign-summary .campaign-body h3 {
+        font-size: 11px;
+        font-weight: 700px;
+        text-transform: uppercase;
+        color: #6A6A6A; }
+      .campaign-listing .campaign-summary .campaign-body .time-remaining {
+        display: flex;
+        align-items: center;
+        align-content: center;
+        color: #6A6A6A; }
+
+.tracker img {
+  width: 100%; }
 
 .campaign-show-header {
   display: flex;
@@ -245,65 +281,68 @@ body {
     .campaign-show-header .campaign-show-header-info .funding {
       font-size: 14px;
       margin-bottom: 20px;
-      color: #098466; }
+      color: #4e7a8f; }
     .campaign-show-header .campaign-show-header-info .campaign-show-title {
       font-size: 32px;
       margin-bottom: 20px; }
     .campaign-show-header .campaign-show-header-info .campaign-show-overview {
-      font-size: 20px; }
+      font-size: 20px;
+      margin-bottom: 24px; }
 
 .campaign-show-header img {
   max-width: 700px; }
 
-.campaign-listing {
-  border: 1px solid #DDDDDD;
-  width: 275px;
-  min-width: 275px;
-  margin-right: 40px;
-  padding: 0;
-  transition: transform 300ms ease 100ms;
-}
-.campaign-listing .campaign-image {
-  width: 100%;
-  height: 275px;
-}
-.campaign-listing .campaign-summary {
-  padding: 12px;
-}
-.campaign-listing .campaign-summary .campaign-header {
+.campaign-owner {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  color: #4FCA96;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #DDDDDD;
-}
-.campaign-listing .campaign-summary .campaign-body {
-  padding-top: 12px;
-}
-.campaign-listing .campaign-summary .campaign-body * {
-  margin-bottom: 6px;
-}
-.campaign-listing .campaign-summary .campaign-body p {
-  font-size: 13px;
-  color: #6A6A6A;
-}
-.campaign-listing .campaign-summary .campaign-body h3 {
-  font-size: 11px;
-  font-weight: 700px;
-  text-transform: uppercase;
-  color: #6A6A6A;
-}
-.campaign-listing .campaign-summary .campaign-body .time-remaining {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  color: #6A6A6A;
-}
+  margin-bottom: 32px; }
+  .campaign-owner .user-icon-show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 10px; }
+    .campaign-owner .user-icon-show .user-img {
+      width: 55px;
+      height: 44px; }
+  .campaign-owner .user-icon-show-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    .campaign-owner .user-icon-show-info .user-name {
+      font-family: "Passion One", sans-serif;
+      font-size: 20px;
+      font-weight: 100;
+      margin-bottom: 5px; }
 
-.tracker img {
-  width: 100%;
-}
+.raised-bar-cont {
+  width: 485px;
+  margin-top: 5px;
+  background-color: #bdbdbd;
+  margin-bottom: 5px;
+  height: 10px; }
+
+.raised-bar {
+  background-color: #4e7a8f;
+  height: 100%; }
+
+.campaign-show-header-buttons {
+  display: flex;
+  margin-top: 28px; }
+  .campaign-show-header-buttons .backit {
+    margin-right: 14px; }
+  .campaign-show-header-buttons .share-icon-container-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    .campaign-show-header-buttons .share-icon-container-center .share-icon-container {
+      display: flex;
+      justify-content: flex-end;
+      width: 152px; }
+      .campaign-show-header-buttons .share-icon-container-center .share-icon-container .share-icons {
+        width: 35px; }
+
+.raised-text-cont {
+  display: flex;
+  justify-content: space-between; }
 
 .footer-container {
   border-top: 3px solid #DDDDDD;

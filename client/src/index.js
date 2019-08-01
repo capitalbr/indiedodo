@@ -43,15 +43,15 @@ const client = new ApolloClient({
   }
 });
 
+const token = localStorage.getItem("auth-token");
 cache.writeData({
   data: {
-    isLoggedIn: false,
+    isLoggedIn: Boolean(token),
     currentUser: null,
     cart: []
   }
 });
 
-const token = localStorage.getItem("auth-token");
 
 
 if (token) {

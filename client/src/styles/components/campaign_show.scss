@@ -9,7 +9,7 @@
     .funding{
       font-size: 14px;
       margin-bottom: 20px;
-      color: #098466;
+      color: $dodo-blue;
     }
     .campaign-show-title{
       font-size: 32px;
@@ -17,6 +17,7 @@
     }
     .campaign-show-overview{
       font-size: 20px;
+      margin-bottom: 24px;
     }
   }
 }
@@ -25,3 +26,70 @@
   max-width: 700px;
 }
 
+.campaign-owner{
+  display: flex;
+  margin-bottom: 32px;
+  .user-icon-show{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 10px;
+    .user-img{
+      width: 55px;
+      height: 44px;
+    }
+  }
+  .user-icon-show-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .user-name{
+      font-family: $indiefonto;
+      font-size: 20px;
+      font-weight: 100;
+      margin-bottom: 5px;
+      // color: #6A6A6A;
+    }
+  }
+}
+
+
+.raised-bar-cont {
+  width: 485px;
+  margin-top: 5px;
+  background-color: rgb(189, 189, 189);
+  margin-bottom: 5px;
+  height: 10px;
+}
+
+.raised-bar {
+  background-color: $dodo-blue;
+  height: 100%;
+}
+
+.campaign-show-header-buttons{
+  display: flex;
+  margin-top: 28px;
+  .backit{
+    margin-right: 14px;
+  }
+
+  .share-icon-container-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .share-icon-container{
+      display: flex;
+      justify-content: flex-end;
+      width: 152px;
+      .share-icons{
+        width: 35px;
+      }
+    }    
+  }
+}
+
+.raised-text-cont {
+  display: flex;
+  justify-content: space-between;
+}

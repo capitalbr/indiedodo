@@ -3,9 +3,10 @@ import { Mutation, ApolloConsumer } from "react-apollo";
 import Mutations from "../../graphql/mutations";
 import Queries from "../../graphql/queries";
 import axios from 'axios';
+import CampaignShow from "./CampaignShow";
 
 const { CREATE_CAMPAIGN } = Mutations;
-const { CURRENT_USER } = Queries;
+const { CURRENT_USER, FETCH_CAMPAIGNS } = Queries;
 
 
 const postImage = (payload) => {
@@ -102,6 +103,24 @@ class CampaignCreate extends Component {
     this.picture = e.target.files[0];
   }
 
+  updateCache(cache, {data}){
+    // debugger
+    let campaigns;
+    try {
+      campaigns = cache.readQuery({ query: FETCH_CAMPAIGNS })
+    } catch (error) {
+      return;
+    }
+    const newCampaign = data.newCampaign;
+    if (campaigns) {
+      const campaignArray = campaigns.campaigns;
+      cache.writeQuery({
+        query: FETCH_CAMPAIGNS,
+        data: { campaigns: campaignArray.concat(newCampaign) }
+      })
+    }
+  }
+
   render() {
     return <ApolloConsumer>
     {(client) => {
@@ -117,6 +136,7 @@ class CampaignCreate extends Component {
             <p>Make a good first impression: introduce your campaign objectives and entice people to learn more. This basic information will represent your campaign on your campaign page, on your campaign card, and in searches.</p>
         <Mutation
           mutation={CREATE_CAMPAIGN}
+          update={(cache, data) => this.updateCache(cache, data)}
           onCompleted={data => {
             // const { token } = data.register;
             // localStorage.setItem("auth-token", token);
