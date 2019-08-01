@@ -42,7 +42,7 @@ export default {
       $category: String!
       $goal: Float!
       $end_date: Date!
-      $user: ID
+      $user: ID!
     ) {
       newCampaign(title: $title, tagline: $tagline, overview: $overview, story: $story, faq: $faq, image_url: $image_url, category: $category, goal: $goal, end_date: $end_date, user: $user) {
         _id

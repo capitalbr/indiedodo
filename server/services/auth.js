@@ -7,7 +7,6 @@ const validateRegisterInput = require("../validation/register");
 const validateLoginInput = require("../validation/login");
 
 const register = async data => {
-  debugger
   try {
     const { message, isValid } = validateRegisterInput(data);
 
@@ -79,8 +78,9 @@ const verifyUser = async data => {
     const { id } = decoded;
 
     const payload = await User.findById(id).then(user => {
-      return user ? { ...user._doc, loggedIn: true } : { loggedIn: false };
+      return user ? { ...user._doc, loggedIn: true, password_digest: null} : { loggedIn: false };
     });
+    
     return payload;
   } catch (err) {
     return { loggedIn: false };

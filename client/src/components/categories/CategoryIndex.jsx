@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Query } from "react-apollo";
-import Queries from "../../graphql/queries";
+// import { Link } from "react-router-dom";
+// import { Query } from "react-apollo";
+// import Queries from "../../graphql/queries";
 
 const CategoryIndex = () => {
   return (

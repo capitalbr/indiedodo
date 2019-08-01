@@ -55,7 +55,6 @@ class Test extends React.Component {
     let formData = new FormData();
     formData.append("picture", picture);
     postImage(formData);
-    // debugger; 
     console.log("postImg no error");
   }
 

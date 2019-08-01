@@ -22,6 +22,8 @@ const Contribution = mongoose.model("contributions");
 const Update = mongoose.model("updates");
 const Perk = mongoose.model("perks");
 
+const Auth = require("../../services/auth")
+
 
 
 // SPECIES API REQUEST TO EXTERNAL API
@@ -64,7 +66,7 @@ const RootQueryType = new GraphQLObjectType({
       type: UserType,
       args: { token: { type: new GraphQLNonNull(GraphQLString) } },
       resolve(_, args) {
-        return User.findOne({ token: args.token });
+        return Auth.verifyUser(args);
         // Campaign.findOne({ name: req.body.name })
       }
     },

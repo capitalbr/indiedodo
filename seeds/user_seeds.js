@@ -53,7 +53,6 @@ const seedUsers = () => {
         password: "12345678"
     })
 
-    // debugger
     // for (let i = 0, fin = userArray.length; i < fin; i++) {
     //   const user = userArray[i];
     //   console.log(user);
