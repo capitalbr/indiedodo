@@ -40,6 +40,10 @@ export default class Carousel extends React.Component{
     return (
       <div>
         <AliceCarousel
+          autoPlayInterval={10000}
+          autoPlayDirection="rtl"
+          autoPlay={true}
+          fadeOutAnimation={true}
           dotsDisabled={true}
           buttonsDisabled={true}
           items={featuredCampaigns}

@@ -29,6 +29,13 @@ export default class Carousel extends React.Component{
     const { campaignItems, responsive, currentIndex } = this.state
     return (
       <div>
+        <div className='carousel-header'>
+          <h1>{this.props.type} Campaigns</h1>
+          <div className='carousel-control'>
+            <FaChevronLeft onClick={() => this.slidePrev()}/>
+            <FaChevronRight button onClick={() => this.slideNext()}/>
+          </div>
+        </div>
         <AliceCarousel
           dotsDisabled={true}
           buttonsDisabled={true}
@@ -37,8 +44,6 @@ export default class Carousel extends React.Component{
           slideToIndex={currentIndex}
           onSlideChanged={this.onSlideChanged}
         />
-        <FaChevronLeft onClick={() => this.slidePrev()}/>
-        <FaChevronRight button onClick={() => this.slideNext()}/>
       </div>
     )
   }
