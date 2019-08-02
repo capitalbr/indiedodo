@@ -1,9 +1,17 @@
 import React from "react";
-import { Query } from "react-apollo";
-import { FaAccusoft } from "react-icons/fa"; 
-
+import { Query, Mutation } from "react-apollo";
+import { 
+  FaAccusoft, 
+  FaHeart, 
+  FaFacebookSquare, 
+  FaTwitter,
+  FaLink
+} from "react-icons/fa"; 
 import Queries from "../../graphql/queries";
+import Mutations from "../../graphql/mutations";
+
 const { FETCH_CAMPAIGN, FETCH_USER, FETCH_CAMPAIGN_CONTRIBUTIONS, FETCH_USER_CAMPAIGNS } = Queries;
+const { CREATE_CONTRIBUTION } = Mutations;
 
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -44,12 +52,12 @@ const AllContributions = (campaign_id, goal, end_date) => {
                 {numberWithCommas(numContributions)} {backerText}
                 </div>
             </div>
-            <div className="raised-bar-cont">
+            <div className="raised-bar-show-cont">
               <div className="raised-bar" style={{ width: `${percent_raised}%`, maxWidth: "100%" }} />
             </div>
             <div className="raised-text-cont">
               <div>
-                {percent_raised}% of ${numberWithCommas(goal.toFixed(0))} Flexible Goal
+                {numberWithCommas(percent_raised)}% of ${numberWithCommas(goal.toFixed(0))} Flexible Goal
               </div>
               <div>
                 {diffDays} {dayText} left
@@ -69,6 +77,24 @@ class CampaignShow extends React.Component {
     this.user = "";
   }
   
+  // backit(e){
+  //   e.preventDefault();
+  //   return(
+  //     <Mutation
+  //       mutation={CREATE_CONTRIBUTION}
+  //     >
+  //     {(newContribution) => (
+  //         newContribution({
+  //           variables: {
+  //             goal: e.target.value,
+  //             user: this.temp._id
+  //           }
+  //         })
+  //     )}
+  //     </Mutation>
+  //   )
+  // }
+
   render(){
     return (
       <div>
@@ -130,31 +156,43 @@ class CampaignShow extends React.Component {
                       </Query>
                 {this.contributions}
                 <div className="campaign-show-header-buttons">
-                  <div className="backit">
-                      <button>Backit</button>
-                  </div>
-                  <div className="follow">
-                      <button>Follow</button>
+                  <div className="campaign-show-buttons-container">
+                    <div className="backit">
+                        <button>BACK IT</button>
+                    </div>
+                    <div className="follow">
+                        <button>
+                          <FaHeart className="follow-icon"/>
+                          <span>FOLLOW</span>
+                        </button>
+                    </div>
                   </div>
                   <div className="share-icon-container-center">
                     <div className="share-icon-container">
-                        <FaAccusoft className="share-icons" />
-                        <FaAccusoft className="share-icons" />
-                        <FaAccusoft className="share-icons" />
+                        <FaFacebookSquare className="share-icons" />
+                        <FaTwitter className="share-icons" />
+                        <FaLink className="share-icons" />
+                    </div>
                   </div>
-                  </div>
-                  
-                </div>
                   </div>
                 </div>
-                <p>Tagline: {data.campaign.tagline}</p>
-                <p>Overview: {data.campaign.overview}</p>
-                <p>Story: {data.campaign.story}</p>
-                <p>Faq: {data.campaign.faq}</p>
-                <p>Image URL: {data.campaign.image_url}</p>
-                <p>Category: {data.campaign.category}</p>
-                <p>End Date: {data.campaign.end_date}</p>
-              </div>
+                </div>
+                <div className="show-info-container">
+                  <div className="show-center-info-container">
+                    <h3 className="show-info-header">Overview</h3>
+                    <p>{data.campaign.overview}</p>
+                    <h3 className="show-info-header">Story:</h3>
+                    <p>{data.campaign.story}</p>
+                    <h3 className="show-info-header">Faq</h3>
+                    <p>{data.campaign.faq}</p>
+                    <br></br>
+                    <br></br>
+                    <p>Tagline: {data.campaign.tagline}</p>
+                    <p>Category {data.campaign.category}</p>
+                  </div>
+                  <div className="show-perks"><div className="perk-item">Perks Go Here</div></div>
+                </div>
+            </div>
             );
           }}
         </Query>

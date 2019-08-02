@@ -3,7 +3,7 @@ import { Mutation, ApolloConsumer } from "react-apollo";
 import Mutations from "../../graphql/mutations";
 import Queries from "../../graphql/queries";
 import axios from 'axios';
-import CampaignShow from "./CampaignShow";
+// import CampaignShow from "./CampaignShow";
 
 const { CREATE_CAMPAIGN } = Mutations;
 const { CURRENT_USER, FETCH_CAMPAIGNS } = Queries;
@@ -35,7 +35,6 @@ class CampaignCreate extends Component {
       goal: "234523423",
       end_date: "2019-12-15"
     };
-    // this.handleSubmit = this.handleSubmit.bind(this);
     this.temp = "";
     this.verifyUser = this.verifyUser.bind(this);
 
@@ -129,140 +128,134 @@ class CampaignCreate extends Component {
       this.verifyUser(token, client);
       return (
         <div className='create-campaign-container'>
-          <section className='create-campaign-header'>
-            <h4>Campaign / Basics</h4>
-          </section>
-            <h1>Basics</h1>
-            <p>Make a good first impression: introduce your campaign objectives and entice people to learn more. This basic information will represent your campaign on your campaign page, on your campaign card, and in searches.</p>
-        <Mutation
-          mutation={CREATE_CAMPAIGN}
-          update={(cache, data) => this.updateCache(cache, data)}
-          onCompleted={data => {
-            // const { token } = data.register;
-            // localStorage.setItem("auth-token", token);
-            this.props.history.push("/landing"); //send to new campaign show
-          }}
-          // update={(client, data) => this.updateCache(client, data)}
-        >
-          {CreateCampaign => (
-            <div className='campaign-form-container'>
-
-              <form
-                className='campaign-form'
-                onSubmit={e => {
-                  e.preventDefault();
-
-                 
-                  const picture = this.picture;
-                  let formData = new FormData();
-                  formData.append("picture", picture);
-                  postImage(formData)
-                    .then(({data}) => {
-                      // debugger
-                      CreateCampaign({
-                        variables: {
-                          title: this.state.title,
-                          tagline: this.state.tagline,
-                          overview: this.state.overview,
-                          story: this.state.story,
-                          faq: this.state.faq,
-                          image_url: data.location,
-                          category: this.state.category,
-                          goal: Number(this.state.goal),
-                          end_date: this.state.end_date,
-                          user: this.temp._id
-                        }
+          <div className="vert-image-container">
+            <img className="vert-image" src="https://indiedodo-dev.s3-us-west-1.amazonaws.com/jungle_vert_slice.png" alt="sidebar-jungle" />
+          </div>
+          <div>
+            <section className='create-campaign-header'>
+              <h3 className="camp-basics">Campaign / Basics</h3>
+            </section>
+            <Mutation
+              mutation={CREATE_CAMPAIGN}
+              update={(cache, data) => this.updateCache(cache, data)}
+              onCompleted={data => {
+                // const { token } = data.register;
+                // localStorage.setItem("auth-token", token);
+                this.props.history.push("/landing"); //send to new campaign show
+              }}
+              // update={(client, data) => this.updateCache(client, data)}
+            >
+            {CreateCampaign => (
+              <div className='campaign-form-container'>
+                <h2>Basics</h2>
+                <h6 className="create-basics">Make a good first impression: introduce your campaign objectives and entice people to learn more. This basic information will represent your campaign on your campaign page, on your campaign card, and in searches.</h6>
+                <form
+                  className='campaign-form'
+                  onSubmit={e => {
+                    e.preventDefault();
+                    const picture = this.picture;
+                    let formData = new FormData();
+                    formData.append("picture", picture);
+                    postImage(formData)
+                      .then(({data}) => {
+                        // debugger
+                        CreateCampaign({
+                          variables: {
+                            title: this.state.title,
+                            tagline: this.state.tagline,
+                            overview: this.state.overview,
+                            story: this.state.story,
+                            faq: this.state.faq,
+                            image_url: data.location,
+                            category: this.state.category,
+                            goal: Number(this.state.goal),
+                            end_date: this.state.end_date,
+                            user: this.temp._id
+                          }
+                        });
+                    console.log("postImg no error");
                       });
-                  console.log("postImg no error");
-                    });
-                  
-                  
-
-
-                }}
-              >
-                <div className='campaign-create-inputs'>
-                  <h4>Campaign Title</h4>
-                  <h6>What is the title of your campaign?</h6>
-                  <input
-                      
+                  }}
+                >
+                  <div className='campaign-create-inputs'>
+                    <h3 className="create-subhead">Campaign Title</h3>
+                    <h6 className="create-input-txt">What is the title of your campaign?</h6>
+                    <textarea
+                      className="create-txtarea-short"
                       value={this.state.title}
                       onChange={this.update("title")}
-                      type="text"
-                      />
-                  <h4>Campaign Tagline</h4>
-                    <h6>Provide a short description that best describes your campaign to your audience.</h6>
-                  <input
-                      
-                    value={this.state.tagline}
-                    onChange={this.update("tagline")}
-                    type="text"
-                  />
-                  
-                  <h4>Category</h4>
-                    <h6>To help backers find your campaign, select a category that best represents your project.</h6> 
-                  <input
-                    value={this.state.category}
-                    onChange={this.update("category")}
-                    type="text"
-                  />
-                  <h4>Overview</h4>
-                    <h6>Lead with a compelling statement that describes your campaign and why it’s important to you, highlight key campaign features, and remember - keep it short!</h6> 
-                  <input
-                    value={this.state.overview}
-                     
-                    onChange={this.update("overview")}
-                    type="text"
-                  />
-                  <h4>Story</h4>
-                    <h6>Tell potential contributors more about your campaign. Provide details that will motivate people to contribute. A good pitch is compelling, informative, and easy to digest.</h6> 
-                  <input
-                     
-                    value={this.state.story}
-                    onChange={this.update("story")}
-                    type="text"
-                  />
-                  <h4>FAQ</h4>
-                    <h6>The FAQ section should provide the most common details that backers are looking for when evaluating your campaign. We will also provide common answers to questions about crowdfunding and how Indiegogo works.</h6> 
-                  <input
-                   
-                    value={this.state.faq}
-                    onChange={this.update("faq")}
-                    type="text"
                     />
-                    <h4>Campaign Goal Amount</h4>
-                    <h6>How much money would you like to raise for this campaign? Please enter a number between $1 and $1,000,000</h6> 
-                  <input
-                    value={this.state.goal}
-                    onChange={this.update("goal")}
-                    type="number"
-                    min="1"
-                    max="1000000000"
-                  />
-                    <h4>Campaign Duration</h4>
-                    <h6>When will your campaign end? Select the last day.</h6> 
-                  <input
-                    value={this.state.end_date}
-                    onChange={this.update("end_date")}
-                    type="date"
-                  />
-                    <h4>Upload An Image</h4>
-                    <h6>Upload a square image that represents your campaign.</h6> 
+                    <h3 className="create-subhead">Campaign Tagline</h3>
+                    <h6 className="create-input-txt">Provide a short description that best describes your campaign to your audience.</h6>
+                    <textarea
+                      className="create-txtarea-tall"
+                      value={this.state.tagline}
+                      onChange={this.update("tagline")}
+                    />
+                    <h3 className="create-subhead">Category</h3>
+                      <h6 className="create-input-txt">To help backers find your campaign, select a category that best represents your project.</h6> 
+                    <textarea
+                      className="create-txtarea-narrow"
+                      value={this.state.category}
+                      onChange={this.update("category")}
+                    />
+                    <h3 className="create-subhead">Overview</h3>
+                      <h6 className="create-input-txt">Lead with a compelling statement that describes your campaign and why it’s important to you, highlight key campaign features, and remember - keep it short!</h6> 
+                    <textarea
+                      className="create-txtarea-tall"
+                      value={this.state.overview}
+                      onChange={this.update("overview")}
+                    />
+                    <h3 className="create-subhead">Story</h3>
+                      <h6 className="create-input-txt">Tell potential contributors more about your campaign. Provide details that will motivate people to contribute. A good pitch is compelling, informative, and easy to digest.</h6> 
+                    <textarea
+                      className="create-txtarea-tall"
+                      value={this.state.story}
+                      onChange={this.update("story")}
+                    />
+                    <h3 className="create-subhead">FAQ</h3>
+                      <h6 className="create-input-txt">The FAQ section should provide the most common details that backers are looking for when evaluating your campaign. We will also provide common answers to questions about crowdfunding and how Indiegogo works.</h6> 
+                    <textarea
+                      className="create-txtarea-tall"
+                      value={this.state.faq}
+                      onChange={this.update("faq")}
+                    />
+                      <h3 className="create-subhead">Campaign Goal Amount</h3>
+                      <h6 className="create-input-txt">How much money would you like to raise for this campaign? Please enter a number between $1 and $1,000,000</h6> 
                     <input
-                      id="file"
-                      type="file"
-                      name="picture"
-                      accept="application/x-zip-compressed,image/*"
-                      onChange={this.handleChangeImg.bind(this)}></input>
-
-                    <input id="create-campaign-button" className="btn-glow" type="submit" value="Create Your Campaign" />
-                </div>
-              </form>
-
-            </div>
-          )}
-        </Mutation>
+                      className="create-txtarea-narrow"
+                      value={this.state.goal}
+                      onChange={this.update("goal")}
+                      type="number"
+                      min="1"
+                      max="1000000000"
+                    />
+                      <h3 className="create-subhead">Campaign Duration</h3>
+                      <h6 className="create-input-txt">When will your campaign end? Select the last day.</h6> 
+                    <input
+                      value={this.state.end_date}
+                      onChange={this.update("end_date")}
+                      type="date"
+                    />
+                      <h3 className="create-subhead">Upload An Image</h3>
+                      <h6 className="create-input-txt">Upload a square image that represents your campaign.</h6> 
+                      <input
+                        className="create-img"
+                        id="file"
+                        type="file"
+                        name="picture"
+                        accept="application/x-zip-compressed,image/*"
+                        onChange={this.handleChangeImg.bind(this)}></input>
+                      <div class="create-btn-container">
+                        <input id="create-campaign-button" className="btn-glow" type="submit" value="CREATE CAMPAIGN" />
+                      </div>
+                  </div>
+                </form>
+              </div>
+            )}
+          </Mutation>
         </div>
+      </div>
       );
     }}
     </ApolloConsumer>

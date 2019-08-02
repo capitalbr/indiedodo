@@ -54,24 +54,66 @@
 }
 
 
-.raised-bar-cont {
+.raised-bar-show-cont {
   width: 485px;
   margin-top: 5px;
   background-color: rgb(189, 189, 189);
   margin-bottom: 5px;
   height: 10px;
+  border-radius: 8px;
 }
 
 .raised-bar {
   background-color: $dodo-blue;
   height: 100%;
+  border-radius: 8px;
 }
 
 .campaign-show-header-buttons{
   display: flex;
+  justify-content: space-between;
   margin-top: 28px;
-  .backit{
-    margin-right: 14px;
+  .campaign-show-buttons-container{
+    display: flex;
+    .backit{
+      margin-right: 14px;
+      button{
+        color: #fff;
+        background-color: $dodo-blue;
+        border: 1px solid $dodo-blue;
+        border-radius: 2px;
+        cursor: pointer;
+        min-width: 112px;
+        height: 50px;
+        font-family: $roboto;
+        font-size: 14px;
+        letter-spacing: 1px;
+      }
+      button:hover{
+        background-color:  #487488
+      }
+    }
+  }
+  .follow{
+    button{
+      color: #2a2a2a;
+      // background-color: white;
+      // border: 1px solid $dodo-blue;
+      border-radius: 2px;
+      cursor: pointer;
+      min-width: 130px;
+      height: 50px;
+      font-family: $roboto;
+      font-size: 14px;
+      letter-spacing: 1px;
+      .follow-icon{
+        transform: translate(0px, 2px);
+        padding-right: 5px;
+      }
+    }
+    button:hover{
+      background-color: #f8f8f8;
+    }
   }
 
   .share-icon-container-center{
@@ -83,7 +125,8 @@
       justify-content: flex-end;
       width: 152px;
       .share-icons{
-        width: 35px;
+        width: 40px;
+        height: 22px;
       }
     }    
   }
@@ -92,4 +135,28 @@
 .raised-text-cont {
   display: flex;
   justify-content: space-between;
+}
+
+.show-info-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 75px;
+  .show-perks{
+    .perk-item{
+      height: 430px;
+      width: 305px;
+      border-style: solid;
+      border-width: 2px;
+
+    }
+  }
+}
+
+.show-center-info-container {
+  max-width: 697px;
+  margin-right: 20px;
+}
+
+.show-info-header {
+  margin: 30px 0px 30px 0px;
 }
