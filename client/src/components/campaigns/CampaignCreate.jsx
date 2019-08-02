@@ -3,7 +3,6 @@ import { Mutation, ApolloConsumer } from "react-apollo";
 import Mutations from "../../graphql/mutations";
 import Queries from "../../graphql/queries";
 import axios from 'axios';
-// import CampaignShow from "./CampaignShow";
 
 const { CREATE_CAMPAIGN } = Mutations;
 const { CURRENT_USER, FETCH_CAMPAIGNS } = Queries;
@@ -19,6 +18,12 @@ const postImage = (payload) => {
   });
 };
 
+const youtubeURLHelper = (url) => {
+  const idx = url.indexOf("v=") + 2;
+  const query = url.slice(idx)
+  let embeddedUrl = "https://www.youtube.com/embed/" + query;
+  return (embeddedUrl)
+}
 
 class CampaignCreate extends Component {
   constructor(props) {
@@ -31,14 +36,13 @@ class CampaignCreate extends Component {
       story: "testetestetestetestetestetesteteste",
       faq: "testetestetestetestetestetesteteste",
       image_url: "testetestetestetestetestetesteteste",
+      youtube_url: "https://www.youtube.com/watch?v=IChRNbuHHWE",
       category: "testetestetestetestetestetesteteste",
-      goal: "234523423",
+      goal: "20000",
       end_date: "2019-12-15"
     };
     this.temp = "";
     this.verifyUser = this.verifyUser.bind(this);
-
-    // this.handleSubmit = this.handleSubmit.bind(this);
     this.picture = "";
   }
 
@@ -155,10 +159,10 @@ class CampaignCreate extends Component {
                     e.preventDefault();
                     const picture = this.picture;
                     let formData = new FormData();
+                    let embeddedURL = youtubeURLHelper(this.state.youtube_url);
                     formData.append("picture", picture);
                     postImage(formData)
                       .then(({data}) => {
-                        // debugger
                         CreateCampaign({
                           variables: {
                             title: this.state.title,
@@ -167,6 +171,7 @@ class CampaignCreate extends Component {
                             story: this.state.story,
                             faq: this.state.faq,
                             image_url: data.location,
+                            youtube_url: embeddedURL,
                             category: this.state.category,
                             goal: Number(this.state.goal),
                             end_date: this.state.end_date,
@@ -233,6 +238,7 @@ class CampaignCreate extends Component {
                       <h3 className="create-subhead">Campaign Duration</h3>
                       <h6 className="create-input-txt">When will your campaign end? Select the last day.</h6> 
                     <input
+                      className="create-date"
                       value={this.state.end_date}
                       onChange={this.update("end_date")}
                       type="date"
@@ -245,7 +251,16 @@ class CampaignCreate extends Component {
                         type="file"
                         name="picture"
                         accept="application/x-zip-compressed,image/*"
-                        onChange={this.handleChangeImg.bind(this)}></input>
+                        onChange={this.handleChangeImg.bind(this)}>  
+                      </input>
+                      <h3 className="create-subhead">Youtube Link</h3>
+                      <h6 className="create-input-txt">Optional Youtube URL to display onto your campaign page. Note: use the regular URL - we will handle embedding.</h6>
+                      <input
+                        className="create-txtarea-narrow"
+                        value={this.state.youtube_url}
+                        onChange={this.update("youtube_url")}
+                        type="text"
+                      />
                       <div class="create-btn-container">
                         <input id="create-campaign-button" className="btn-glow" type="submit" value="CREATE CAMPAIGN" />
                       </div>

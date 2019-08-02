@@ -29,21 +29,27 @@
 
 .create-input-txt {
   margin-bottom: 17px;
+  font-weight: 100;
+  font-size: 14px;
+  color: #6a6a6a;
 }
 
 .create-txtarea-short {
   width: 755px;
   height: 51px;
+  font-size: 14px;
 }
 
 .create-txtarea-narrow {
   width: 377px;
   height: 15px;
+  font-size: 14px;
 }
 
 .create-txtarea-tall {
   width: 755px;
   height: 65px;
+  font-size: 14px;
 }
 
 .create-img {
@@ -69,9 +75,13 @@
 .vert-image {
   height: 100%;
   width: 100%;
-  opacity: .4;
+  opacity: .6;
 }
 
 .vert-image-container {
   background: black;
+}
+
+.create-date {
+  font-size: 14px;
 }
