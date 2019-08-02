@@ -1,0 +1,20 @@
+.featured-campaign{
+    height: 468px;
+    width: 100%;
+    .featured-background{
+        height: 500px;
+        width: 100%;
+        z-index: -1;
+    }
+}
+
+.featured-controls{
+    position: absolute;
+    bottom: 80px;
+    margin-top: 512px;
+    z-index: 1;
+    margin-right: 80px;
+    margin-left: 80px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
