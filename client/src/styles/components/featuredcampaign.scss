@@ -4,6 +4,7 @@
     .featured-background{
         height: 500px;
         width: 100%;
+        object-fit: cover;
         z-index: -1;
     }
 }

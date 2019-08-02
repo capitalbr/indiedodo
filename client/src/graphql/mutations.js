@@ -4,6 +4,7 @@ export default {
   LOGIN_USER: gql`
     mutation LoginUser($email: String!, $password: String!) {
       login(email: $email, password: $password) {
+        name
         token
         loggedIn
       }
@@ -12,6 +13,7 @@ export default {
   REGISTER_USER: gql`
     mutation RegisterUser($email: String!, $name: String!, $password: String!) {
       register(email: $email, name: $name, password: $password) {
+        name
         token
         loggedIn
       }

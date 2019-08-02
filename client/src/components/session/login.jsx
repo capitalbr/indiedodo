@@ -26,7 +26,8 @@ class Login extends Component {
     });
   }
 
-  fbLogin(){
+  fbLogin(e){
+    e.preventDefault();
     this.setState({
       email: 'albus@hogwarts.edu',
       password: 'Qwerty1234!'
@@ -38,8 +39,10 @@ class Login extends Component {
       <Mutation
         mutation={LOGIN_USER}
         onCompleted={data => {
-          const { token } = data.login;
+          const { name, token } = data.login;
+          debugger;
           localStorage.setItem("auth-token", token);
+          localStorage.setItem("current-user", name);
           this.props.history.push("/landing");
         }}
         update={(client, data) => this.updateCache(client, data)}
