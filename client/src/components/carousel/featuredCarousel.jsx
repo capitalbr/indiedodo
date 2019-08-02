@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {FaChevronLeft, FaChevronRight} from "react-icons/fa";
 import CampaignItem from "../campaigns/CampaignItem";
 import AliceCarousel from 'react-alice-carousel'
@@ -26,10 +27,17 @@ export default class Carousel extends React.Component{
     return featured.map(camp => { 
         return (
           <div className='featured-campaign'>
-              {/* <img  className="featured-background" src={camp.image_url} alt={camp.title}/> */}
-              <span className='featured-label'>DODOPICKS</span>
-              <h1 className='featured-title'>{camp.title}</h1>
-              <h1 className='featured-tagline'>{camp.tagline}</h1>
+              <img  className="featured-background" src={camp.image_url} alt={camp.title}/>
+              <div className='featured-controls'>
+                <span className='featured-label'>DODOPICKS</span>
+                <h1 className='featured-title'>{camp.title}</h1>
+                <h1 className='featured-tagline'>{camp.tagline}</h1>
+                <Link className='fatured-link' to={`/campaigns/${camp._id}`}> SEE CAMPAIGN</Link>
+                <div>
+                  <button className="prev-btn" onClick={() => this.slidePrev()}><FaChevronLeft/></button>
+                  <button className="next-btn" button onClick={() => this.slideNext()}><FaChevronRight/></button>
+                </div>
+              </div>
           </div>
         )
     });
@@ -51,10 +59,6 @@ export default class Carousel extends React.Component{
           slideToIndex={currentIndex}
           onSlideChanged={this.onSlideChanged}
         />
-        <div>
-          <button className="prev-btn" onClick={() => this.slidePrev()}/>
-          <button className="next-btn" button onClick={() => this.slideNext()}/>
-        </div>
       </div>
     )
   }

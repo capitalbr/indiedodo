@@ -11,12 +11,12 @@ import { ApolloProvider } from "react-apollo";
 import { ApolloLink } from "apollo-link";
 import { onError } from "apollo-link-error";
 import Queries from "./graphql/queries";
-// import Mutations from "./graphql/mutations";
+import Mutations from "./graphql/mutations";
 
 import './styles/output.css';
 
 const {CURRENT_USER} = Queries;
-// const { VERIFY_USER } = Mutations;
+const { VERIFY_USER } = Mutations;
 
 const cache = new InMemoryCache({
   dataIdFromObject: object => object._id || null
@@ -53,21 +53,34 @@ cache.writeData({
 });
 
 
-
-if (token) {
-  const currentUser = client.query({query: CURRENT_USER, variables: {token}});
-  client
-    .mutate({ mutation: CURRENT_USER, variables: { token } })
+if(token){
+  client.mutate({mutation: VERIFY_USER, variables: {token}})
     .then(({ data }) => {
       cache.writeData({
           data: {
-            isLoggedIn: data.currentUser.loggedIn,
-            currentUser: Object.assign(currentUser, {__typename: "user"}),
+            isLoggedIn: data.verifyUser.loggedIn,
+            currentUser: Object.assign(data.verifyUser, {__typename: "user"}),
             cart: []
           }
       });
-    });
+  })
 }
+
+// if(verified) {
+//   const currentUser = client.query({query: CURRENT_USER, variables: {token}});
+//   debugger;
+//   client
+//     .mutate({ mutation: CURRENT_USER, variables: { token } })
+//     .then(({ data }) => {
+//       cache.writeData({
+//           data: {
+//             isLoggedIn: data.currentUser.loggedIn,
+//             currentUser: Object.assign(currentUser, {__typename: "user"}),
+//             cart: []
+//           }
+//       });
+//     });
+// }
 
 const Root = () => {
   return (
