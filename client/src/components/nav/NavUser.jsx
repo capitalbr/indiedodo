@@ -28,7 +28,7 @@ class NavUser extends React.Component {
                 const currentUser = localStorage.getItem("current-user")
                 // this.verifyUser(token, client);
                 // let name = this.temp.name;
-                debugger;
+                
                 // let firstName = name.split(" ");
                 return(
                     <div className='user-nav'>

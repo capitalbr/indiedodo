@@ -86,13 +86,14 @@ const CampaignPerks = (campaign_id) => {
           <div>
             {campaignPerks.map((perk) => {
               return (
-                <div>
-                  <li>{perk._id}</li>
-                  <li>{perk.campaign}</li>
-                  <li>{perk.cost}</li>
+                <div key={perk._id}>
+                  <img className="perk-image" src={perk.image_url} alt="single perk"/>
                   <li>{perk.description}</li>
-                  <li>{perk.image_url}</li>
-                  <li>{perk.option}</li>
+                  <li>${perk.cost} USD</li>
+                  <li>Estimated Shipping</li>
+                  <li>{perk.est_shipping}</li>
+                  <li>{perk.inventory_info}</li>
+                  <li>{perk.shipping_info}</li>
                 </div>
               )
             })}

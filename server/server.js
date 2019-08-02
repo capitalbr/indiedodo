@@ -12,6 +12,9 @@ const multerS3 = require('multer-s3');
 const app = express();
 const s3 = new aws.S3({ /* ... */ });
 
+const keys = require('./config.json');
+aws.config.update({ "accessKeyId": keys.accessKeyId, "secretAccessKey": keys.secretAccessKey, "region": keys.region })
+
 const upload = multer({
   storage: multerS3({
     s3: s3,

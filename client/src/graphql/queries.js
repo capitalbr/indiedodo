@@ -138,6 +138,9 @@ export default {
         description
         image_url
         option
+        est_shipping
+        inventory_info
+        shipping_info
       }
     }
   `,
