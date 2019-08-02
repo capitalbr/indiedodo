@@ -26,6 +26,9 @@ const CampaignSchema = new Schema({
     type: String,
     required: true
   },
+  youtube_url: {
+    type: String
+  },
   category: {
     type: String,
     required: true

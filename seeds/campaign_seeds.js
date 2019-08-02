@@ -22,6 +22,7 @@ const seedCampaigns = () => {
           story: "E pluribus. Out of many, one from latin.",
           faq: "E pluribus. Out of many, one from latin.",
           image_url: "https://animals.sandiegozoo.org/sites/default/files/2016-09/animals_hero_lions_0.jpg",
+          youtube_url: "https://www.youtube.com/embed/IChRNbuHHWE",
           category: "Mammal",
           goal: 100000,
           end_date: endDate,

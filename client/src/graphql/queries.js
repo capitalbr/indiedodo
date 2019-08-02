@@ -39,6 +39,7 @@ export default {
         story
         faq
         image_url
+        youtube_url
         category
         goal
         end_date
@@ -56,6 +57,7 @@ export default {
         story
         faq
         image_url
+        youtube_url
         category
         goal
         end_date
@@ -72,6 +74,7 @@ export default {
         story
         faq
         image_url
+        youtube_url
         category
         goal
         end_date
