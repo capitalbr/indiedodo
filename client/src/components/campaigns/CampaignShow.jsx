@@ -1,5 +1,6 @@
 import React from "react";
 import { Query, Mutation } from "react-apollo";
+import { Link } from "react-router-dom";
 import { 
   FaAccusoft, 
   FaHeart, 
