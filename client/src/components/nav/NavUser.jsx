@@ -33,10 +33,12 @@ class NavUser extends React.Component {
                 return(
                     <div className='user-nav'>
                         <div className='user-menu'>
-                            <FaUser />
-                            <p>{currentUser}</p>
-                            <FaChevronDown className="dropdown-btn"/>
-                            <div className='dropdown-container'>
+                            <div className='user'>
+                                <FaUser />
+                                <p>{currentUser}</p>
+                                <FaChevronDown className="dropdown-btn"/>
+                            </div>
+                            <div className='dropdown-content'>
                                 <a href="">My Profile</a>
                                 <a href="">My Campaigns</a>
                                 <a href="">My Contributions</a>

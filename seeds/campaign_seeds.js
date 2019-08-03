@@ -15,7 +15,7 @@ const seedCampaigns = () => {
       .then(user => {
         let endDate = new Date();
         endDate.setDate(38);
-        newCampaign = new Campaign({
+        newCampaign1 = new Campaign({
           title: "Lion brush initiative",
           tagline: "Lion mane",
           overview: "Kind brushes and combs for cuddly lions",
@@ -67,6 +67,50 @@ const seedCampaigns = () => {
           image_url: "https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1550684943/zebras-STRIPEPOWER0219.jpg?itok=zfKIXCep",
           category: "Mammal",
           goal: 12345,
+          end_date: endDate,
+          user: user._id,
+        })
+        newCampaign.save().then(campaign => {
+          console.log(`Success: ${campaign.title} was created`);
+        }, err => { console.log(`${campaign.title} was unable to save due to: ${err}`) })
+      })
+
+      User.findOne({ name: "Albus Dumbledore" })
+      .then(user => {
+        let endDate = new Date();
+        endDate.setDate(38);
+        newCampaign1 = new Campaign({
+          title: "Golden Dorado Conservation Research",
+          tagline: "Fund research on Golden Dorado in Argentina to develop more effective management strategies",
+          overview: "Fund research on Golden Dorado in Argentina to develop more effective management strategies",
+          story: "Dorado (Salminus brasiliensis) is an iconic and charismatic fish species in neotropical rivers of Brazil, Paraguay, Uruguay, Bolivia, and northern Argentina. Both sport and commercial fishers value Dorado for their sustenance, vigor, beauty, and challenge. ­­Dorado provides economic support for communities in northern Argentina and throughout South America. Currently the species is facing severe pressure and declining populations due to overharvest harvest, habitat degradation, and poorly understood ecology, including movement patterns. ",
+          faq: "E pluribus. Out of many, one from latin.",
+          image_url: "https://live.staticflickr.com/4100/4863789079_e3de32e7d3_b.jpg",
+          youtube_url: "https://www.youtube.com/watch?v=4Q3av_zpuYw",
+          category: "Fish",
+          goal: 15000,
+          end_date: endDate,
+          user: user._id,
+        })
+        newCampaign.save().then(campaign => {
+          console.log(`Success: ${campaign.name} was created`);
+        }, err => { console.log(`${campaign.name} was unable to save due to: ${err}`) })
+      })
+
+      User.findOne({ name: "Stephen Curry" })
+      .then(user => {
+        let endDate = new Date();
+        endDate.setDate(38);
+        newCampaign = new Campaign({
+          title: "Gorilla Conservation Coffee",
+          tagline: "Saving gorillas - one sip at a time",
+          overview: "You can make a difference to community livelihoods and help save critically endangered mountain gorillas by buying coffee and visiting the gorillas and the farmers at Bwindi.",
+          story: "Gorilla Conservation Coffee was founded on the belief that conservation will succeed when communities are involved. We strive to provide alternative income streams and markets for the local farmers through training them to improve coffee production while teaching communities the importance and value of the mountain gorillas in their lives. We are developing a global brand that will provide sustainable financing for local livelihoods and grassroots gorilla conservation efforts in Uganda.",
+          faq: "As a thank you for supporting our project we will send you a Kanyonyi Gorilla postcard! We will make sure to keep you up-to-date as our company grows!",
+          image_url: "https://radioimg.s3.amazonaws.com/kjkkfm/styles/delta__775x515/s3/dreamstime_xs_4756120.jpg?itok=776J8vTB",
+          youtube_url: "https://www.youtube.com/watch?time_continue=1&v=QBSNd1J1V7g",
+          category: "Mammal",
+          goal: 50000,
           end_date: endDate,
           user: user._id,
         })
