@@ -140,6 +140,7 @@ export default {
         option
         est_shipping
         inventory_info
+        title
         shipping_info
       }
     }

@@ -1,0 +1,41 @@
+.checkout-container{
+  display: flex;
+  justify-content: center;
+  .checkout-left{
+    border-style: solid;
+    border-color: green;
+    border-width: 3px;
+    height: 1039px;
+    width: 773px;
+    margin-right: 104px;
+  }
+  .checkout-right{
+    border-style: solid;
+    border-color: blue;
+    border-width: 3px;
+    height: 1000px;
+    width: 344px;
+    margin-top: 53px;
+    &-perk{
+      margin: 23px;
+      .checkout-right-review{
+        font-family:'Roboto';
+        font-weight:300;
+        // font-family: $indiefonto;
+        letter-spacing: 2px;
+        font-size: 12px;
+      }
+      .checkout-right-perk-title{
+        font-size: 14px;
+      }
+    }
+    &-line{
+      border-bottom: .5px solid #dcdcdc;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    &-summary{
+      margin: 20px 20px 20px 20px;
+    }
+  }
+}

@@ -10,6 +10,7 @@ import CampaignCreate from "./campaigns/CampaignCreate";
 import Landing from "./landing/landing";
 import Footer from "./footer/footer";
 import Test from "./test"
+import Checkout from "./checkout/checkout"
 
 const App = () => {
 //   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route exact path="/test" component={Test} />
         <AuthRoute exact path="/new-campaign" component={CampaignCreate} routeType="protected" />
         <Route exact path="/campaigns/:campaignId" component={CampaignShow} />
+        <Route exact path="/checkout" component={Checkout} />
         <AuthRoute exact path="/login" component={Login} routeType="auth" />
         <AuthRoute exact path="/register" component={Register} routeType="auth" />
         <Route path="/" component={oops} />

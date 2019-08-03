@@ -553,7 +553,7 @@ h2 {
 .cost-text {
   font-size: 22px; }
 
-.perk-desc {
+.perk-title {
   margin-bottom: 22px; }
 
 .ship-inv-head {
@@ -689,5 +689,38 @@ h2 {
 .footer-li {
   font-size: 14px;
   color: #2a2a2a; }
+
+.checkout-container {
+  display: flex;
+  justify-content: center; }
+  .checkout-container .checkout-left {
+    border-style: solid;
+    border-color: green;
+    border-width: 3px;
+    height: 1039px;
+    width: 773px;
+    margin-right: 104px; }
+  .checkout-container .checkout-right {
+    border-style: solid;
+    border-color: blue;
+    border-width: 3px;
+    height: 1000px;
+    width: 344px;
+    margin-top: 53px; }
+    .checkout-container .checkout-right-perk {
+      margin: 23px; }
+      .checkout-container .checkout-right-perk .checkout-right-review {
+        font-family: 'Roboto';
+        font-weight: 300;
+        letter-spacing: 2px;
+        font-size: 12px; }
+      .checkout-container .checkout-right-perk .checkout-right-perk-title {
+        font-size: 14px; }
+    .checkout-container .checkout-right-line {
+      border-bottom: .5px solid #dcdcdc;
+      margin-bottom: 10px;
+      width: 100%; }
+    .checkout-container .checkout-right-summary {
+      margin: 20px 20px 20px 20px; }
 
 /*# sourceMappingURL=output.css.map */
