@@ -86,14 +86,33 @@ const CampaignPerks = (campaign_id) => {
           <div>
             {campaignPerks.map((perk) => {
               return (
-                <div key={perk._id}>
+                <div className="perk-item-container" key={perk._id}>
                   <img className="perk-image" src={perk.image_url} alt="single perk"/>
-                  <li>{perk.description}</li>
-                  <li>${perk.cost} USD</li>
-                  <li>Estimated Shipping</li>
-                  <li>{perk.est_shipping}</li>
-                  <li>{perk.inventory_info}</li>
-                  <li>{perk.shipping_info}</li>
+                  <div className="perk-item-text-container">
+                    <h2 className="perk-desc">{perk.description}</h2>
+                    <div className="show-cost-container">
+                      <h2 className="cost-text">${perk.cost}</h2>
+                      <h4 className="usd-text">USD</h4>
+                    </div>
+                    <h4 className="ship-inv-head">Estimated Shipping</h4>
+                    <h4 className="ship-inv-info">{perk.est_shipping}</h4>
+                    <h4 className="ship-inv-info">{perk.inventory_info}</h4>
+                    <h4 className="ship-inv-info">{perk.shipping_info}</h4>
+                  </div>
+                  <div className="get-perk-btn-container">
+                    
+                    <Link className='new-char-link'
+                      to={{
+                        pathname: '/checkout-page',
+                        state: {
+                          perk: perk,
+                          campaign: this.campaign
+                          // currentUser: currentUser
+                        }
+                      }}
+                    ><button className="get-perk-btn">GET THIS PERK</button>
+                    </Link>
+                  </div>
                 </div>
               )
             })}
@@ -296,7 +315,8 @@ class CampaignShow extends React.Component {
                     <p>Category {data.campaign.category}</p>
                   </div>
                   <div className="show-perks">
-                      {this.perks}
+                    <h4 className="select-perk">Select a perk</h4>
+                    {this.perks}
                   </div>
                 </div>
             </div>

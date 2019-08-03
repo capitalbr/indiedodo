@@ -163,9 +163,11 @@ h2 {
       .back-it .back-it-sub-container #perk-items-list-title {
         margin-top: 38px;
         margin-bottom: 5px; }
-    .back-it .back-it-sub-container .perk-image {
-      width: 475px;
-      height: 315px; }
+      .back-it .back-it-sub-container #perk-items-list .perk-image {
+        width: 475px;
+        height: 315px; }
+      .back-it .back-it-sub-container #perk-items-list .perk-item-container {
+        width: fit-content; }
 
 .register-container {
   display: flex;
@@ -527,6 +529,57 @@ h2 {
 .perk-image {
   width: 335px;
   height: 224px; }
+
+.perk-item-container {
+  width: 335px;
+  height: 100%;
+  border: .5px #C8C8C8 solid;
+  margin-bottom: 25px; }
+
+.perk-item-text-container {
+  margin: 37px 0px 0px 25px; }
+
+.usd-text {
+  font-size: 15px;
+  color: #6a6a6a;
+  align-self: flex-end;
+  margin-left: 5px;
+  transform: translateY(-1px); }
+
+.show-cost-container {
+  display: flex;
+  margin-bottom: 25px; }
+
+.cost-text {
+  font-size: 22px; }
+
+.perk-desc {
+  margin-bottom: 22px; }
+
+.ship-inv-head {
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: bolder; }
+
+.ship-inv-info {
+  margin-bottom: 23px;
+  font-weight: 100;
+  font-size: 14px;
+  color: #6a6a6a; }
+
+.get-perk-btn-container {
+  display: flex;
+  justify-content: center; }
+.get-perk-btn {
+  width: 300px;
+  height: 40px;
+  color: #4e7a8f;
+  font-size: 15px;
+  border-radius: 1px;
+  margin-bottom: 20px; }
+
+.select-perk {
+  margin-bottom: 24px; }
 
 .create-basics {
   margin: 20px 0px 0px 0px; }

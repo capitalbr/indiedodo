@@ -146,10 +146,13 @@
         margin-top: 38px;
         margin-bottom: 5px;
       }
-    }
-    .perk-image {
-      width: 475px;
-      height: 315px;
+      .perk-image {
+        width: 475px;
+        height: 315px;
+      }
+      .perk-item-container {
+        width: fit-content;
+      }
     }
   }
 
