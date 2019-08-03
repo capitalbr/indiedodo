@@ -164,6 +164,7 @@ body {
   align-content: center;
   align-items: center;
   padding: 16px;
+  overflow: hidden;
 }
 
 .nav-container * {
