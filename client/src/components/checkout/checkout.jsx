@@ -4,10 +4,6 @@ import Queries from "../../graphql/queries";
 const { FETCH_USER } = Queries;
 
 export default class Checkout extends React.Component {
-  // constructor(props){
-  //   super(props)
-  //   this.state
-  // }
   render() {
     return (
       <div className="checkout-container">
@@ -86,9 +82,7 @@ export default class Checkout extends React.Component {
               <div>
                 I agree to the Terms of Use and have read and understand the Privacy Policy.
               </div>
-              <button>
-                
-              </button>
+            <button className="checkout-right-submit">SUBMIT PAYMENT</button>
           </div>
         </div>
       </div>
