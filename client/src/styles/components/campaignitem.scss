@@ -48,3 +48,16 @@
         width: 100%;
     }
 }
+
+.raised-bar-item-cont {
+  width: 250px;
+  margin-top: 5px;
+  background-color: rgb(189, 189, 189);
+  margin-bottom: 5px;
+  height: 10px;
+  border-radius: 8px;
+}
+
+.raised-time-cont {
+  display: flex;
+}

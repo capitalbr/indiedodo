@@ -54,24 +54,66 @@
 }
 
 
-.raised-bar-cont {
+.raised-bar-show-cont {
   width: 485px;
   margin-top: 5px;
   background-color: rgb(189, 189, 189);
   margin-bottom: 5px;
   height: 10px;
+  border-radius: 8px;
 }
 
 .raised-bar {
   background-color: $dodo-blue;
   height: 100%;
+  border-radius: 8px;
 }
 
 .campaign-show-header-buttons{
   display: flex;
+  justify-content: space-between;
   margin-top: 28px;
-  .backit{
-    margin-right: 14px;
+  .campaign-show-buttons-container{
+    display: flex;
+    .backit{
+      margin-right: 14px;
+      button{
+        color: #fff;
+        background-color: $dodo-blue;
+        border: 1px solid $dodo-blue;
+        border-radius: 2px;
+        cursor: pointer;
+        min-width: 112px;
+        height: 50px;
+        font-family: $roboto;
+        font-size: 14px;
+        letter-spacing: 1px;
+      }
+      button:hover{
+        background-color:  #487488
+      }
+    }
+  }
+  .follow{
+    button{
+      color: #2a2a2a;
+      // background-color: white;
+      // border: 1px solid $dodo-blue;
+      border-radius: 2px;
+      cursor: pointer;
+      min-width: 130px;
+      height: 50px;
+      font-family: $roboto;
+      font-size: 14px;
+      letter-spacing: 1px;
+      .follow-icon{
+        transform: translate(0px, 2px);
+        padding-right: 5px;
+      }
+    }
+    button:hover{
+      background-color: #f8f8f8;
+    }
   }
 
   .share-icon-container-center{
@@ -83,7 +125,8 @@
       justify-content: flex-end;
       width: 152px;
       .share-icons{
-        width: 35px;
+        width: 40px;
+        height: 22px;
       }
     }    
   }
@@ -93,3 +136,104 @@
   display: flex;
   justify-content: space-between;
 }
+
+.show-info-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 75px;
+  .show-perks{
+    .perk-item{
+      height: 430px;
+      width: 305px;
+      border-style: solid;
+      border-width: 2px;
+
+    }
+  }
+}
+
+.show-center-info-container {
+  max-width: 697px;
+  margin-right: 20px;
+}
+
+.show-info-header {
+  margin: 30px 0px 30px 0px;
+}
+
+.youtube {
+  margin-top: 30px;
+}
+
+.perk-image {
+  width: 335px;
+  height: 224px;
+}
+
+.perk-item-container {
+  width: 335px;
+  height: 100%;
+  border: .5px #C8C8C8 solid;
+  margin-bottom: 25px;
+}
+
+.perk-item-text-container {
+  margin: 37px 0px 0px 25px;
+}
+
+.usd-text {
+  font-size: 15px;
+  color: #6a6a6a;
+  align-self: flex-end;
+  margin-left: 5px;
+  transform: translateY(-1px);
+}
+
+.show-cost-container {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.cost-text {
+  font-size: 22px;
+}
+
+.perk-desc {
+  margin-bottom: 22px;
+}
+
+.ship-inv-head {
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: bolder;
+}
+.ship-inv-info {
+  margin-bottom: 23px;
+  font-weight: 100;
+  font-size: 14px;
+  color: #6a6a6a;
+}
+
+.get-perk-btn-container {
+
+}
+
+.get-perk {
+  &-btn-container {
+    display: flex;
+    justify-content: center;
+  }
+  &-btn {
+    width: 300px;
+    height: 40px;
+    color: $dodo-blue;
+    font-size: 15px;
+    border-radius: 1px;
+    margin-bottom: 20px;
+  }
+}
+
+.select-perk {
+  margin-bottom: 24px;
+}
+

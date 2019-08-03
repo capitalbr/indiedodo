@@ -1,9 +1,19 @@
 import React from "react";
-import { Query } from "react-apollo";
-import { FaAccusoft } from "react-icons/fa"; 
-
+import { Query, Mutation } from "react-apollo";
+import { 
+  FaAccusoft, 
+  FaHeart, 
+  FaFacebookSquare, 
+  FaTwitter,
+  FaLink,
+  FaDollarSign
+} from "react-icons/fa"; 
 import Queries from "../../graphql/queries";
-const { FETCH_CAMPAIGN, FETCH_USER, FETCH_CAMPAIGN_CONTRIBUTIONS, FETCH_USER_CAMPAIGNS } = Queries;
+import Mutations from "../../graphql/mutations";
+
+
+const { FETCH_CAMPAIGN, FETCH_USER, FETCH_CAMPAIGN_CONTRIBUTIONS, FETCH_USER_CAMPAIGNS, FETCH_CAMPAIGN_PERKS } = Queries;
+const { CREATE_CONTRIBUTION } = Mutations;
 
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -44,12 +54,12 @@ const AllContributions = (campaign_id, goal, end_date) => {
                 {numberWithCommas(numContributions)} {backerText}
                 </div>
             </div>
-            <div className="raised-bar-cont">
+            <div className="raised-bar-show-cont">
               <div className="raised-bar" style={{ width: `${percent_raised}%`, maxWidth: "100%" }} />
             </div>
             <div className="raised-text-cont">
               <div>
-                {percent_raised}% of ${numberWithCommas(goal.toFixed(0))} Flexible Goal
+                {numberWithCommas(percent_raised)}% of ${numberWithCommas(goal.toFixed(0))} Flexible Goal
               </div>
               <div>
                 {diffDays} {dayText} left
@@ -62,14 +72,152 @@ const AllContributions = (campaign_id, goal, end_date) => {
   )
 }
 
+const CampaignPerks = (campaign_id) => {
+  return (
+    <Query
+      query={FETCH_CAMPAIGN_PERKS}
+      variables={{ campaignId: campaign_id }}
+    >
+      {({ loading, error, data }) => {
+        if (loading) return 0;
+        if (error) return 0;
+        const { campaignPerks } = data;
+        return (
+          <div>
+            {campaignPerks.map((perk) => {
+              return (
+                <div className="perk-item-container" key={perk._id}>
+                  <img className="perk-image" src={perk.image_url} alt="single perk"/>
+                  <div className="perk-item-text-container">
+                    <h2 className="perk-desc">{perk.description}</h2>
+                    <div className="show-cost-container">
+                      <h2 className="cost-text">${perk.cost}</h2>
+                      <h4 className="usd-text">USD</h4>
+                    </div>
+                    <h4 className="ship-inv-head">Estimated Shipping</h4>
+                    <h4 className="ship-inv-info">{perk.est_shipping}</h4>
+                    <h4 className="ship-inv-info">{perk.inventory_info}</h4>
+                    <h4 className="ship-inv-info">{perk.shipping_info}</h4>
+                  </div>
+                  <div className="get-perk-btn-container">
+                    
+                    <Link className='new-char-link'
+                      to={{
+                        pathname: '/checkout-page',
+                        state: {
+                          perk: perk,
+                          campaign: this.campaign
+                          // currentUser: currentUser
+                        }
+                      }}
+                    ><button className="get-perk-btn">GET THIS PERK</button>
+                    </Link>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        )
+      }}
+    </Query>
+  )
+}
+
 class CampaignShow extends React.Component {
   constructor(props) {
     super(props);
 
     this.user = "";
+    this.state = { 
+      modal: false,
+      perks: []
+    }
   }
   
+  // backit(e){
+  //   e.preventDefault();
+  //   return(
+  //     <Mutation
+  //       mutation={CREATE_CONTRIBUTION}
+  //     >
+  //     {(newContribution) => (
+  //         newContribution({
+  //           variables: {
+  //             goal: e.target.value,
+  //             user: this.temp._id
+  //           }
+  //         })
+  //     )}
+  //     </Mutation>
+  //   )
+  // }
+
+  showBackit(e){
+    // debugger
+    e.preventDefault();
+    this.setState({modal: true});
+  }
+
+  closeBackIt(e){
+    e.preventDefault();
+    this.setState({ modal: false });
+  }
+
+  renderBackIt(){
+    // debugger
+    return (
+        <div className="modal-background modal-content" onClick={this.closeBackIt.bind(this)}>
+          <div className="modal-child" onClick={e => e.stopPropagation()}>
+            <div className="back-it">
+                <div>
+                  <h1>Back This Project</h1>
+                </div>
+              <div className= "back-it-sub-container">
+                
+                <div className="backit-body">
+                  <div className="choose-amt-title">
+                    Make a contribution
+                  </div>
+                  <div className="backit-choose-amt">
+                    <div className="input-container">
+                      <div className="input-sub-container">
+                        <div id="dollar-sign-container">
+                          <FaDollarSign id="dollar-sign"/>
+                        </div>
+                        <input placeholder="100" type="text"></input>
+                        <div id="usd">USD</div>
+                      </div>
+                      <div className="input-sub-container2">
+                        <div className="continue-button">
+                          <button>
+                            CONTINUE
+                          </button>
+                      </div>
+                      </div>
+                    <div id="disclaimer">Contributions are not associated with perks</div>
+                    </div>
+                  </div>
+              </div> 
+
+            <div id="perk-items-list">
+              <div id="perk-items-list-title">Select a perk</div>
+              <div>{this.perks}</div>
+            </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+    );
+  }
+
   render(){
+    let backIt = <div className="hidden"></div>
+    if (this.state.modal) {
+      backIt = this.renderBackIt()
+    } else {
+      backIt = <div className="hidden"></div>
+    }
     return (
       <div>
         <Query
@@ -81,6 +229,7 @@ class CampaignShow extends React.Component {
             if (error) return <p>Error</p>;
             this.user = data.campaign.user;
             this.contributions = AllContributions(this.props.match.params.campaignId, data.campaign.goal, data.campaign.end_date);
+            this.perks = CampaignPerks(this.props.match.params.campaignId);
             // { title, tagline, overview, story, faq, image_url, category, goal, end_date } = data.campaign;
             return (
               <div>
@@ -130,35 +279,51 @@ class CampaignShow extends React.Component {
                       </Query>
                 {this.contributions}
                 <div className="campaign-show-header-buttons">
-                  <div className="backit">
-                      <button>Backit</button>
-                  </div>
-                  <div className="follow">
-                      <button>Follow</button>
+                  <div className="campaign-show-buttons-container">
+                    <div className="backit" onClick={this.showBackit.bind(this)}>
+                        <button>BACK IT</button>
+                    </div>
+                    <div className="follow">
+                        <button>
+                          <FaHeart className="follow-icon"/>
+                          <span>FOLLOW</span>
+                        </button>
+                    </div>
                   </div>
                   <div className="share-icon-container-center">
                     <div className="share-icon-container">
-                        <FaAccusoft className="share-icons" />
-                        <FaAccusoft className="share-icons" />
-                        <FaAccusoft className="share-icons" />
+                        <FaFacebookSquare className="share-icons" />
+                        <FaTwitter className="share-icons" />
+                        <FaLink className="share-icons" />
+                    </div>
                   </div>
-                  </div>
-                  
-                </div>
                   </div>
                 </div>
-                <p>Tagline: {data.campaign.tagline}</p>
-                <p>Overview: {data.campaign.overview}</p>
-                <p>Story: {data.campaign.story}</p>
-                <p>Faq: {data.campaign.faq}</p>
-                <p>Image URL: {data.campaign.image_url}</p>
-                <p>Category: {data.campaign.category}</p>
-                <p>End Date: {data.campaign.end_date}</p>
-              </div>
+                </div>
+                <div className="show-info-container">
+                  <div className="show-center-info-container">
+                    <h3 className="show-info-header">Overview</h3>
+                    <p>{data.campaign.overview}</p>
+                    <iframe className="youtube" title="youtube_url" width="560" height="315" src={data.campaign.youtube_url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    <h3 className="show-info-header">Story:</h3>
+                    <p>{data.campaign.story}</p>
+                    <h3 className="show-info-header">Faq</h3>
+                    <p>{data.campaign.faq}</p>
+                    <br></br>
+                    <br></br>
+                    <p>Tagline: {data.campaign.tagline}</p>
+                    <p>Category {data.campaign.category}</p>
+                  </div>
+                  <div className="show-perks">
+                    <h4 className="select-perk">Select a perk</h4>
+                    {this.perks}
+                  </div>
+                </div>
+            </div>
             );
           }}
         </Query>
-
+        {backIt}
       </div>
     );
   }

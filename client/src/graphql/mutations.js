@@ -41,12 +41,13 @@ export default {
       $story: String!
       $faq: String!
       $image_url: String!
+      $youtube_url: String
       $category: String!
       $goal: Float!
       $end_date: Date!
       $user: ID!
     ) {
-      newCampaign(title: $title, tagline: $tagline, overview: $overview, story: $story, faq: $faq, image_url: $image_url, category: $category, goal: $goal, end_date: $end_date, user: $user) {
+      newCampaign(title: $title, tagline: $tagline, overview: $overview, story: $story, faq: $faq, image_url: $image_url, youtube_url: $youtube_url, category: $category, goal: $goal, end_date: $end_date, user: $user) {
         _id
         title
         tagline
@@ -54,6 +55,7 @@ export default {
         story
         faq
         image_url
+        youtube_url
         category
         goal
         end_date
@@ -77,12 +79,13 @@ export default {
       $story: String
       $faq: String
       $image_url: String
+      $youtube_url: String
       $category: String
       $goal: Float
       $end_date: Date
       $user: ID
     ) {
-      updateCampaign(_id: $id, title: $title, tagline: $tagline, overview: $overview, story: $story, faq: $faq, image_url: $image_url, category: $category, goal: $goal, end_date: $end_date, user: $user) {
+      updateCampaign(_id: $id, title: $title, tagline: $tagline, overview: $overview, story: $story, faq: $faq, image_url: $image_url, youtube_url: $youtube_url, category: $category, goal: $goal, end_date: $end_date, user: $user) {
         _id
         title
         tagline
@@ -90,6 +93,7 @@ export default {
         story
         faq
         image_url
+        youtube_url
         category
         goal
         end_date

@@ -1,31 +1,72 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Query } from "react-apollo";
 import {FaHeart, FaClock} from "react-icons/fa";
+import Queries from "../../graphql/queries";
 import ContributionTracker from "../contributions/ContributionTracker";
+const { FETCH_CAMPAIGN_CONTRIBUTIONS } = Queries;
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+const AllContributions = (campaign_id, goal, end_date) => {
+  // debugger
+  return (
+    <Query
+      query={FETCH_CAMPAIGN_CONTRIBUTIONS}
+      variables={{ campaignId: campaign_id }}
+    >
+      {({ loading, error, data }) => {
+        if (loading) return 0;
+        if (error) return 0;
+        const { campaignContributions } = data;
+        let total = 0;
+        let numContributions = 0;
+        let backerText = (numContributions > 0) ? "backers" : "backer";
+        campaignContributions.forEach((contribution) => {
+          total = total + Number(contribution.amount)
+          numContributions = numContributions + 1;
+        })
+        let percent_raised = (total / goal * 100).toFixed(2);
+        total = total.toFixed(0);
+        const endDate = new Date(end_date);
+        const currDate = new Date();
+        const diffTime = Math.abs(endDate.getTime() - currDate.getTime());
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        let dayText = (numContributions > 0) ? "days" : "day";
+        return (
+          <div>
+            <div className="raised-text-cont">
+              <div>
+                ${numberWithCommas(total)} USD raised
+                </div>
+              <div>
+                {numberWithCommas(percent_raised)}%
+              </div>
+            </div>
+            <div className="raised-bar-item-cont">
+              <div className="raised-bar" style={{ width: `${percent_raised}%`, maxWidth: "100%" }} />
+            </div>
+            <div className="raised-time-cont">
+                <div>
+                  <FaClock />
+                </div>
+                <div>
+                  {diffDays} {dayText} left
+                </div>
+            </div>
+          </div>
+        )
+      }}
+    </Query>
+  )
+}
 
 export default class CampaignItem extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {};
-
-    this.parseDate = this.parseDate.bind(this);
-    this.dateDiff = this.dateDiff.bind(this);
-  }
-
-  parseDate(str) {
-    var mdy = str.split('/');
-    return new Date(mdy[2], mdy[0]-1, mdy[1]);
-  }
-
-  dateDiff(first, second) {
-    // Take the difference between the dates and divide by milliseconds per day.
-    // Round to nearest whole number to deal with DST.
-    return Math.round((second-first)/(1000*60*60*24));
-  }
-
   render(){
     let camp = this.props.campaign; 
-
+    let contributions = AllContributions(camp._id, camp.goal, camp.end_date);
     return(
       <div className='campaign-listing'>
         <Link to={`/campaigns/${camp._id}`}>
@@ -39,11 +80,12 @@ export default class CampaignItem extends React.Component{
               <h1 className="title">{camp.title}</h1>
               <p>{camp.tagline}</p>
               <h3>{camp.category}</h3>
-              <ContributionTracker />
-              <div className='time-remaining'>
+              {contributions}
+              {/* <ContributionTracker /> */}
+              {/* <div className='time-remaining'>
                 <FaClock />
                 <p>XX days left</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </Link>

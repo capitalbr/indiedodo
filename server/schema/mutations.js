@@ -42,12 +42,13 @@ const mutation = new GraphQLObjectType({
         story: { type: GraphQLString },
         faq: { type: GraphQLString },
         image_url: { type: GraphQLString },
+        youtube_url: { type: GraphQLString },
         category: { type: GraphQLString },
         goal: { type: GraphQLFloat },
         end_date: { type: GraphQLDate },
         user: { type: GraphQLID }
       },
-      resolve(_, { title, tagline, overview, story, faq, image_url, category, goal, end_date, user }) {
+      resolve(_, { title, tagline, overview, story, faq, image_url, youtube_url, category, goal, end_date, user }) {
         return new Campaign({
           title, 
           tagline, 
@@ -55,6 +56,7 @@ const mutation = new GraphQLObjectType({
           story, 
           faq, 
           image_url, 
+          youtube_url, 
           category,
           goal, 
           end_date,
@@ -79,12 +81,13 @@ const mutation = new GraphQLObjectType({
         story: { type: GraphQLString },
         faq: { type: GraphQLString },
         image_url: { type: GraphQLString },
+        youtube_url: { type: GraphQLString },
         category: { type: GraphQLString },
         goal: { type: GraphQLFloat },
         end_date: { type: GraphQLDate },
         user: { type: GraphQLID }
       },
-      resolve(parentValue, { _id, title, tagline, overview, story, faq, image_url, category, goal, end_date, user }) {
+      resolve(parentValue, { _id, title, tagline, overview, story, faq, image_url, youtube_url, category, goal, end_date, user }) {
         const updateObj = {};
         // we can create our own object here and pass in the variables is they exist
         updateObj._id = _id;
@@ -94,6 +97,7 @@ const mutation = new GraphQLObjectType({
         if (story) updateObj.story = story;
         if (faq) updateObj.faq = faq;
         if (image_url) updateObj.image_url = image_url;
+        if (youtube_url) updateObj.youtube_url = youtube_url;
         if (category) updateObj.category = category;
         if (goal) updateObj.goal = goal;
         if (end_date) updateObj.end_date = end_date;

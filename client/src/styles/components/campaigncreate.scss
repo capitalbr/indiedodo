@@ -1,0 +1,87 @@
+.create-basics {
+  margin: 20px 0px 0px 0px;
+}
+
+.create-subhead {
+  margin: 50px 0px 20px 0px;
+}
+
+.create-campaign-container {
+  display: flex;
+}
+
+.create-campaign-header {
+  width: 100%;
+  height: 85px;
+  background-color: #F5F5F5;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.camp-basics {
+  margin-left: 40px;
+}
+
+.campaign-form-container {
+  margin-left: 50px;
+}
+
+.create-input-txt {
+  margin-bottom: 17px;
+  font-weight: 100;
+  font-size: 14px;
+  color: #6a6a6a;
+}
+
+.create-txtarea-short {
+  width: 755px;
+  height: 51px;
+  font-size: 14px;
+}
+
+.create-txtarea-narrow {
+  width: 377px;
+  height: 15px;
+  font-size: 14px;
+}
+
+.create-txtarea-tall {
+  width: 755px;
+  height: 65px;
+  font-size: 14px;
+}
+
+.create-img {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.create-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 60px 0px 60px 0px;
+  width: 755px;
+  input {
+    width: 160px;
+    height: 40px;
+    background-color: #6653A5;
+    color: white;
+    font-size: 15px;
+    border-radius: 3px;
+  }
+}
+
+.vert-image {
+  height: 100%;
+  width: 100%;
+  opacity: .6;
+}
+
+.vert-image-container {
+  background: black;
+}
+
+.create-date {
+  font-size: 14px;
+}
