@@ -24,13 +24,34 @@
       }
       .user-badge{
         display: flex;
+        height: 60px;
         .user-img-container{
           display: flex;
           flex-direction: column;
           justify-content: center;
+          .user-img{
+            height: 60px;
+            width: 75px;
+          }
         }
         .user-details{
-          margin-bottom: 4px;
+          font-family: "Roboto", sans-serif;
+          font-size: 14px;
+          margin-bottom: 5px;
+          margin-left: 20px;
+          a{
+            color: grey;
+          }
+        }
+      }
+      .user-details-guest{
+        display: flex;
+        margin-left: 65px;
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        margin-bottom: 5px;
+        .login-link{
+          margin-left: 12px;
         }
       }
     }
@@ -89,7 +110,7 @@
           color: rgb(139, 133, 133);
           .shipping-popup-container{
             // transform: translate(-104px, -21px);
-transform: translate(137px, -44px);
+            transform: translate(137px, -44px);
             #shipping-popup{
               opacity: 0;
               position: absolute; 
@@ -141,6 +162,9 @@ transform: translate(137px, -44px);
           }
         }
       }
+    &-privacy{
+      margin: 0px 20px 0px 20px;
+    }
     }
     // &-line{
     //   border-bottom: .5px solid #dcdcdc;

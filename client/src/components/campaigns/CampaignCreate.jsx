@@ -20,7 +20,7 @@ const postImage = (payload) => {
 
 const youtubeURLHelper = (url) => {
   const idx = url.indexOf("v=") + 2;
-  const query = url.slice(idx)
+  const query = url.slice(idx);
   let embeddedUrl = "https://www.youtube.com/embed/" + query;
   return (embeddedUrl)
 }

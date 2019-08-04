@@ -6,14 +6,14 @@ import {
   FaAccusoft
 } from "react-icons/fa"; 
 import {Link} from "react-router-dom";
-const { FETCH_USER, FETCH_CAMPAIGN, IS_LOGGED_IN } = Queries;
+const { FETCH_USER, FETCH_CAMPAIGN, IS_LOGGED_IN, CURRENT_USER } = Queries;
 
 export default class Checkout extends React.Component {
   constructor(props){
     super(props)
-    // this.state = {
-    //   campaign: {title: "none"}
-    // }
+    this.state = {
+      render: false
+    }
     this.campaign = {title: "none"};
     this.logout = this.logout.bind(this);
     this.loggedIn = this.loggedIn.bind(this);
@@ -39,7 +39,6 @@ export default class Checkout extends React.Component {
   }
 
   logout(e, client){
-    // debugger
     e.preventDefault();
     localStorage.removeItem("auth-token");
     localStorage.removeItem("current-user");
@@ -50,7 +49,7 @@ export default class Checkout extends React.Component {
         cart: []
       }
     });
-    
+    this.setState({render: true})
     
     
   }
@@ -63,11 +62,8 @@ export default class Checkout extends React.Component {
         this.client = client;
         
         /* this.loggedIn(client); */
-        
-        
         return (
           <div className="checkout-container">
-          
             <div className="checkout-left">
               <div>
                 <div className="checkout-left-info">
@@ -79,7 +75,6 @@ export default class Checkout extends React.Component {
                       if (loading) return 0;
                       if (error) return 0;
                       this.user = data.user;
-                      
                       return (
                         <Query
                           query={FETCH_CAMPAIGN}
@@ -89,38 +84,52 @@ export default class Checkout extends React.Component {
                             if (loading) return loading;
                             if (error) return error;
                             this.campaign = data.campaign
+                            const token = localStorage.getItem("auth-token") || "1"
                             return (
                               <div>
                                 <div>
                                   You're contributing to {this.user.name}'s
                                   <h1>{this.campaign.title}</h1>
                                 </div>
-                                <div className="user-badge">
-                                  <div className="user-img-container">
-                                    <FaAccusoft className="user-img" />
-                                  </div>
-                                  <div>
-                                    <div className="user-details">{this.user.name}</div>
-                                    <div className="user-details">{this.user.email}</div>
-                                    <div>Not You?  
-                                     <Query query={IS_LOGGED_IN}>
+                                
+                                  
+                                     <Query query={CURRENT_USER}
+                                       variables={{ token }}>
                                         {({ loading, error, data }) => {
                                           if (loading) return loading;
                                           if (error) return error;
-                                            if (data.isLoggedIn) {
-                                              return <button
-                                              onClick={(e) => this.logout(e, this.client)}
-                                              > Logout </button>
-                                            } else {
-
-                                              return <Link to="/login">Login</Link>
-                                            }
-                                          
+                                          if (data.currentUser.loggedIn) {
+                                            return (
+                                              <div className= "user-badge">
+                                                
+                                                  <div className="user-img-container">
+                                                    <FaAccusoft className="user-img" />
+                                                  </div> 
+                                                  <div>
+                                                  <div className="user-details">{data.currentUser.name}</div>
+                                                  <div className="user-details">{data.currentUser.email}</div>
+                                                  <div className="user-details">
+                                                  <span>Not You? </span>
+                                                  <a
+                                                    href="#"
+                                                    onClick={(e) => this.logout(e, this.client)}
+                                                  >Logout</a>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            )
+                                          } else {
+                                            return (
+                                              <div>
+                                                <div className="user-details-guest">Guest User
+                                                  <div className="login-link"><Link to="/login">Login</Link></div>
+                                                </div>
+                                              </div> 
+                                            )
+                                          }
                                         }}
                                       </Query>
-                                    </div> 
-                                  </div>
-                                </div>
+                                
                               </div>
                             )
                           }}
@@ -130,8 +139,10 @@ export default class Checkout extends React.Component {
                   </Query>
                 </div>
               </div>
-              <h4> {this.props.location.state.perk.campaign}</h4>
-              <h4> {this.props.location.state.perk._id}</h4>
+
+
+              <div></div>          
+              
 
             </div>
             <div className="checkout-right">
@@ -162,7 +173,6 @@ export default class Checkout extends React.Component {
                       </div>
                       <FaQuestionCircle className="question-mark"/>
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -186,10 +196,6 @@ export default class Checkout extends React.Component {
                   </div>
                   <div className="checkout-right-summary-total-info">${this.props.location.state.perk.cost}.00 <span id="usd">USD</span></div>
                 </div>
-
-                <div>
-
-                </div>
               </div>
                   {/* <div> 
                     The payment will process in USD. The actual amount charged by your card issuer may differ from our estimate based on their exchange rate and any applicable fees.
@@ -206,11 +212,10 @@ export default class Checkout extends React.Component {
                   </div>
               </div> */}
               <div className="checkout-right-tos">
-                  <div>
+                  <div className="checkout-right-privacy">
                     I agree to the Terms of Use and have read and understand the Privacy Policy.
                   </div>
                 <div className="checkout-right-submit"><button className="checkout-right-submit-button">SUBMIT PAYMENT</button></div>
-                
               </div>
             </div>
           </div>

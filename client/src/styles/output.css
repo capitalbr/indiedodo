@@ -769,13 +769,30 @@ h2 {
       .checkout-container .checkout-left-info h3 {
         margin-top: 20px; }
       .checkout-container .checkout-left-info .user-badge {
-        display: flex; }
+        display: flex;
+        height: 60px; }
         .checkout-container .checkout-left-info .user-badge .user-img-container {
           display: flex;
           flex-direction: column;
           justify-content: center; }
+          .checkout-container .checkout-left-info .user-badge .user-img-container .user-img {
+            height: 60px;
+            width: 75px; }
         .checkout-container .checkout-left-info .user-badge .user-details {
-          margin-bottom: 4px; }
+          font-family: "Roboto", sans-serif;
+          font-size: 14px;
+          margin-bottom: 5px;
+          margin-left: 20px; }
+          .checkout-container .checkout-left-info .user-badge .user-details a {
+            color: grey; }
+      .checkout-container .checkout-left-info .user-details-guest {
+        display: flex;
+        margin-left: 65px;
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        margin-bottom: 5px; }
+        .checkout-container .checkout-left-info .user-details-guest .login-link {
+          margin-left: 12px; }
   .checkout-container .checkout-right {
     display: flex;
     flex-direction: column;
@@ -863,6 +880,8 @@ h2 {
           height: 19px;
           width: 21px;
           transform: translate(0px, -3px); }
+      .checkout-container .checkout-right-perk-privacy {
+        margin: 0px 20px 0px 20px; }
     .checkout-container .checkout-right-summary {
       padding: 10px 20px 20px 20px;
       font-family: 'Lato', sans-serif;

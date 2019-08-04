@@ -162,6 +162,24 @@ class CampaignShow extends React.Component {
     this.setState({ modal: false });
   }
 
+  perkText(isModal) {
+    if (this.perks.length > 0) {
+      if (isModal) {
+        return (
+          <div id="perk-items-list-title">Select a perk</div>
+        )
+      } else {
+        return (
+          <h4 className="select-perk">Select a perk!</h4>
+        )
+      }
+    } else {
+      return (
+        <div></div>
+      )
+    }
+  }
+  
   renderBackIt(){
     // debugger
     return (
@@ -199,7 +217,6 @@ class CampaignShow extends React.Component {
               </div> 
 
             <div id="perk-items-list">
-              <div id="perk-items-list-title">Select a perk</div>
               <div>{this.perks}</div>
             </div>
               </div>
@@ -208,6 +225,30 @@ class CampaignShow extends React.Component {
           </div>
         </div>
     );
+  }
+
+  youtube(youtube_url){
+    if (youtube_url.length > 0) {
+      return (
+        <iframe className="youtube" title="youtube_url" width="560" height="315" src={youtube_url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+      )
+    } else {
+      return (
+        <div></div>
+      )
+    }
+  }
+
+  realCampaignUrl(real_url){
+    if (real_url) {
+      return (
+        <a href={real_url}>Please Support The Real Project!</a>
+      )
+    } else {
+      return (
+        <div></div>
+      )
+    } 
   }
 
   render(){
@@ -303,7 +344,7 @@ class CampaignShow extends React.Component {
                 <div className="show-info-container">
                   <div className="show-center-info-container">
                     <h3 className="show-info-header">Overview</h3>
-                    <iframe className="youtube" title="youtube_url" width="560" height="315" src={data.campaign.youtube_url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                    {this.youtube(data.campaign.youtube_url)}
                     <p>{data.campaign.story}</p>
                     <h3 className="show-info-header">Faq</h3>
                     <p>{data.campaign.faq}</p>
@@ -311,10 +352,10 @@ class CampaignShow extends React.Component {
                     <br></br>
                     <p>Tagline: {data.campaign.tagline}</p>
                     <p>Category {data.campaign.category}</p>
-                    <a href={data.campaign.real_url}>Please Support The Real Project!</a>
+                    {this.realCampaignUrl(data.campaign.real_url)}
                   </div>
                   <div className="show-perks">
-                    <h4 className="select-perk">Select a perk</h4>
+                    {this.perkText(false)}
                     {this.perks}
                   </div>
                 </div>
