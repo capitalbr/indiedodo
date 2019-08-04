@@ -48,7 +48,7 @@ const seedCampaigns = () => {
       .then(user => {
         let endDate = new Date();
         endDate.setDate(38);
-        newCampaign1 = new Campaign({
+        newCampaign = new Campaign({
           title: "Lion brush initiative",
           tagline: "Lion mane",
           overview: "Kind brushes and combs for cuddly lions",
@@ -112,7 +112,7 @@ const seedCampaigns = () => {
       .then(user => {
         let endDate = new Date();
         endDate.setDate(38);
-        newCampaign1 = new Campaign({
+        newCampaign = new Campaign({
           title: "Golden Dorado Conservation Research",
           tagline: "Fund research on Golden Dorado in Argentina to develop more effective management strategies",
           overview: "Fund research on Golden Dorado in Argentina to develop more effective management strategies",
@@ -126,8 +126,8 @@ const seedCampaigns = () => {
           user: user._id,
         })
         newCampaign.save().then(campaign => {
-          console.log(`Success: ${campaign.name} was created`);
-        }, err => { console.log(`${campaign.name} was unable to save due to: ${err}`) })
+          console.log(`Success: ${campaign.title} was created`);
+        }, err => { console.log(`${campaign.title} was unable to save due to: ${err}`) })
       })
 
       User.findOne({ name: "Stephen Curry" })
@@ -148,8 +148,8 @@ const seedCampaigns = () => {
           user: user._id,
         })
         newCampaign.save().then(campaign => {
-          console.log(`Success: ${campaign.name} was created`);
-        }, err => { console.log(`${campaign.name} was unable to save due to: ${err}`) })
+          console.log(`Success: ${campaign.title} was created`);
+        }, err => { console.log(`${campaign.title} was unable to save due to: ${err}`) })
       })
 
       User.findOne({ name: "Amphibian Surival Alliance" })
