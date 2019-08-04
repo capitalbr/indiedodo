@@ -20,7 +20,7 @@ const postImage = (payload) => {
 
 const youtubeURLHelper = (url) => {
   const idx = url.indexOf("v=") + 2;
-  const query = url.slice(idx)
+  const query = url.slice(idx);
   let embeddedUrl = "https://www.youtube.com/embed/" + query;
   return (embeddedUrl)
 }
@@ -37,6 +37,7 @@ class CampaignCreate extends Component {
       faq: "testetestetestetestetestetesteteste",
       image_url: "testetestetestetestetestetesteteste",
       youtube_url: "https://www.youtube.com/watch?v=IChRNbuHHWE",
+      real_url: "",
       category: "testetestetestetestetestetesteteste",
       goal: "20000",
       end_date: "2019-12-15"
@@ -172,6 +173,7 @@ class CampaignCreate extends Component {
                             faq: this.state.faq,
                             image_url: data.location,
                             youtube_url: embeddedURL,
+                            real_url: this.state.real_url,
                             category: this.state.category,
                             goal: Number(this.state.goal),
                             end_date: this.state.end_date,
@@ -260,6 +262,13 @@ class CampaignCreate extends Component {
                         value={this.state.youtube_url}
                         onChange={this.update("youtube_url")}
                         type="text"
+                      />
+                      <input
+                        className="create-txtarea-narrow"
+                        value={this.state.real_url}
+                        onChange={this.update("real_url")}
+                        type="text"
+                        placeholder="Optional Actual Website URL"
                       />
                       <div class="create-btn-container">
                         <input id="create-campaign-button" className="btn-glow" type="submit" value="CREATE CAMPAIGN" />

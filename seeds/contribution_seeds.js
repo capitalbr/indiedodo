@@ -44,7 +44,7 @@ const seedContributions = () => {
 
     Campaign.findOne({ title: "Lion brush initiative" })
       .then(campaign => {
-        User.findOne({ name: "Giannis Antetokounmpo"})
+        User.findOne({ name: "Stephen Curry"})
           .then(user => {
             newContribution = new Contribution({
               amount: 3333,
@@ -59,7 +59,7 @@ const seedContributions = () => {
 
     Campaign.findOne({ title: "Zebra traingle offense" })
       .then(campaign => {
-        User.findOne({ name: "Giannis Antetokounmpo"})
+        User.findOne({ name: "Stephen Curry"})
           .then(user => {
             newContribution = new Contribution({
               amount: 4444,
@@ -72,7 +72,35 @@ const seedContributions = () => {
           })
       })
 
-    
+    Campaign.findOne({ title: "Ruaha Carnivore Project" })
+      .then(campaign => {
+        User.findOne({ name: "Stephen Curry"})
+          .then(user => {
+            newContribution = new Contribution({
+              amount: 333333,
+              user: user._id,
+              campaign: campaign._id
+            })
+            newContribution.save().then(contribution => {
+            console.log(`Success: ${contribution.amount} was paid`);
+            }, err => { console.log(`${contribution.amount} was unable to save due to: ${err}`) })
+          })
+      })
+
+    Campaign.findOne({ title: "Ruaha Carnivore Project" })
+      .then(campaign => {
+        User.findOne({ name: "Albus Dumbledore"})
+          .then(user => {
+            newContribution = new Contribution({
+              amount: 400000,
+              user: user._id,
+              campaign: campaign._id
+            })
+            newContribution.save().then(contribution => {
+            console.log(`Success: ${contribution.amount} was paid`);
+            }, err => { console.log(`${contribution.amount} was unable to save due to: ${err}`) })
+          })
+      })
 
   })
 }

@@ -19,6 +19,7 @@ const PerkType = new GraphQLObjectType({
     inventory_info: { type: GraphQLString },
     shipping_info: { type: GraphQLString },
     option: { type: GraphQLString },
+    title: { type: GraphQLString }
   }
 });
 

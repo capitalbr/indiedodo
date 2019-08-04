@@ -40,6 +40,7 @@ export default {
         faq
         image_url
         youtube_url
+        real_url
         category
         goal
         end_date
@@ -58,6 +59,7 @@ export default {
         faq
         image_url
         youtube_url
+        real_url
         category
         goal
         end_date
@@ -75,6 +77,7 @@ export default {
         faq
         image_url
         youtube_url
+        real_url
         category
         goal
         end_date
@@ -140,6 +143,7 @@ export default {
         option
         est_shipping
         inventory_info
+        title
         shipping_info
       }
     }
