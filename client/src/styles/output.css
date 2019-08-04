@@ -475,8 +475,8 @@ h2 {
   margin: 10px;
 }
 
-.news img {
-  width: 100vw;
+.news-container {
+  display: flex;
 }
 
 .campaign-listing {

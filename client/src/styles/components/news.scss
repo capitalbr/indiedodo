@@ -1,5 +1,10 @@
-.news{
-    img{
-        width: 100vw;
+.news-container{
+    display: flex;
+    width: 100%;
+    .news-article{
+        width: 250px;
+        .article-image{
+            width: fit-content;
+        }
     }
 }
