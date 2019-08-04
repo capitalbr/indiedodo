@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
-import { FaUser } from 'react-icons/fa';
+import { FaUser, FaChevronDown } from 'react-icons/fa';
 import { ApolloConsumer } from "react-apollo";
 import Queries from "../../graphql/queries";
 const { CURRENT_USER } = Queries;
@@ -20,7 +20,7 @@ class NavUser extends React.Component {
     
           this.temp = data.currentUser
         })
-      }
+    }
     
     render(){
         return <ApolloConsumer>
@@ -32,22 +32,32 @@ class NavUser extends React.Component {
                 // let firstName = name.split(" ");
                 return(
                     <div className='user-nav'>
-                        <div>
-                            <button
-                                onClick={e => {
-                                    e.preventDefault();
-                                    localStorage.removeItem("auth-token");
-                                    localStorage.removeItem("current-user");
-                                    client.writeData({
-                                        data: {
-                                            isLoggedIn: false,
-                                            currentUser: null,
-                                            cart: []
-                                        }
-                                    });
-                                }}
-                            > <FaUser /> </button>
-                            <p>{currentUser}</p>
+                        <div className='user-menu'>
+                            <div className='user'>
+                                <FaUser />
+                                <p>{currentUser}</p>
+                                <FaChevronDown className="dropdown-btn"/>
+                            </div>
+                            <div className='dropdown-content'>
+                                <a href="">My Profile</a>
+                                <a href="">My Campaigns</a>
+                                <a href="">My Contributions</a>
+                                <button
+                                    className='logout'
+                                    onClick={e => {
+                                        e.preventDefault();
+                                        localStorage.removeItem("auth-token");
+                                        localStorage.removeItem("current-user");
+                                        client.writeData({
+                                            data: {
+                                                isLoggedIn: false,
+                                                currentUser: null,
+                                                cart: []
+                                            }
+                                        });
+                                    }}
+                            >Logout</button>
+                            </div>
                         </div>
                     </div>
                 );

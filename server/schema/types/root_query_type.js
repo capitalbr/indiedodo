@@ -8,6 +8,7 @@ const CampaignType = require("./campaign_type");
 const CommentType = require("./comment_type");
 const ContributionType = require("./contribution_type");
 const SpeciesType = require("./species_type");
+const ArticleType = require("./article_type")
 const UpdateType = require("./update_type");
 const PerkType = require("./perk_type");
 
@@ -26,25 +27,25 @@ const Auth = require("../../services/auth")
 
 
 
-// SPECIES API REQUEST TO EXTERNAL API
+// NEWS API REQUEST TO EXTERNAL API
 const axios = require("axios");
 const secret = require("../../../config/keys");
 
-const apiSpecies = {
-  // method: "GET",
-  // url: `???`,
-  // headers: {
-  //   "x-api-key": secret.AWSKey
-  // }
+const apiNews = {
+  method: "GET",
+  url: `http://newsapi.org/v2/everything?q=animal%20conservation`,
+  headers: {
+        "x-api-key": secret.newsAPI
+      }
 };
 
-const apiAllSpecies = {
-  // method: "GET",
-  // url: `???`,
-  // headers: {
-  //   "x-api-key": secret.AWSKey
-  // }
-};
+// const apiAllSpecies = {
+//   method: "GET",
+//   url: `???`,
+//   headers: {
+//     "x-api-key": secret.AWSKey
+//   }
+// };
 
 const RootQueryType = new GraphQLObjectType({
   name: "RootQueryType",
@@ -152,7 +153,27 @@ const RootQueryType = new GraphQLObjectType({
         return Contribution.find({});
       }
     },
-
+    getNews: {
+      type: new GraphQLList(ArticleType),
+      resolve(_){
+        return axios(apiNews)
+        .then(res => {
+          let news = res.data.articles;
+          let articles =[];
+          news.forEach( art => {
+            articles.push({
+              title: art.title,
+              description: art.description,
+              url: art.url,
+              urlToImage: art.urlToImage,
+              publishedAt: art.publishedAt,
+              content: art.content
+            });
+          });
+          return articles;
+        });
+      }
+    }
     // species: {
     //   type: SpeciesType,
     //   args: { name: { type: new GraphQLNonNull(GraphQLString) } },
@@ -189,7 +210,6 @@ const RootQueryType = new GraphQLObjectType({
     //     })
     //   }
     // },
-    
   })
 });
 
