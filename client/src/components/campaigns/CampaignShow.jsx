@@ -1,6 +1,5 @@
 import React from "react";
-import { Query, Mutation } from "react-apollo";
-import { Link } from "react-router-dom";
+import { Query } from "react-apollo";
 import { 
   FaAccusoft, 
   FaHeart, 
@@ -10,11 +9,10 @@ import {
   FaDollarSign
 } from "react-icons/fa"; 
 import Queries from "../../graphql/queries";
-import Mutations from "../../graphql/mutations";
-
-
+import { Link } from "react-router-dom";
+// import Mutations from "../../graphql/mutations";
 const { FETCH_CAMPAIGN, FETCH_USER, FETCH_CAMPAIGN_CONTRIBUTIONS, FETCH_USER_CAMPAIGNS, FETCH_CAMPAIGN_PERKS } = Queries;
-const { CREATE_CONTRIBUTION } = Mutations;
+// const { CREATE_CONTRIBUTION } = Mutations;
 
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -73,7 +71,7 @@ const AllContributions = (campaign_id, goal, end_date) => {
   )
 }
 
-const CampaignPerks = (campaign_id) => {
+const CampaignPerks = (campaign_id, user_id) => {
   return (
     <Query
       query={FETCH_CAMPAIGN_PERKS}
@@ -90,7 +88,8 @@ const CampaignPerks = (campaign_id) => {
                 <div className="perk-item-container" key={perk._id}>
                   <img className="perk-image" src={perk.image_url} alt="single perk"/>
                   <div className="perk-item-text-container">
-                    <h2 className="perk-desc">{perk.description}</h2>
+                    <h2 className="perk-title">{perk.title}</h2>
+                    <h4 className="perk-desc">{perk.description}</h4>
                     <div className="show-cost-container">
                       <h2 className="cost-text">${perk.cost}</h2>
                       <h4 className="usd-text">USD</h4>
@@ -104,11 +103,10 @@ const CampaignPerks = (campaign_id) => {
                     
                     <Link className='new-char-link'
                       to={{
-                        pathname: '/checkout-page',
+                        pathname: '/checkout',
                         state: {
                           perk: perk,
-                          campaign: this.campaign
-                          // currentUser: currentUser
+                          user_id: user_id
                         }
                       }}
                     ><button className="get-perk-btn">GET THIS PERK</button>
@@ -230,7 +228,7 @@ class CampaignShow extends React.Component {
             if (error) return <p>Error</p>;
             this.user = data.campaign.user;
             this.contributions = AllContributions(this.props.match.params.campaignId, data.campaign.goal, data.campaign.end_date);
-            this.perks = CampaignPerks(this.props.match.params.campaignId);
+            this.perks = CampaignPerks(this.props.match.params.campaignId, this.user);
             // { title, tagline, overview, story, faq, image_url, category, goal, end_date } = data.campaign;
             return (
               <div>
@@ -250,13 +248,14 @@ class CampaignShow extends React.Component {
                       {({ loading, error, data } ) => {
                           if (loading) return <p>Loading...</p>;
                           if (error) return <p>Error</p>;
+                          
                           return <div className="campaign-owner">
                             <div className="user-icon-show"><FaAccusoft className="user-img"/></div>
                           <div className="user-icon-show-info">
                               <div className="user-name">{data.user.name}</div>
                               <Query
                                 query={FETCH_USER_CAMPAIGNS}
-                                variables={{ userId: this.user }}
+                                variables={{ userId: data.user._id }}
                               >
                                 {({ loading, error, data }) => {
                                   if (loading) return <p>Loading...</p>;
@@ -304,9 +303,7 @@ class CampaignShow extends React.Component {
                 <div className="show-info-container">
                   <div className="show-center-info-container">
                     <h3 className="show-info-header">Overview</h3>
-                    <p>{data.campaign.overview}</p>
                     <iframe className="youtube" title="youtube_url" width="560" height="315" src={data.campaign.youtube_url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                    <h3 className="show-info-header">Story:</h3>
                     <p>{data.campaign.story}</p>
                     <h3 className="show-info-header">Faq</h3>
                     <p>{data.campaign.faq}</p>
@@ -314,6 +311,7 @@ class CampaignShow extends React.Component {
                     <br></br>
                     <p>Tagline: {data.campaign.tagline}</p>
                     <p>Category {data.campaign.category}</p>
+                    <a href={data.campaign.real_url}>Please Support The Real Project!</a>
                   </div>
                   <div className="show-perks">
                     <h4 className="select-perk">Select a perk</h4>

@@ -42,6 +42,7 @@ export default {
       $faq: String!
       $image_url: String!
       $youtube_url: String
+      $real_url: String
       $category: String!
       $goal: Float!
       $end_date: Date!
@@ -80,6 +81,7 @@ export default {
       $faq: String
       $image_url: String
       $youtube_url: String
+      $real_url: String
       $category: String
       $goal: Float
       $end_date: Date
@@ -94,6 +96,7 @@ export default {
         faq
         image_url
         youtube_url
+        real_url
         category
         goal
         end_date
