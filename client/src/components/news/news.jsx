@@ -23,9 +23,7 @@ const News = () => {
                 <img src={urlToImage} alt={title}/>
                 <p>{title}</p>
                 <p>{description}</p>
-                <Link to={url}>
-                  <h4>Read article</h4>
-                </Link>
+                <a href={url}>Read Article</a>
               </li>
             ));
           }}
