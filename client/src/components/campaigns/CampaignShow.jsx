@@ -89,6 +89,7 @@ const CampaignPerks = (campaign_id, user_id) => {
                   <img className="perk-image" src={perk.image_url} alt="single perk"/>
                   <div className="perk-item-text-container">
                     <h2 className="perk-title">{perk.title}</h2>
+                    <h4 className="perk-desc">{perk.description}</h4>
                     <div className="show-cost-container">
                       <h2 className="cost-text">${perk.cost}</h2>
                       <h4 className="usd-text">USD</h4>
@@ -302,9 +303,7 @@ class CampaignShow extends React.Component {
                 <div className="show-info-container">
                   <div className="show-center-info-container">
                     <h3 className="show-info-header">Overview</h3>
-                    <p>{data.campaign.overview}</p>
                     <iframe className="youtube" title="youtube_url" width="560" height="315" src={data.campaign.youtube_url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                    <h3 className="show-info-header">Story:</h3>
                     <p>{data.campaign.story}</p>
                     <h3 className="show-info-header">Faq</h3>
                     <p>{data.campaign.faq}</p>
@@ -312,6 +311,7 @@ class CampaignShow extends React.Component {
                     <br></br>
                     <p>Tagline: {data.campaign.tagline}</p>
                     <p>Category {data.campaign.category}</p>
+                    <a href={data.campaign.real_url}>Please Support The Real Project!</a>
                   </div>
                   <div className="show-perks">
                     <h4 className="select-perk">Select a perk</h4>

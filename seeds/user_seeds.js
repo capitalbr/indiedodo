@@ -23,9 +23,6 @@ const seedUsers = () => {
         bio: "It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.",
         password: "Qwerty1234!"
     })
-
-
-    // userArray.push(
     AuthService.register({
         name: "Stephen Curry",
         email: "stephcurry@warriors.net",
@@ -33,23 +30,19 @@ const seedUsers = () => {
         bio: "Slash brothers founding partner",
         password: "12345678"
     })
-    // );
-
-    // userArray.push(
     AuthService.register({
-        name: "Giannis Antetokounmpo",
-        email: "greek@freak.com",
-        bio_header: "The Alphabet",
-        bio: "The Greek Freak",
+        name: "Africa Wildlife Foundation",
+        email: "africanwildlife@awf.org",
+        bio_header: "Protecting Africa's Most Threatened Species",
+        bio: "We’re working to ensure wildlife and wild lands thrive in modern Africa.",
         password: "12345678"
-    })
-
-    // userArray.push(
-    AuthService.register({
-        name: "Bandersnatch",
-        email: "bandcamp@nigthmare.com",
-        bio_header: "Black Mirror",
-        bio: "Choose your own adventure",
+      })
+      AuthService.register({
+        name: "Amphibian Surival Alliance",
+        email: "info@amphibians.org",
+        bio_header: "Rising To The Challenge Of Conserving Amphibians",
+        bio: "The Amphibian Survival Alliance (ASA) officially launched in 2011, and has since built a committed global alliance of Partners, dedicated to developing a better world for amphibians through coordinated conservation action. ASA promotes and coordinates the implementation of conservation actions for amphibians through an active, growing, engaged, committed, and collaborative partnership around the world. The great need for this endeavour is reflected in the rate of loss of amphibian populations globally, and we face a challenging future as we strive to reverse these trajectories."+
+             "We envisage a future where amphibian conservation is fully collaborative and integrated into global conservation priorities — a future where amphibians are valued for their many contributions to this world, as well as their astonishing beauty and variety.We seek to preserve this variety, as part of healthy ecosystems, for generations to come.",
         password: "12345678"
     })
 

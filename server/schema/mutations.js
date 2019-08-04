@@ -43,6 +43,7 @@ const mutation = new GraphQLObjectType({
         faq: { type: GraphQLString },
         image_url: { type: GraphQLString },
         youtube_url: { type: GraphQLString },
+        real_url: { type: GraphQLString },
         category: { type: GraphQLString },
         goal: { type: GraphQLFloat },
         end_date: { type: GraphQLDate },
@@ -56,7 +57,8 @@ const mutation = new GraphQLObjectType({
           story, 
           faq, 
           image_url, 
-          youtube_url, 
+          youtube_url,
+          real_url,
           category,
           goal, 
           end_date,
@@ -82,6 +84,7 @@ const mutation = new GraphQLObjectType({
         faq: { type: GraphQLString },
         image_url: { type: GraphQLString },
         youtube_url: { type: GraphQLString },
+        real_url: { type: GraphQLString },
         category: { type: GraphQLString },
         goal: { type: GraphQLFloat },
         end_date: { type: GraphQLDate },
@@ -98,6 +101,7 @@ const mutation = new GraphQLObjectType({
         if (faq) updateObj.faq = faq;
         if (image_url) updateObj.image_url = image_url;
         if (youtube_url) updateObj.youtube_url = youtube_url;
+        if (real_url) updateObj.real_url = real_url;
         if (category) updateObj.category = category;
         if (goal) updateObj.goal = goal;
         if (end_date) updateObj.end_date = end_date;
