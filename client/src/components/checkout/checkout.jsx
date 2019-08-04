@@ -18,6 +18,7 @@ export default class Checkout extends React.Component {
     this.logout = this.logout.bind(this);
     this.loggedIn = this.loggedIn.bind(this);
     this.button = "";
+    this.currentUser = "";
   }
 
   loggedIn(client){
@@ -98,6 +99,7 @@ export default class Checkout extends React.Component {
                                         {({ loading, error, data }) => {
                                           if (loading) return loading;
                                           if (error) return error;
+                                          /* this.currentUser = data.currentUser; */
                                           if (data.currentUser.loggedIn) {
                                             return (
                                               <div className= "user-badge">
@@ -141,8 +143,69 @@ export default class Checkout extends React.Component {
               </div>
 
 
-              <div></div>          
+              <div className="checkout-left-shipping-address">
+                <h1>Shipping Address</h1>
+                <div className="checkout-left-shipping-address-detail">
+                  <input placeholder="Full Name"></input>
+                  <input placeholder="Country"></input>
+                </div>
+                <div className="checkout-left-shipping-address-detail">
+                  <input placeholder="Street Address"></input>
+                  <input placeholder="Address Line 2 (optional)"></input>
+                </div>
+                <div className="checkout-left-shipping-address-detail">
+                  <input placeholder="City"></input>
+                  <input placeholder="Postal Code"></input>
+                  <input placeholder="Phone Number"></input>
+                </div>
+                <div className="checkbox-container">
+                  <input className="checkbox" type="checkbox" checked/>
+                  <span>Remember this address for next time</span>
+                </div>
+                
+              </div>   
+
+              <div className="checkout-left-shipping-address">
+                <h1>Debit or Credit Card</h1>
+                <div className="checkout-left-shipping-address-detail">
+                  <input placeholder="Name On Card"></input>
+                </div>
+                <div className="checkout-left-shipping-address-detail">
+                  <input placeholder="Card"></input>
+                </div>
+                <div className="checkbox-container">
+                  <input className="checkbox" type="checkbox" checked />
+                  <span>Remember this card for next time</span>
+                </div>
+
+              </div>           
               
+              <div className="checkout-left-shipping-address">
+                <h1>Contribution Appearance</h1>
+                <div className="checkout-left-shipping-address-subtitle">Choose a name to be displayed publicly next
+                  to your contribution on the campaign page.</div>
+                
+                <div className="checkout-left-shipping-address-detail">
+                 {<Query query={CURRENT_USER}
+                    variables={{ token: localStorage.getItem("auth-token") || "1" }}>
+                    {({ loading, error, data }) => {
+                        if (loading) return loading;
+                        if (error) return error;
+                        return(
+                          <input value={data.currentUser.name}/>
+                          
+                        )
+                    }}
+                    </Query>}
+                      
+                </div>
+                <div className="checkout-left-shipping-address-detail">
+                  <input value="Anonymous"></input>
+                </div>
+                <div className="checkout-left-shipping-address-detail">
+                  <input value="Other"></input>
+                </div>
+              </div> 
 
             </div>
             <div className="checkout-right">
@@ -213,7 +276,7 @@ export default class Checkout extends React.Component {
               </div> */}
               <div className="checkout-right-tos">
                   <div className="checkout-right-privacy">
-                    I agree to the Terms of Use and have read and understand the Privacy Policy.
+                    <span>I agree to the Terms of Use and have read and understand the Privacy Policy.</span>
                   </div>
                 <div className="checkout-right-submit"><button className="checkout-right-submit-button">SUBMIT PAYMENT</button></div>
               </div>

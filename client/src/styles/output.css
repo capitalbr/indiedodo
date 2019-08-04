@@ -752,9 +752,10 @@ h2 {
 
 .checkout-container {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  margin-bottom: 51px; }
   .checkout-container .checkout-left {
-    height: 739px;
+    height: fit-content;
     width: 773px;
     margin-right: 104px; }
     .checkout-container .checkout-left-info {
@@ -793,6 +794,17 @@ h2 {
         margin-bottom: 5px; }
         .checkout-container .checkout-left-info .user-details-guest .login-link {
           margin-left: 12px; }
+    .checkout-container .checkout-left-shipping-address {
+      margin-top: 62px; }
+      .checkout-container .checkout-left-shipping-address h1 {
+        font-family: "Lato", sans-serif; }
+      .checkout-container .checkout-left-shipping-address-detail {
+        margin-top: 20px;
+        display: flex; }
+      .checkout-container .checkout-left-shipping-address-subtitle {
+        margin-top: 7px;
+        font-size: 14px;
+        color: #727272; }
   .checkout-container .checkout-right {
     display: flex;
     flex-direction: column;
@@ -880,8 +892,8 @@ h2 {
           height: 19px;
           width: 21px;
           transform: translate(0px, -3px); }
-      .checkout-container .checkout-right-perk-privacy {
-        margin: 0px 20px 0px 20px; }
+    .checkout-container .checkout-right-privacy {
+      margin: 0px 20px 0px 20px; }
     .checkout-container .checkout-right-summary {
       padding: 10px 20px 20px 20px;
       font-family: 'Lato', sans-serif;
@@ -930,6 +942,18 @@ h2 {
         color: #4e7a8f;
         font-size: 15px;
         border-radius: 1px; }
+  .checkout-container input {
+    width: 386px;
+    height: 50px;
+    margin-right: 12px;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    padding-left: 14px; }
+  .checkout-container .checkbox-container {
+    margin-top: 9px; }
+    .checkout-container .checkbox-container input.checkbox {
+      height: 12px;
+      width: 8px; }
 
 #checkout-right-line {
   border-bottom: .5px solid #dcdcdc;
@@ -950,5 +974,17 @@ h2 {
   border-color: #dcdcdc;
   margin-top: 27px;
   margin-bottom: 27px; }
+
+::placeholder {
+  /* Firefox, Chrome, Opera */
+  color: #afafaf; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #afafaf; }
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #afafaf; }
 
 /*# sourceMappingURL=output.css.map */
