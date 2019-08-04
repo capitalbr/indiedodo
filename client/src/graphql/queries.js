@@ -175,9 +175,14 @@ export default {
       }
     }
   `,
-  // FETCH_CART_ITEMS: gql`
-  //   query FetchCartItems {
-  //     cart @client
-  //   }
-  // `
+  GET_NEWS: gql`
+    query getNews {
+      getArticles{
+        title
+        description
+        url
+        urlToImage
+      }
+    }
+  `
 };

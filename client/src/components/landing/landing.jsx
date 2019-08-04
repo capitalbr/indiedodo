@@ -15,6 +15,7 @@ class Landing extends React.Component{
           {({ loading, error, data }) => {
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error</p>;
+            
             return(
               <div className='landing-main'>
                 <div className='featured-container'>

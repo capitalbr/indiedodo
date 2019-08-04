@@ -153,7 +153,7 @@ const RootQueryType = new GraphQLObjectType({
         return Contribution.find({});
       }
     },
-    getNews: {
+    getArticles: {
       type: new GraphQLList(ArticleType),
       resolve(_){
         return axios(apiNews)
