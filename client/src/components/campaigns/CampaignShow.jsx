@@ -19,7 +19,7 @@ function numberWithCommas(x) {
 }
 
 const AllContributions = (campaign_id, goal, end_date) => {
-  // debugger
+  // 
   return (
     <Query
       query={FETCH_CAMPAIGN_CONTRIBUTIONS}
@@ -152,7 +152,7 @@ class CampaignShow extends React.Component {
   // }
 
   showBackit(e){
-    // debugger
+    // 
     e.preventDefault();
     this.setState({modal: true});
   }
@@ -181,7 +181,7 @@ class CampaignShow extends React.Component {
   }
   
   renderBackIt(){
-    // debugger
+    // 
     return (
         <div className="modal-background modal-content" onClick={this.closeBackIt.bind(this)}>
           <div className="modal-child" onClick={e => e.stopPropagation()}>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Query } from "react-apollo";
 import {FaHeart, FaClock} from "react-icons/fa";
 import Queries from "../../graphql/queries";
-import ContributionTracker from "../contributions/ContributionTracker";
 const { FETCH_CAMPAIGN_CONTRIBUTIONS } = Queries;
 
 function numberWithCommas(x) {
@@ -11,7 +10,6 @@ function numberWithCommas(x) {
 }
 
 const AllContributions = (campaign_id, goal, end_date) => {
-  // debugger
   return (
     <Query
       query={FETCH_CAMPAIGN_CONTRIBUTIONS}
@@ -81,11 +79,6 @@ export default class CampaignItem extends React.Component{
               <p>{camp.tagline}</p>
               <h3>{camp.category}</h3>
               {contributions}
-              {/* <ContributionTracker /> */}
-              {/* <div className='time-remaining'>
-                <FaClock />
-                <p>XX days left</p>
-              </div> */}
             </div>
           </div>
         </Link>

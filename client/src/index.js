@@ -68,7 +68,7 @@ if(token){
 
 // if(verified) {
 //   const currentUser = client.query({query: CURRENT_USER, variables: {token}});
-//   debugger;
+//   ;
 //   client
 //     .mutate({ mutation: CURRENT_USER, variables: { token } })
 //     .then(({ data }) => {

@@ -108,7 +108,7 @@ class CampaignCreate extends Component {
   }
 
   updateCache(cache, {data}){
-    // debugger
+    // 
     let campaigns;
     try {
       campaigns = cache.readQuery({ query: FETCH_CAMPAIGNS })
