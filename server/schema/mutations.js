@@ -49,7 +49,7 @@ const mutation = new GraphQLObjectType({
         end_date: { type: GraphQLDate },
         user: { type: GraphQLID }
       },
-      resolve(_, { title, tagline, overview, story, faq, image_url, youtube_url, category, goal, end_date, user }) {
+      resolve(_, { title, tagline, overview, story, faq, image_url, youtube_url, real_url, category, goal, end_date, user }) {
         return new Campaign({
           title, 
           tagline, 
