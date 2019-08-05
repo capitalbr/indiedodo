@@ -32,7 +32,7 @@ export default class Carousel extends React.Component{
                 <span className='featured-label'>DODOPICKS</span>
                 <h1 className='featured-title'>{camp.title}</h1>
                 <h1 className='featured-tagline'>{camp.tagline}</h1>
-                <Link className='fatured-link' to={`/campaigns/${camp._id}`}> SEE CAMPAIGN</Link>
+                <Link className='featured-link' to={`/campaigns/${camp._id}`}> SEE CAMPAIGN</Link>
                 <div>
                   <button className="prev-btn" onClick={() => this.slidePrev()}><FaChevronLeft/></button>
                   <button className="next-btn" button onClick={() => this.slideNext()}><FaChevronRight/></button>

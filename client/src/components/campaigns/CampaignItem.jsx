@@ -34,7 +34,7 @@ const AllContributions = (campaign_id, goal, end_date) => {
         const currDate = new Date();
         const diffTime = Math.abs(endDate.getTime() - currDate.getTime());
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        let dayText = (numContributions > 0) ? "days" : "day";
+        let dayText = (diffDays > 1) ? "days" : "day";
         return (
           <div>
             <div className="raised-text-cont">
@@ -69,7 +69,7 @@ export default class CampaignItem extends React.Component{
     let contributions = AllContributions(camp._id, camp.goal, camp.end_date);
     return(
       <div className='campaign-listing'>
-        <Link to={`/campaigns/${camp._id}`}>
+        <Link className='link-wrapper'to={`/campaigns/${camp._id}`}>
           <img className='campaign-image' src={camp.image_url} alt="campaign"/>
           <div className='campaign-summary'>
             <div className='campaign-header'>

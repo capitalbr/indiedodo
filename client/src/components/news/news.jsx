@@ -16,7 +16,6 @@ const News = () => {
             {({ loading, error, data }) => {
               if (loading) return <p>Loading...</p>;
               if (error) return <p>Error</p>;
-              debugger
               let randNews = data.getArticles.sort(() => .5 - Math.random());
               let news = randNews.slice(0,3);
               return news.map(({ title, description, url, urlToImage }, i) => (
