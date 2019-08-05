@@ -33,7 +33,7 @@ const secret = require("../../../config/keys");
 
 const apiNews = {
   method: "GET",
-  url: `http://newsapi.org/v2/everything?q=animal%20conservation`,
+  url: `http://newsapi.org/v2/everything?q=endangered%20species`,
   headers: {
         "x-api-key": secret.newsAPI
       }

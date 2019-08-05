@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Query } from "react-apollo";
 import {FaHeart, FaClock} from "react-icons/fa";
 import Queries from "../../graphql/queries";
-import ContributionTracker from "../contributions/ContributionTracker";
 const { FETCH_CAMPAIGN_CONTRIBUTIONS } = Queries;
 
 function numberWithCommas(x) {
@@ -11,7 +10,6 @@ function numberWithCommas(x) {
 }
 
 const AllContributions = (campaign_id, goal, end_date) => {
-  // debugger
   return (
     <Query
       query={FETCH_CAMPAIGN_CONTRIBUTIONS}
@@ -34,7 +32,7 @@ const AllContributions = (campaign_id, goal, end_date) => {
         const currDate = new Date();
         const diffTime = Math.abs(endDate.getTime() - currDate.getTime());
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        let dayText = (numContributions > 0) ? "days" : "day";
+        let dayText = (diffDays > 1) ? "days" : "day";
         return (
           <div>
             <div className="raised-text-cont">
@@ -69,7 +67,7 @@ export default class CampaignItem extends React.Component{
     let contributions = AllContributions(camp._id, camp.goal, camp.end_date);
     return(
       <div className='campaign-listing'>
-        <Link to={`/campaigns/${camp._id}`}>
+        <Link className='link-wrapper'to={`/campaigns/${camp._id}`}>
           <img className='campaign-image' src={camp.image_url} alt="campaign"/>
           <div className='campaign-summary'>
             <div className='campaign-header'>
@@ -81,11 +79,6 @@ export default class CampaignItem extends React.Component{
               <p>{camp.tagline}</p>
               <h3>{camp.category}</h3>
               {contributions}
-              {/* <ContributionTracker /> */}
-              {/* <div className='time-remaining'>
-                <FaClock />
-                <p>XX days left</p>
-              </div> */}
             </div>
           </div>
         </Link>
