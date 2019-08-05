@@ -228,7 +228,7 @@ class CampaignShow extends React.Component {
   }
 
   youtube(youtube_url){
-    if (youtube_url.length > 0) {
+    if (youtube_url && youtube_url.length > 0) {
       return (
         <iframe className="youtube" title="youtube_url" width="560" height="315" src={youtube_url} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       )
