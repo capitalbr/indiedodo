@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa"; 
 import {Link} from "react-router-dom";
 const { CREATE_CONTRIBUTION } = Mutations;
-const { FETCH_USER, FETCH_CAMPAIGN, IS_LOGGED_IN, CURRENT_USER } = Queries;
+const { FETCH_USER, FETCH_CAMPAIGN, IS_LOGGED_IN, CURRENT_USER, FETCH_CAMPAIGN_CONTRIBUTIONS } = Queries;
 
 export default class Checkout extends React.Component {
   constructor(props){
@@ -22,6 +22,7 @@ export default class Checkout extends React.Component {
     this.loggedIn = this.loggedIn.bind(this);
     this.button = "";
     this.currentUser = "";
+    this.submitContribution = this.submitContribution.bind(this);
   }
 
   loggedIn(client){
@@ -58,6 +59,42 @@ export default class Checkout extends React.Component {
     
   }
 
+  submitContribution(e, client){
+    e.preventDefault();
+    client.mutate({ 
+      mutation: CREATE_CONTRIBUTION, 
+      variables: { 
+        campaign_id: this.props.location.state.perk.campaign,
+        user_id: this.currentUser._id,
+        amount: this.props.location.state.perk.cost
+      },
+      // optimisticResponse: {},
+      // update: (cache, {data}) => {
+      //   let existingContributions;
+      //   try{
+      //     existingContributions = cache.readQuery({ query: FETCH_CAMPAIGN_CONTRIBUTIONS });         
+      //   } catch (error) {
+      //     return;
+      //   }
+      //   const newContribution = data.newContribution;
+      //   if (existingContributions){
+      //     const contributionArray = existingContributions.campaignContributions;
+      //     cache.writeQuery({
+      //       query: FETCH_CAMPAIGN_CONTRIBUTIONS,
+      //       data: { campaignContributions: contributionArray.concat(newContribution) }
+      //     });
+      //   }
+      // },
+      // onCompleted:  data => {
+      //   this.props.history.push(`/campaigns/${this.props.location.state.perk.campaign}`); //send to new campaign show
+      // }
+    }).then(_ => {
+      this.props.history.push(`/campaigns/${this.props.location.state.perk.campaign}`)
+    })
+    .then(_ => {
+      window.location.reload();
+    })
+  }
 
   
   render() {
@@ -102,7 +139,7 @@ export default class Checkout extends React.Component {
                                         {({ loading, error, data }) => {
                                           if (loading) return loading;
                                           if (error) return error;
-                                          /* this.currentUser = data.currentUser; */
+                                          this.currentUser = data.currentUser;
                                           if (data.currentUser.loggedIn) {
                                             return (
                                               <div className= "user-badge">
@@ -115,10 +152,7 @@ export default class Checkout extends React.Component {
                                                   <div className="user-details">{data.currentUser.email}</div>
                                                   <div className="user-details">
                                                   <span>Not You? </span>
-                                                  <a
-                                                    href="#"
-                                                    onClick={(e) => this.logout(e, this.client)}
-                                                  >Logout</a>
+                                                  <a href="#" onClick={(e) => this.logout(e, this.client)}>Logout</a>
                                                   </div>
                                                 </div>
                                               </div>
@@ -281,7 +315,13 @@ export default class Checkout extends React.Component {
                   <div className="checkout-right-privacy">
                     <span>I agree to the Terms of Use and have read and understand the Privacy Policy.</span>
                   </div>
-                <div className="checkout-right-submit"><button className="checkout-right-submit-button">SUBMIT PAYMENT</button></div>
+                <div className="checkout-right-submit">
+                  <button 
+                    className="checkout-right-submit-button"
+                    onClick={(e) => this.submitContribution(e, this.client)}>
+                    SUBMIT PAYMENT
+                  </button>
+                </div>
               </div>
             </div>
           </div>

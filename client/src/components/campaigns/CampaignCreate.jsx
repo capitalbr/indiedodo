@@ -302,7 +302,7 @@ class CampaignCreate extends Component {
                         type="text"
                         placeholder="Optional Actual Website URL"
                       />
-                      <div class="create-btn-container">
+                      <div className="create-btn-container">
                         <input id="create-campaign-button" className="btn-glow" type="submit" value="CREATE CAMPAIGN" />
                       </div>
                   </div>

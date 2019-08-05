@@ -647,6 +647,8 @@ h2 {
   .show-info-container .show-center-info-container {
     max-width: 697px;
     margin-right: 20px; }
+    .show-info-container .show-center-info-container p.theStory {
+      max-width: 697px; }
   .show-info-container .show-perks .perk-item {
     height: 430px;
     width: 305px;
