@@ -6,7 +6,7 @@ import {
   FaFacebookSquare, 
   FaTwitter,
   FaLink,
-  FaDollarSign
+  FaDollarSign,
 } from "react-icons/fa"; 
 import Queries from "../../graphql/queries";
 import { Link } from "react-router-dom";

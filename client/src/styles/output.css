@@ -1191,4 +1191,34 @@ h2 {
   color: #afafaf;
 }
 
+.categories-container {
+  text-align: center;
+}
+.categories-header {
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+.categories-subheader {
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+.categories-icons {
+  display: flex;
+  justify-content: space-around;
+  margin: 0px 20px 0px 20px;
+  margin-bottom: 50px;
+}
+.categories-icons-item-text {
+  font-size: 12px;
+  color: #2a2a2a;
+}
+.categories-campaign-link {
+  text-decoration: none;
+}
+
+#categories-icons-item {
+  color: #4e7a8f;
+  font-size: 60px;
+}
+
 /*# sourceMappingURL=output.css.map */
