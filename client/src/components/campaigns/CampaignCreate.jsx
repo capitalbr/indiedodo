@@ -4,6 +4,16 @@ import Mutations from "../../graphql/mutations";
 import Queries from "../../graphql/queries";
 import axios from 'axios';
 
+
+//WYSIWYG
+import { convertFromRaw } from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
+// import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+const content = { "entityMap": {}, "blocks": [{ "key": "637gr", "text": "Initialized from content state.", "type": "unstyled", "depth": 0, "inlineStyleRanges": [], "entityRanges": [], "data": {} }] };
+//END WYSIWYG
+
+
+
 const { CREATE_CAMPAIGN } = Mutations;
 const { CURRENT_USER, FETCH_CAMPAIGNS } = Queries;
 
@@ -28,24 +38,35 @@ const youtubeURLHelper = (url) => {
 class CampaignCreate extends Component {
   constructor(props) {
     super(props);
-
+    //WYSIWYG
+    const contentState = convertFromRaw(content);
     this.state = {
       title: "testetestetestetestetestetesteteste",
       tagline: "testetestetestetestetestetesteteste",
       overview: "testetestetestetestetestetesteteste",
-      story: "testetestetestetestetestetesteteste",
+      // story: "testetestetestetestetestetesteteste",
       faq: "testetestetestetestetestetesteteste",
       image_url: "testetestetestetestetestetesteteste",
       youtube_url: "https://www.youtube.com/watch?v=IChRNbuHHWE",
       real_url: "",
       category: "testetestetestetestetestetesteteste",
       goal: "20000",
-      end_date: "2019-12-15"
+      end_date: "2019-12-15",
+      contentState
     };
     this.temp = "";
     this.verifyUser = this.verifyUser.bind(this);
     this.picture = "";
   }
+
+  //WYSIWYG
+  onContentStateChange(contentState){
+    this.setState({
+      contentState,
+    });
+  };
+
+  //END WYSIWYG
 
   // handleUpdate(e) {
   //   e.preventDefault();
@@ -126,6 +147,7 @@ class CampaignCreate extends Component {
   }
 
   render() {
+    const { contentState } = this.state;
     return <ApolloConsumer>
     {(client) => {
       const token = localStorage.getItem("auth-token");
@@ -169,7 +191,8 @@ class CampaignCreate extends Component {
                             title: this.state.title,
                             tagline: this.state.tagline,
                             overview: this.state.overview,
-                            story: this.state.story,
+                            // story: this.state.story,
+                            story: JSON.stringify(this.state.contentState, null, 4),
                             faq: this.state.faq,
                             image_url: data.location,
                             youtube_url: embeddedURL,
@@ -215,11 +238,20 @@ class CampaignCreate extends Component {
                     />
                     <h3 className="create-subhead">Story</h3>
                       <h6 className="create-input-txt">Tell potential contributors more about your campaign. Provide details that will motivate people to contribute. A good pitch is compelling, informative, and easy to digest.</h6> 
-                    <textarea
-                      className="create-txtarea-tall"
-                      value={this.state.story}
-                      onChange={this.update("story")}
-                    />
+                      <div className="create-story-editor">
+                        <Editor
+                          wrapperClassName="wrapper-class"
+                          editorClassName="editor-class"
+                          toolbarClassName="toolbar-class"
+                          
+                          onContentStateChange={this.onContentStateChange.bind(this)}
+                          
+                        />
+                        {/* <textarea
+                          disabled
+                          value={JSON.stringify(contentState, null, 4)}
+                        /> */}
+                      </div>
                     <h3 className="create-subhead">FAQ</h3>
                       <h6 className="create-input-txt">The FAQ section should provide the most common details that backers are looking for when evaluating your campaign. We will also provide common answers to questions about crowdfunding and how Indiegogo works.</h6> 
                     <textarea

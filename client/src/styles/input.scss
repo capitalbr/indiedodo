@@ -3,6 +3,7 @@
 
 //FONTS/ICONS
 @import url('https://fonts.googleapis.com/css?family=Passion+One|Roboto&display=swap'); //roboto fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap'); //roboto bold
 @import url('https://fonts.googleapis.com/css?family=Lato:700&display=swap');  //lato bold
 //COMPONENTS
 @import "./components/global.scss";
@@ -21,3 +22,4 @@
 @import "./components/footer.scss";
 @import "./components/checkout.scss";
 @import "./components/categoriesindex.scss";
+@import "./components/editor.scss";

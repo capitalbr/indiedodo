@@ -141,6 +141,13 @@
   display: flex;
   justify-content: center;
   margin-bottom: 75px;
+  .show-center-info-container {
+    max-width: 697px;
+    margin-right: 20px;
+    p.theStory{
+      
+    }
+  }
   .show-perks{
     .perk-item{
       height: 430px;
@@ -150,12 +157,10 @@
 
     }
   }
+
 }
 
-.show-center-info-container {
-  max-width: 697px;
-  margin-right: 20px;
-}
+
 
 .show-info-header {
   margin: 30px 0px 30px 0px;

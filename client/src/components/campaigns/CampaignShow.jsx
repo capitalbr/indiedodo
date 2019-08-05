@@ -10,6 +10,15 @@ import {
 } from "react-icons/fa"; 
 import Queries from "../../graphql/queries";
 import { Link } from "react-router-dom";
+
+//WYSIWYG
+import { convertFromRaw } from 'draft-js';
+import draftToHtml from 'draftjs-to-html';
+
+import $ from 'jquery';
+window.jQuery = window.$ = $;
+//END WYSIWYG
+
 // import Mutations from "../../graphql/mutations";
 const { FETCH_CAMPAIGN, FETCH_USER, FETCH_CAMPAIGN_CONTRIBUTIONS, FETCH_USER_CAMPAIGNS, FETCH_CAMPAIGN_PERKS } = Queries;
 // const { CREATE_CONTRIBUTION } = Mutations;
@@ -129,7 +138,8 @@ class CampaignShow extends React.Component {
     this.user = "";
     this.state = { 
       modal: false,
-      perks: []
+      perks: [],
+      render: false
     }
   }
   
@@ -251,6 +261,22 @@ class CampaignShow extends React.Component {
     } 
   }
 
+  componentDidMount(){
+    //WYSIWYG
+    /* let testing = draftToHtml(JSON.parse(data.campaign.story));
+    let ele = React.createElement(testing);
+    debugger */
+    // let storyEle = document.createElement('div');
+    // const storyEle = document.getElementById('theStory');
+    // const storyEle = document.getElementsByClassName('user-name')
+    // const htmlStory = `<span>${draftToHtml(JSON.parse(this.story))}</span>`;
+    /* const htmlStory = `<span>hello world</span>`; */
+
+    // const htmlStory = `<span>testing</span>`;
+    // $(storyEle).append($(htmlStory));
+    // this.setState({render: true})
+  }
+
   render(){
     let backIt = <div className="hidden"></div>
     if (this.state.modal) {
@@ -267,6 +293,7 @@ class CampaignShow extends React.Component {
           {({ loading, error, data }) => {
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error</p>;
+            this.story = data.campaign.story;
             this.user = data.campaign.user;
             this.contributions = AllContributions(this.props.match.params.campaignId, data.campaign.goal, data.campaign.end_date);
             this.perks = CampaignPerks(this.props.match.params.campaignId, this.user);
@@ -345,7 +372,12 @@ class CampaignShow extends React.Component {
                   <div className="show-center-info-container">
                     <h3 className="show-info-header">Overview</h3>
                     {this.youtube(data.campaign.youtube_url)}
-                    <p>{data.campaign.story}</p>
+                    {/* <p>{data.campaign.story}</p> */}
+                    {/* <p>{draftToHtml(JSON.parse(data.campaign.story))}</p> */}
+                    <p className="theStory" readOnly dangerouslySetInnerHTML={{ __html: draftToHtml(JSON.parse(data.campaign.story)) }}></p>
+                    {/* {this.renderStory(storyEle)} */}
+                    {/* {storyEle} */}
+                    
                     <h3 className="show-info-header">Faq</h3>
                     <p>{data.campaign.faq}</p>
                     <br></br>

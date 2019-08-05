@@ -66,4 +66,10 @@ mongoose
 
 app.use(bodyParser.json());
 
+//WYSIWYG
+// FOR WYSIWIG EDITOR TO UPLOAD BIGGER STORY BUT NOT WORKING YET
+// app.use(bodyParser.json({ limit: '50mb' }));
+// app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+//END WYSIWYG
+
 module.exports = app;

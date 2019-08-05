@@ -45,9 +45,9 @@ module.exports = function validateCampaignInput(data) {
     return { message: "A campaign overview is required", isValid: false };
   }
 
-  if (!Validator.isLength(data.story, { min: 16, max: 128 })) {
+  if (!Validator.isLength(data.story, { min: 16, max: 128000 })) {
     return {
-      message: "A campaign story must be between 16 and 128 characters",
+      message: "A campaign story must be between 16 and 128000 characters",
       isValid: false
     };
   }
