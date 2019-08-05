@@ -471,6 +471,13 @@ h2 {
   padding-right: 15px;
 }
 
+.banner-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 48px;
+}
+
 .carousel {
   display: flex;
   overflow: hidden;
@@ -533,16 +540,22 @@ h2 {
 }
 
 .campaign-listing {
+  background-color: white;
   border: 1px solid #DDDDDD;
   width: 275px;
   height: 572px;
   min-width: 275px;
   margin-right: 40px;
   padding: 0;
+  transition: all 0.3s ease-in-out;
   transition: transform 300ms ease 100ms;
+}
+.campaign-listing:hover {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
 }
 .campaign-listing .link-wrapper {
   text-decoration: none;
+  color: inherit;
 }
 .campaign-listing .campaign-image {
   width: 100%;
@@ -556,7 +569,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  color: #4FCA96;
+  color: #4e7a8f;
   padding-bottom: 6px;
   border-bottom: 1px solid #DDDDDD;
 }

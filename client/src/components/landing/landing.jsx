@@ -30,6 +30,13 @@ class Landing extends React.Component{
                 <div className='recents-container'>
                   <Carousel campaigns={data.campaigns} type='recent' />
                 </div>
+                <div className='banner-container'>
+                  <div className='image-frame'>
+                    <a href="http://lovewildlife.org">
+                      <img src="http://lovewildlife.org/wp-content/uploads/2017/02/Save-the-Loris-Banner-01_web-940x350.png" alt="#savetheloris"/>
+                    </a>
+                  </div>
+                </div>
                 <div className='news-container'>
                   <News />
                 </div>
