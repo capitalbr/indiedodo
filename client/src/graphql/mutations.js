@@ -48,7 +48,7 @@ export default {
       $end_date: Date!
       $user: ID!
     ) {
-      newCampaign(title: $title, tagline: $tagline, overview: $overview, story: $story, faq: $faq, image_url: $image_url, youtube_url: $youtube_url, category: $category, goal: $goal, end_date: $end_date, user: $user) {
+      newCampaign(title: $title, tagline: $tagline, overview: $overview, story: $story, faq: $faq, image_url: $image_url, youtube_url: $youtube_url, real_url: $real_url, category: $category, goal: $goal, end_date: $end_date, user: $user) {
         _id
         title
         tagline
