@@ -1,15 +1,36 @@
 .featured-campaign{
     height: 468px;
     width: 100%;
-    .featured-background{
-        height: 500px;
-        width: 100%;
-        object-fit: cover;
+    background: inear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+    .featured-frame{
+        height: 468px;
+        width: 100%; 
         z-index: -1;
+        background: inear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+        .featured-background{
+            height: 468px;
+            width: 100%;
+            object-fit: cover;
+            z-index: -1;
+            background: inear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+        }
+        .featured-background::after{
+            display: block;
+            position: relative;
+            background: inear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+            margin-top: -150px;
+            height: 468px;
+            width: 100%;
+            content: '';
+        }
     }
 }
 
 .featured-controls{
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: absolute;
     bottom: 80px;
     margin-top: 512px;
@@ -18,4 +39,54 @@
     margin-left: 80px;
     padding-left: 15px;
     padding-right: 15px;
+    color: white;
+    padding: 12px;
+    background: transparent;
+    span{
+        text-decoration: underline;
+        text-transform: uppercase;
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+    .featured-title{
+        font-size: 16px;
+        font-weight: 900;
+    }
+    .featured-tagline{
+        font-size: 14px;
+        font-weight: 400;
+    }
+    a{
+        font-size: 12px;
+        text-decoration: none;
+        color: white;
+    }
+    .carousel-control{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 120px;
+        padding: 24px;
+        .carousel-btn{
+            display: flex;
+            height: 30px;
+            width: 30px;
+            border: 1px solid white;
+            background: transparent;
+            color: white;
+            border-radius: 20px;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            &:hover{
+                color: white;
+                background: rgba(0, 0, 0, 0.55);
+            }
+        }
+        span{
+            font-size: 12px;
+            text-decoration: none;
+            padding: 6px 12px;
+        }
+    }
 }

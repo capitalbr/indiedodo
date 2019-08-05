@@ -24,18 +24,21 @@ export default class Carousel extends React.Component{
 
   featuredCampaigns() {
     const featured = this.props.campaigns.slice(0,4);
-    return featured.map(camp => { 
+    return featured.map((camp, i) => { 
         return (
           <div className='featured-campaign'>
-              <img  className="featured-background" src={camp.image_url} alt={camp.title}/>
+              <div className='featured-frame'>
+                <img  className="featured-background" src={camp.image_url} alt={camp.title}/>
+              </div>
               <div className='featured-controls'>
-                <span className='featured-label'>DODOPICKS</span>
+                <span className='featured-label'>Featured</span>
                 <h1 className='featured-title'>{camp.title}</h1>
                 <h1 className='featured-tagline'>{camp.tagline}</h1>
                 <Link className='featured-link' to={`/campaigns/${camp._id}`}> SEE CAMPAIGN</Link>
-                <div>
-                  <button className="prev-btn" onClick={() => this.slidePrev()}><FaChevronLeft/></button>
-                  <button className="next-btn" button onClick={() => this.slideNext()}><FaChevronRight/></button>
+                <div className='carousel-control'>
+                  <button className="carousel-btn" onClick={() => this.slidePrev()}><FaChevronLeft/></button>
+                  <button className="carousel-btn" button onClick={() => this.slideNext()}><FaChevronRight/></button>
+                  <span>{ (i + 1) + ' / ' + featured.length}</span>
                 </div>
               </div>
           </div>

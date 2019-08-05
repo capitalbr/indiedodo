@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css?family=Passion+One|Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Passion+One:400,700,900|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Lato:700&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -962,15 +962,36 @@ h2 {
 .featured-campaign {
   height: 468px;
   width: 100%;
+  background: inear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
 }
-.featured-campaign .featured-background {
-  height: 500px;
+.featured-campaign .featured-frame {
+  height: 468px;
+  width: 100%;
+  z-index: -1;
+  background: inear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+}
+.featured-campaign .featured-frame .featured-background {
+  height: 468px;
   width: 100%;
   object-fit: cover;
   z-index: -1;
+  background: inear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+}
+.featured-campaign .featured-frame .featured-background::after {
+  display: block;
+  position: relative;
+  background: inear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+  margin-top: -150px;
+  height: 468px;
+  width: 100%;
+  content: "";
 }
 
 .featured-controls {
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: absolute;
   bottom: 80px;
   margin-top: 512px;
@@ -979,6 +1000,56 @@ h2 {
   margin-left: 80px;
   padding-left: 15px;
   padding-right: 15px;
+  color: white;
+  padding: 12px;
+  background: transparent;
+}
+.featured-controls span {
+  text-decoration: underline;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.featured-controls .featured-title {
+  font-size: 16px;
+  font-weight: 900;
+}
+.featured-controls .featured-tagline {
+  font-size: 14px;
+  font-weight: 400;
+}
+.featured-controls a {
+  font-size: 12px;
+  text-decoration: none;
+  color: white;
+}
+.featured-controls .carousel-control {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 120px;
+  padding: 24px;
+}
+.featured-controls .carousel-control .carousel-btn {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+.featured-controls .carousel-control .carousel-btn:hover {
+  color: white;
+  background: rgba(0, 0, 0, 0.55);
+}
+.featured-controls .carousel-control span {
+  font-size: 12px;
+  text-decoration: none;
+  padding: 6px 12px;
 }
 
 .footer-container {
