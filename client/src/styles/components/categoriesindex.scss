@@ -1,0 +1,30 @@
+.categories{
+  &-container{
+    text-align: center;
+  }
+  &-header{
+    font-size: 32px;
+    margin-bottom: 25px;
+  }
+  &-subheader{
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+  &-icons{
+    display: flex;
+    justify-content: space-around;
+    margin: 0px 20px 0px 20px;
+    margin-bottom: 50px;
+    &-item-text{
+      font-size: 12px;
+      color: #2a2a2a;
+    }
+  }
+  &-campaign-link{
+    text-decoration: none;
+  }
+}
+#categories-icons-item{
+  color: $dodo-blue;
+  font-size: 60px;
+}
