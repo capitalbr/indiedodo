@@ -28,12 +28,12 @@ export default class Carousel extends React.Component{
   render(){
     const { campaignItems, responsive, currentIndex } = this.state
     return (
-      <div>
+      <div className='carousel'>
         <div className='carousel-header'>
           <h1>{this.props.type} Campaigns</h1>
           <div className='carousel-control'>
-            <FaChevronLeft onClick={() => this.slidePrev()}/>
-            <FaChevronRight button onClick={() => this.slideNext()}/>
+            <button className='carousel-button' onClick={() => this.slidePrev()}><FaChevronLeft/></button>
+            <button className='carousel-button' onClick={() => this.slideNext()}><FaChevronRight/></button>
           </div>
         </div>
         <AliceCarousel

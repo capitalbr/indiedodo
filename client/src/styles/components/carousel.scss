@@ -1,5 +1,31 @@
 .carousel{
-    display: flex;
-    overflow: hidden;
-    margin: 10px;
+    width: 100%;
+    padding-top: 48px;
+    .carousel-header{
+        width: 97%;
+        height: 55px;
+        display: flex;
+        justify-content: space-between;
+        padding: 12px;
+        color: black;
+        font-size: 24px;
+        .carousel-control{
+            display: flex;
+            flex-direction: row;
+            .carousel-button{
+                display: flex;
+                height: 40px;
+                width: 40px;
+                border: 1px solid black;
+                border-radius: 20px;
+                justify-content: center;
+                align-items: center;
+                font-size: 16px;
+                &:hover{
+                    color: white;
+                    background: black;
+                }
+            }
+        }
+    }
 }

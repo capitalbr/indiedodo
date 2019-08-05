@@ -22,13 +22,13 @@ class Landing extends React.Component{
                   <FeaturedCarousel campaigns={data.campaigns} />
                 </div>
                 <div className='trending-container'>
-                  <Carousel campaigns={data.campaigns} type='trending' />
+                  <Carousel campaigns={data.campaigns} type='Trending' />
                 </div>
                 <div className='categories-container'>
                   <CategoryIndex />
                 </div>
                 <div className='recents-container'>
-                  <Carousel campaigns={data.campaigns} type='recent' />
+                  <Carousel campaigns={data.campaigns} type='Recent' />
                 </div>
                 <div className='banner-container'>
                   <div className='image-frame'>

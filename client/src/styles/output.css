@@ -479,9 +479,35 @@ h2 {
 }
 
 .carousel {
+  width: 100%;
+  padding-top: 48px;
+}
+.carousel .carousel-header {
+  width: 97%;
+  height: 55px;
   display: flex;
-  overflow: hidden;
-  margin: 10px;
+  justify-content: space-between;
+  padding: 12px;
+  color: black;
+  font-size: 24px;
+}
+.carousel .carousel-header .carousel-control {
+  display: flex;
+  flex-direction: row;
+}
+.carousel .carousel-header .carousel-control .carousel-button {
+  display: flex;
+  height: 40px;
+  width: 40px;
+  border: 1px solid black;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+.carousel .carousel-header .carousel-control .carousel-button:hover {
+  color: white;
+  background: black;
 }
 
 .news-container {
