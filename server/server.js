@@ -2,7 +2,6 @@ const models = require("./models");
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const db = require("../config/keys.js").MONGO_URI;
 const schema = require("./schema/schema");
 const expressGraphQL = require("express-graphql");
 const cors = require("cors");
@@ -12,6 +11,7 @@ const multerS3 = require('multer-s3');
 const app = express();
 
 const keys = require('../config/keys');
+let db = keys.mongoURI;
 aws.config.update({ "accessKeyId": keys.accessKeyId, "secretAccessKey": keys.secretAccessKey, "region": "us-east-1" });
 const s3 = new aws.S3({ /* ... */ });
 
