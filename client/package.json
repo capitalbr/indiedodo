@@ -26,7 +26,8 @@
     "react-icons": "^3.7.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
-    "sass": "^1.22.7"
+    "sass": "^1.22.7",
+    "react-alice-carousel": "^1.15.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,8 +43,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {
-    "react-alice-carousel": "^1.15.2"
-  }
+  ]
 }
