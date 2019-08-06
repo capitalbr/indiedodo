@@ -17,7 +17,6 @@ const CategoryIndex = () => {
     <div className="categories-container">
       <h1 className="categories-header">Select a category that interests you!</h1>
       <h4 className="categories-subheader">Discover projects focused on the six major animal groups.</h4>
-      {/* <h4 className="categories-subheader">Discover projects focused on amphibians, fish, mammals, invertebrates, birds or reptiles.</h4> */}
       <div className="categories-icons">
         <Link className="categories-campaign-link" to={`/campaigns/5d47c8419850995b6acfa14b`}>
           < FaFrog id="categories-icons-item"/>
