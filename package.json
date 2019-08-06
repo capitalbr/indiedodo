@@ -9,7 +9,8 @@
     "server": "nodemon index.js",
     "server:debug": "nodemon --inspect index.js",
     "sass": "sass --watch client/src/styles/input.scss:client/src/styles/output.css",
-    "dev": "concurrently \"npm run sass\" \"npm run server:debug\" \"npm run client\""
+    "dev": "concurrently \"npm run sass\" \"npm run server:debug\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "repository": {
     "type": "git",
