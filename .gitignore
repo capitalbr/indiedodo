@@ -1,4 +1,4 @@
 node_modules
-config/
+config/keys_dev.js
 .sass-cache/
 server/config.json
