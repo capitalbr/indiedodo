@@ -10,7 +10,7 @@
     "server": "nodemon index.js",
     "server:debug": "nodemon --inspect index.js",
     "sass": "sass --watch client/src/styles/input.scss:client/src/styles/output.css",
-    "dev": "concurrently \"npm run server:debug\" \"npm run client\"",
+    "dev": "concurrently \"npm run server:debug\" \"npm run client\""
   },
   "repository": {
     "type": "git",
