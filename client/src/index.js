@@ -27,7 +27,7 @@ const errorLink = onError(({ graphQLErrors }) => {
 });
 
 const httpLink = createHttpLink({
-  uri: "http://localhost:1662/graphql",
+  // uri: "http://localhost:1662/graphql",
   headers: {
     authorization: localStorage.getItem("auth-token")
   }
