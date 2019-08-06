@@ -19,19 +19,19 @@ const CategoryIndex = () => {
       <h4 className="categories-subheader">Discover projects focused on the six major animal groups.</h4>
       {/* <h4 className="categories-subheader">Discover projects focused on amphibians, fish, mammals, invertebrates, birds or reptiles.</h4> */}
       <div className="categories-icons">
-        <Link className="categories-campaign-link" to={`/campaigns/5d4678219bb59a307c9c2c32`}>
+        <Link className="categories-campaign-link" to={`/campaigns/5d47c8419850995b6acfa14b`}>
           < FaFrog id="categories-icons-item"/>
           <h5 className="categories-icons-item-text">AMPHIBIAN</h5>
         </Link>
-        <Link className="categories-campaign-link" to={`/campaigns/5d4678219bb59a307c9c2c32`}>
+        <Link className="categories-campaign-link" to={`/campaigns/5d47c8419850995b6acfa148`}>
           < FaFish id="categories-icons-item" />
           <h5 className="categories-icons-item-text">FISH</h5>
         </Link>
-        <Link className="categories-campaign-link" to={`/campaigns/5d4678219bb59a307c9c2c32`}>
+        <Link className="categories-campaign-link" to={`/campaigns/5d47c8409850995b6acfa147`}>
           < FaHorse id="categories-icons-item" />
           <h5 className="categories-icons-item-text">MAMMAL</h5>
         </Link>
-        <Link className="categories-campaign-link" to={`/campaigns/5d4678219bb59a307c9c2c32`}>
+        <Link className="categories-campaign-link" to={`/campaigns/5d47c8419850995b6acfa14c`}>
           < FaSpider id="categories-icons-item" />
           <h5 className="categories-icons-item-text">INVERTEBRATES</h5>
         </Link>

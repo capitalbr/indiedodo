@@ -265,7 +265,6 @@ class CampaignShow extends React.Component {
     //WYSIWYG
     /* let testing = draftToHtml(JSON.parse(data.campaign.story));
     let ele = React.createElement(testing);
-    debugger */
     // let storyEle = document.createElement('div');
     // const storyEle = document.getElementById('theStory');
     // const storyEle = document.getElementsByClassName('user-name')
