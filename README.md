@@ -3,7 +3,9 @@ An Indiegogo clone that uses a rewards-based system by giving ‘perks’ to cus
 
 Live Project: [Indiedodo](https://indie-dodo.herokuapp.com/#/landing)
 
-  <img src="https://user-images.githubusercontent.com/48269593/64215708-935aa000-ce7b-11e9-9097-68d3e186a8b9.png"        width="80%">
+ <p align="center">
+    <img src="https://user-images.githubusercontent.com/48269593/64215708-935aa000-ce7b-11e9-9097-68d3e186a8b9.png"             width="80%">
+ </p>
 
 <p float="left">
  <img src="https://user-images.githubusercontent.com/48269593/64215060-a61fa580-ce78-11e9-9a2f-0166261f8fe4.png"  width="51%"> 
