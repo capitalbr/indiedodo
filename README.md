@@ -1,44 +1,52 @@
-# indiedodo
+# Indiedodo
+An Indiegogo clone that uses a rewards-based system by giving ‘perks’ to customers who are willing to help fund a project.
+
 Live Project: [Indiedodo](https://indie-dodo.herokuapp.com/#/landing)
 
-## Background and Overview
+  <img src="https://user-images.githubusercontent.com/48269593/64215708-935aa000-ce7b-11e9-9097-68d3e186a8b9.png"        width="80%">
+
+<p float="left">
+ <img src="https://user-images.githubusercontent.com/48269593/64215060-a61fa580-ce78-11e9-9a2f-0166261f8fe4.png"  width="51%"> 
+  <img src="https://user-images.githubusercontent.com/48269593/64215459-812c3200-ce7a-11e9-8607-38e263e16e96.png"        width="48%">
+</p>
 
 
-## Functionality and MVP
-* User authentication: sign up and log in
-* Publicly viewable campaigns with index and show pages
-* Users that are logged in are able to pledge to a campaign, create a campaign
-* Users can view species on Google Maps
-* Browse by an animal classification
-* Various animal classications and featured classifications on landing screen
-* Campaign comments
-* Campaign perks
+# Functionality
+## User Authentication
+* Users can create accounts and login/logout.
+* Demo account to quickly gain access to all features/pages.
+* Protected/Auth routes redirect user based on logged in status.
+
+## Fund Raising Campaigns
+* Create, and view, campaigns.
+* Modal to choose perks or pledge specified amount to a campaign.
+* Track campaigns owner and funding status.
+
+## Landing Page
+* Multiple Carosels for featured, trending, and recent campaigns.
+* News API displaying conservation stories across the globe related to the campaigns.
+
+## Checkout Page
+* Enter payment information (not accepting real payments at this time!)
+* Review contribution summary and submit.
+
 
 ## Technologies
 
 * **Backend:** MongoDB/Express/GraphQL
 * **Frontend:** React/Node.js/Apollo
 * **Hosting:** Heroku
-* Google Maps API
 * BCrypt for user authentication
 * AWS S3 for storage of images/videos
 * Docker for images and containers
 * Material UI for frontend design
 
-## Technical Challenges
-* Google maps
-* 3rd party API Access
-* Mongoose data seed
-* User image upload
-* Docker
-
-## Bonus Features
+## Coming Soon
 * Login with facebook / chrome
 * Flex goals
 * Images sourced through api
 * GraphQL scraper
 * Collections of campaigns
-* Google news for landing page bottom
 * Shopping Cart functionality
 * FAQ Q/A Submisson fields 
 * Guest Checkout
@@ -46,46 +54,9 @@ Live Project: [Indiedodo](https://indie-dodo.herokuapp.com/#/landing)
 * Robust inventory remaining/claimed
 * Cancel contribution functionality
 
-## Group Members and Work Breakdown
+## Group Members
 
 * Brad Barnes
 * Josh Burnwatt
 * Zach Oliver
 
-### Monday, Jul 29th
-* Wiki
-* Build skeleton react/apollo site - all
-* Nav component - Josh
-* Backend/frontend login / register - all
-* Basic campaign index - Zach/Brad
-
-### Tuesday, July 30th
-* Campaign db model, validations, routes - Zach/Brad
-* Image uploads/AWS - Zach/Brad
-* Finish Nav/User profile - Josh 
-* Campaign indexes
-* Landing Page
-* Species Creation
-
-### Wednesday, July 31st
-* Campaign Show
-* Carousel component - Josh
-* Checkout page, consider cart bonus
-* Campaign Create
-
-### Thursday, August 1st
-* Carousel subcomponents - Josh
-* Virtual pizza lunch
-* Perk List (possibly opens back campaign modal w/ perk list item as default)
-* Raised vs. goal progress bar - Zach
-
-### Friday, August 2nd
-* Finish features
-* Bonus
-* Bonus Google news - Josh
-
-### Saturday, August 3rd
-* Readme
-
-### Sunday, August 4th
-* Readme
