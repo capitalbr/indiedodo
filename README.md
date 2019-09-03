@@ -1,7 +1,7 @@
 # Indiedodo
-An Indiegogo clone that uses a rewards-based system by giving ‘perks’ to customers who are willing to help fund a project.
+Live Project: [Indiedodo](https://indie-dodo.herokuapp.com/#/landing)  
 
-Live Project: [Indiedodo](https://indie-dodo.herokuapp.com/#/landing)
+An Indiegogo clone that uses a rewards-based system by giving ‘perks’ to customers who are willing to help fund a project.  
 
  <p align="center">
     <img src="https://user-images.githubusercontent.com/48269593/64215708-935aa000-ce7b-11e9-9097-68d3e186a8b9.png"             width="80%">
