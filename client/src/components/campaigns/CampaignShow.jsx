@@ -181,6 +181,19 @@ class CampaignShow extends React.Component {
     return parseInt(+this.state.donation, 10)
   }
   
+  handleDonation(e){
+    e.preventDefault();
+    let query = queryString.stringify({
+      perkCampaign: this.props.match.params.campaignId,
+      perkTitle: "donation",
+      perkDescription: "N/A",
+      perkEstShipping: "N/A",
+      perkCost: this.prepareDonation(),
+      user_id: this.user
+    });
+    this.props.history.push(`/checkout?${query}`)
+  }
+
   renderButton(){
     if (this.prepareDonation() === "not a number") {
       this.donationMessage = <div 
@@ -196,22 +209,7 @@ class CampaignShow extends React.Component {
     }
     this.donationMessage = "Contributions are not associated with perks"
     return(
-      <Link className='new-char-link'
-        to={{
-          pathname: '/checkout',
-          state: {
-            perk: {
-              campaign: this.props.match.params.campaignId,
-              title: "donation",
-              description: "N/A",
-              est_shipping: "N/A",
-              cost: this.prepareDonation()
-            },
-            user_id: this.user
-          }
-        }}
-      ><button>CONTINUE</button>
-      </Link>
+      <button onClick={this.handleDonation.bind(this)}>CONTINUE</button>
     )
   }
 

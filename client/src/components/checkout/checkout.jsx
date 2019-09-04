@@ -2,6 +2,7 @@ import React from "react";
 import { Query, ApolloConsumer } from "react-apollo";
 import Queries from "../../graphql/queries";
 import Mutations from "../../graphql/mutations";
+import queryString from 'query-string';
 
 import {
   FaQuestionCircle,
@@ -23,6 +24,7 @@ export default class Checkout extends React.Component {
     this.button = "";
     this.currentUser = "";
     this.submitContribution = this.submitContribution.bind(this);
+    this.queryProps = queryString.parse(this.props.history.location.search);
   }
 
   loggedIn(client){
@@ -64,12 +66,12 @@ export default class Checkout extends React.Component {
     client.mutate({ 
       mutation: CREATE_CONTRIBUTION, 
       variables: { 
-        campaign_id: this.props.location.state.perk.campaign,
+        campaign_id: this.queryProps.perkCampaign,
         user_id: this.currentUser._id,
-        amount: this.props.location.state.perk.cost
+        amount: this.queryProps.perkCost
       },
     }).then(_ => {
-      this.props.history.push(`/campaigns/${this.props.location.state.perk.campaign}`)
+      this.props.history.push(`/campaigns/${this.queryProps.perkCampaign}`)
     })
     .then(_ => {
       window.location.reload();
@@ -90,7 +92,7 @@ export default class Checkout extends React.Component {
                 <div className="checkout-left-info">
                   <Query
                     query={FETCH_USER}
-                    variables={{ id: this.props.location.state.user_id }}
+                    variables={{ id: this.queryProps.user_id }}
                   >
                     {({ loading, error, data }) => {
                       if (loading) return 0;
@@ -99,7 +101,7 @@ export default class Checkout extends React.Component {
                       return (
                         <Query
                           query={FETCH_CAMPAIGN}
-                          variables={{ campaignId: this.props.location.state.perk.campaign}}
+                          variables={{ campaignId: this.queryProps.perkCampaign}}
                         >
                           {({ loading, error, data }) => {
                             if (loading) return loading;
@@ -231,17 +233,17 @@ export default class Checkout extends React.Component {
                   REVIEW YOUR CONTRIBUTION
                 </div>
                 <div className="checkout-right-perk-title">
-                  {this.props.location.state.perk.title}
+                  {this.queryProps.perkTitle}
                 </div>
                 <div className="checkout-right-perk-description">
-                  {this.props.location.state.perk.description}
+                  {this.queryProps.perkDescription}
                 </div>
                 <div className="checkout-perk-shipping">
                   <div className="checkout-perk-shipping-title">
                     Estimated Delivery
                   </div>
                   <div className="checkout-perk-shipping-est">
-                    {this.props.location.state.perk.est_shipping}
+                    {this.queryProps.perkEstShipping}
                   </div>
                   <div className="checkout-perk-shipping-est">
                     <div className="shipping-popup-container">
@@ -262,8 +264,8 @@ export default class Checkout extends React.Component {
                 </div>
                 <div id="checkout-right-line"/>
                 <div className="checkout-right-summary-info">
-                  <div>{this.props.location.state.perk.title}</div>
-                  <div>${this.props.location.state.perk.cost}.00 <span id="usd">USD</span></div>
+                  <div>{this.queryProps.perkTitle}</div>
+                  <div>${this.queryProps.perkCost}.00 <span id="usd">USD</span></div>
                 </div>
                 <div className="checkout-right-summary-info">
                   <div>Shipping</div>
@@ -274,7 +276,7 @@ export default class Checkout extends React.Component {
                   <div className="checkout-right-summary-total-info">
                     Total
                   </div>
-                  <div className="checkout-right-summary-total-info">${this.props.location.state.perk.cost}.00 <span id="usd">USD</span></div>
+                  <div className="checkout-right-summary-total-info">${this.queryProps.perkCost}.00 <span id="usd">USD</span></div>
                 </div>
               </div>
                   {/* <div> 
