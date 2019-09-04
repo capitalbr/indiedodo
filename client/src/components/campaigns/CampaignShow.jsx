@@ -11,6 +11,8 @@ import {
 import Queries from "../../graphql/queries";
 import { Link } from "react-router-dom";
 
+import queryString from 'query-string';
+
 //WYSIWYG
 import { convertFromRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
@@ -19,16 +21,14 @@ import $ from 'jquery';
 window.jQuery = window.$ = $;
 //END WYSIWYG
 
-// import Mutations from "../../graphql/mutations";
 const { FETCH_CAMPAIGN, FETCH_USER, FETCH_CAMPAIGN_CONTRIBUTIONS, FETCH_USER_CAMPAIGNS, FETCH_CAMPAIGN_PERKS } = Queries;
-// const { CREATE_CONTRIBUTION } = Mutations;
+
 
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 const AllContributions = (campaign_id, goal, end_date) => {
-  // 
   return (
     <Query
       query={FETCH_CAMPAIGN_CONTRIBUTIONS}
@@ -80,7 +80,7 @@ const AllContributions = (campaign_id, goal, end_date) => {
   )
 }
 
-const CampaignPerks = (campaign_id, user_id) => {
+const CampaignPerks = (campaign_id, that) => {
   return (
     <Query
       query={FETCH_CAMPAIGN_PERKS}
@@ -109,17 +109,8 @@ const CampaignPerks = (campaign_id, user_id) => {
                     <h4 className="ship-inv-info">{perk.shipping_info}</h4>
                   </div>
                   <div className="get-perk-btn-container">
-                    
-                    <Link className='new-char-link'
-                      to={{
-                        pathname: '/checkout',
-                        state: {
-                          perk: perk,
-                          user_id: user_id
-                        }
-                      }}
-                    ><button className="get-perk-btn">GET THIS PERK</button>
-                    </Link>
+                    <button className="get-perk-btn"
+                      onClick={(e) => that.handlePerk(e, perk)}>GET THIS PERK</button>                 
                   </div>
                 </div>
               )
@@ -139,30 +130,14 @@ class CampaignShow extends React.Component {
     this.state = { 
       modal: false,
       perks: [],
-      render: false
+      render: false,
+      donation: ""
     }
+    this.donationMessage = "Contributions are not associated with perks"
   }
   
-  // backit(e){
-  //   e.preventDefault();
-  //   return(
-  //     <Mutation
-  //       mutation={CREATE_CONTRIBUTION}
-  //     >
-  //     {(newContribution) => (
-  //         newContribution({
-  //           variables: {
-  //             goal: e.target.value,
-  //             user: this.temp._id
-  //           }
-  //         })
-  //     )}
-  //     </Mutation>
-  //   )
-  // }
 
   showBackit(e){
-    // 
     e.preventDefault();
     this.setState({modal: true});
   }
@@ -189,9 +164,59 @@ class CampaignShow extends React.Component {
       )
     }
   }
+
+  prepareDonation(){
+    if (isNaN(parseFloat(+this.state.donation))){
+      return "not a number"
+    }
+    return parseInt(+this.state.donation, 10)
+  }
   
+  handlePerk(e, perk){
+    e.preventDefault();
+    let query = queryString.stringify({
+      perkCampaign: this.props.match.params.campaignId,
+      perkTitle: perk.title,
+      perkDescription: perk.description,
+      perkEstShipping: perk.est_shipping,
+      perkCost: perk.cost,
+      user_id: this.user
+    });
+    this.props.history.push(`/checkout?${query}`)
+  }
+  handleDonation(e){
+    e.preventDefault();
+    let query = queryString.stringify({
+      perkCampaign: this.props.match.params.campaignId,
+      perkTitle: "donation",
+      perkDescription: "N/A",
+      perkEstShipping: "N/A",
+      perkCost: this.prepareDonation(),
+      user_id: this.user
+    });
+    this.props.history.push(`/checkout?${query}`)
+  }
+
+  renderButton(){
+    if (this.prepareDonation() === "not a number") {
+      this.donationMessage = <div 
+        style={{
+          color: "red",
+          fontSize: 16
+        }}>MUST ENTER A VALID AMOUNT</div>
+      return (
+        <div>
+          <button>Continue</button>
+        </div>
+      )
+    }
+    this.donationMessage = "Contributions are not associated with perks"
+    return(
+      <button onClick={this.handleDonation.bind(this)}>CONTINUE</button>
+    )
+  }
+
   renderBackIt(){
-    // 
     return (
         <div className="modal-background modal-content" onClick={this.closeBackIt.bind(this)}>
           <div className="modal-child" onClick={e => e.stopPropagation()}>
@@ -211,17 +236,20 @@ class CampaignShow extends React.Component {
                         <div id="dollar-sign-container">
                           <FaDollarSign id="dollar-sign"/>
                         </div>
-                        <input placeholder="100" type="text"></input>
+                        <input 
+                          value={this.state.donation} 
+                          onChange={this.handleChange.bind(this)} 
+                          type="text"
+                          placeholder="100"></input>
                         <div id="usd">USD</div>
                       </div>
                       <div className="input-sub-container2">
                         <div className="continue-button">
-                          <button>
-                            CONTINUE
-                          </button>
+                          {this.renderButton()}
+                          
                       </div>
                       </div>
-                    <div id="disclaimer">Contributions are not associated with perks</div>
+                    <div id="disclaimer">{this.donationMessage}</div>
                     </div>
                   </div>
               </div> 
@@ -261,19 +289,8 @@ class CampaignShow extends React.Component {
     } 
   }
 
-  componentDidMount(){
-    //WYSIWYG
-    /* let testing = draftToHtml(JSON.parse(data.campaign.story));
-    let ele = React.createElement(testing);
-    // let storyEle = document.createElement('div');
-    // const storyEle = document.getElementById('theStory');
-    // const storyEle = document.getElementsByClassName('user-name')
-    // const htmlStory = `<span>${draftToHtml(JSON.parse(this.story))}</span>`;
-    /* const htmlStory = `<span>hello world</span>`; */
-
-    // const htmlStory = `<span>testing</span>`;
-    // $(storyEle).append($(htmlStory));
-    // this.setState({render: true})
+  handleChange(e){
+    this.setState({donation: e.target.value})
   }
 
   render(){
@@ -295,7 +312,7 @@ class CampaignShow extends React.Component {
             this.story = data.campaign.story;
             this.user = data.campaign.user;
             this.contributions = AllContributions(this.props.match.params.campaignId, data.campaign.goal, data.campaign.end_date);
-            this.perks = CampaignPerks(this.props.match.params.campaignId, this.user);
+            this.perks = CampaignPerks(this.props.match.params.campaignId, this);
             // { title, tagline, overview, story, faq, image_url, category, goal, end_date } = data.campaign;
             return (
               <div>
