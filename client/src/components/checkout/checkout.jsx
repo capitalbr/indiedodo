@@ -68,7 +68,7 @@ export default class Checkout extends React.Component {
       variables: { 
         campaign_id: this.queryProps.perkCampaign,
         user_id: this.currentUser._id,
-        amount: this.queryProps.perkCost
+        amount: parseInt(this.queryProps.perkCost)
       },
     }).then(_ => {
       this.props.history.push(`/campaigns/${this.queryProps.perkCampaign}`)
@@ -178,7 +178,7 @@ export default class Checkout extends React.Component {
                   <input placeholder="Phone Number"></input>
                 </div>
                 <div className="checkbox-container">
-                  <input className="checkbox" type="checkbox" checked/>
+                  <input className="checkbox" type="checkbox" defaultChecked/>
                   <span>Remember this address for next time</span>
                 </div>
                 
@@ -193,7 +193,7 @@ export default class Checkout extends React.Component {
                   <input placeholder="Card"></input>
                 </div>
                 <div className="checkbox-container">
-                  <input className="checkbox" type="checkbox" checked />
+                  <input className="checkbox" type="checkbox" defaultChecked />
                   <span>Remember this card for next time</span>
                 </div>
 
@@ -201,8 +201,9 @@ export default class Checkout extends React.Component {
               
               <div className="checkout-left-shipping-address">
                 <h1>Contribution Appearance</h1>
-                <div className="checkout-left-shipping-address-subtitle">Choose a name to be displayed publicly next
-                  to your contribution on the campaign page.</div>
+                <div className="checkout-left-shipping-address-subtitle">
+                  Choose a name to be displayed publicly in the special thanks
+                  section at the end of our next YouTube video!</div>
                 
                 <div className="checkout-left-shipping-address-detail">
                  {<Query query={CURRENT_USER}
@@ -211,7 +212,16 @@ export default class Checkout extends React.Component {
                         if (loading) return loading;
                         if (error) return error;
                         return(
-                          <input value={data.currentUser.name}/>
+                          <div className="choose-name">
+                            <input 
+                              className="checkbox" 
+                              type="radio"
+                              name="choose-name" 
+                              defaultChecked />
+                            <input 
+                              readOnly 
+                              value={"     " + data.currentUser.name}/>
+                          </div>
                           
                         )
                     }}
@@ -219,10 +229,24 @@ export default class Checkout extends React.Component {
                       
                 </div>
                 <div className="checkout-left-shipping-address-detail">
-                  <input value="Anonymous"></input>
+                  <div className="choose-name">
+                    <input 
+                      className="checkbox" 
+                      type="radio"
+                      name="choose-name"
+                      />
+                    <input readOnly value="     Anonymous"></input>
+                  </div>
                 </div>
                 <div className="checkout-left-shipping-address-detail">
-                  <input value="Other"></input>
+                  <div className="choose-name">
+                    <input 
+                      className="checkbox" 
+                      type="radio" 
+                      name="choose-name"
+                      />
+                    <input readOnly value="     Other"></input>
+                  </div>
                 </div>
               </div> 
 

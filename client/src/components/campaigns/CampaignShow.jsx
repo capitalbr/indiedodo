@@ -40,11 +40,11 @@ const AllContributions = (campaign_id, goal, end_date) => {
         const { campaignContributions } = data;
         let total = 0;
         let numContributions = 0;
-        let backerText = (numContributions > 0) ? "backers" : "backer";
         campaignContributions.forEach((contribution) => {
           total = total + Number(contribution.amount)
           numContributions = numContributions + 1;
         })
+        let backerText = (numContributions > 1) ? "backers" : "backer";
         let percent_raised = (total / goal * 100).toFixed(2);
         total = total.toFixed(0);
         const endDate = new Date(end_date);
@@ -166,6 +166,7 @@ class CampaignShow extends React.Component {
   }
 
   prepareDonation(){
+    if (this.state.donation === "") return 100;
     if (isNaN(parseFloat(+this.state.donation))){
       return "not a number"
     }
