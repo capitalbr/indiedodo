@@ -21,6 +21,7 @@ const App = () => {
     <div>
       <Route path="/" component={Nav} />
       <Switch>
+        <Route exact path="/" component={Landing} />
         <Route exact path="/landing" component={Landing} />
         <Route exact path="/test" component={Test} />
         <AuthRoute exact path="/new-campaign" component={CampaignCreate} routeType="protected" />
