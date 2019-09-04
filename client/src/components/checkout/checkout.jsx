@@ -68,26 +68,6 @@ export default class Checkout extends React.Component {
         user_id: this.currentUser._id,
         amount: this.props.location.state.perk.cost
       },
-      // optimisticResponse: {},
-      // update: (cache, {data}) => {
-      //   let existingContributions;
-      //   try{
-      //     existingContributions = cache.readQuery({ query: FETCH_CAMPAIGN_CONTRIBUTIONS });         
-      //   } catch (error) {
-      //     return;
-      //   }
-      //   const newContribution = data.newContribution;
-      //   if (existingContributions){
-      //     const contributionArray = existingContributions.campaignContributions;
-      //     cache.writeQuery({
-      //       query: FETCH_CAMPAIGN_CONTRIBUTIONS,
-      //       data: { campaignContributions: contributionArray.concat(newContribution) }
-      //     });
-      //   }
-      // },
-      // onCompleted:  data => {
-      //   this.props.history.push(`/campaigns/${this.props.location.state.perk.campaign}`); //send to new campaign show
-      // }
     }).then(_ => {
       this.props.history.push(`/campaigns/${this.props.location.state.perk.campaign}`)
     })

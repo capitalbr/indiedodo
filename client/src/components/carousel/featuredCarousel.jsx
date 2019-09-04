@@ -37,7 +37,7 @@ export default class Carousel extends React.Component{
                 <Link className='featured-link' to={`/campaigns/${camp._id}`}> SEE CAMPAIGN</Link>
                 <div className='carousel-control'>
                   <button className="carousel-btn" onClick={() => this.slidePrev()}><FaChevronLeft/></button>
-                  <button className="carousel-btn" button onClick={() => this.slideNext()}><FaChevronRight/></button>
+                  <button className="carousel-btn" onClick={() => this.slideNext()}><FaChevronRight/></button>
                   <span>{ (i + 1) + ' / ' + featured.length}</span>
                 </div>
               </div>
