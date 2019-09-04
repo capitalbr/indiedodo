@@ -13,7 +13,7 @@ class Login extends Component {
       password: ""
     };
 
-    this.fbLogin = this.fbLogin.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   update(field) {
@@ -26,8 +26,7 @@ class Login extends Component {
     });
   }
 
-  fbLogin(e){
-    e.preventDefault();
+  demoLogin(e){
     this.setState({
       email: 'albus@hogwarts.edu',
       password: 'Qwerty1234!'
@@ -82,8 +81,8 @@ class Login extends Component {
               </div>
               <div className='login-buttons'>
                 <button className='login-button' type="submit">Log In</button>
-                <button className='fb-button' onClick={this.fbLogin}> 
-                  Continue with Guestbook
+                <button className='fb-button' onClick={this.demoLogin}> 
+                  <i class="fab fa-facebook-f"></i>Demo Login
                 </button>
               </div>
             </form>

@@ -41,17 +41,17 @@ class CampaignCreate extends Component {
     //WYSIWYG
     const contentState = convertFromRaw(content);
     this.state = {
-      title: "testetestetestetestetestetesteteste",
-      tagline: "testetestetestetestetestetesteteste",
-      overview: "testetestetestetestetestetesteteste",
-      // story: "testetestetestetestetestetesteteste",
-      faq: "testetestetestetestetestetesteteste",
-      image_url: "testetestetestetestetestetesteteste",
-      youtube_url: "https://www.youtube.com/watch?v=IChRNbuHHWE",
+      title: "",
+      tagline: "",
+      overview: "",
+      // story: "",
+      faq: "",
+      image_url: "",
+      youtube_url: "",
       real_url: "",
-      category: "testetestetestetestetestetesteteste",
-      goal: "20000",
-      end_date: "2019-12-15",
+      category: "",
+      goal: "",
+      end_date: "",
       contentState
     };
     this.temp = "";
@@ -211,6 +211,7 @@ class CampaignCreate extends Component {
                     <h3 className="create-subhead">Campaign Title</h3>
                     <h6 className="create-input-txt">What is the title of your campaign?</h6>
                     <textarea
+                      placeholder="You can Dodo it!"
                       className="create-txtarea-short"
                       value={this.state.title}
                       onChange={this.update("title")}
@@ -294,13 +295,14 @@ class CampaignCreate extends Component {
                         value={this.state.youtube_url}
                         onChange={this.update("youtube_url")}
                         type="text"
+                        placeholder="YouTube URL goes here"
                       />
                       <input
                         className="create-txtarea-narrow"
                         value={this.state.real_url}
                         onChange={this.update("real_url")}
                         type="text"
-                        placeholder="Optional Actual Website URL"
+                        placeholder="Optional: Campaign/Organization Website URL"
                       />
                       <div className="create-btn-container">
                         <input id="create-campaign-button" className="btn-glow" type="submit" value="CREATE CAMPAIGN" />
