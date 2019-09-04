@@ -80,7 +80,7 @@ const AllContributions = (campaign_id, goal, end_date) => {
   )
 }
 
-const CampaignPerks = (campaign_id, user_id) => {
+const CampaignPerks = (campaign_id, that) => {
   return (
     <Query
       query={FETCH_CAMPAIGN_PERKS}
@@ -109,17 +109,8 @@ const CampaignPerks = (campaign_id, user_id) => {
                     <h4 className="ship-inv-info">{perk.shipping_info}</h4>
                   </div>
                   <div className="get-perk-btn-container">
-                    
-                    <Link className='new-char-link'
-                      to={{
-                        pathname: '/checkout',
-                        state: {
-                          perk: perk,
-                          user_id: user_id
-                        }
-                      }}
-                    ><button className="get-perk-btn">GET THIS PERK</button>
-                    </Link>
+                    <button className="get-perk-btn"
+                      onClick={(e) => that.handlePerk(e, perk)}>GET THIS PERK</button>                 
                   </div>
                 </div>
               )
@@ -181,6 +172,18 @@ class CampaignShow extends React.Component {
     return parseInt(+this.state.donation, 10)
   }
   
+  handlePerk(e, perk){
+    e.preventDefault();
+    let query = queryString.stringify({
+      perkCampaign: this.props.match.params.campaignId,
+      perkTitle: perk.title,
+      perkDescription: perk.description,
+      perkEstShipping: perk.est_shipping,
+      perkCost: perk.cost,
+      user_id: this.user
+    });
+    this.props.history.push(`/checkout?${query}`)
+  }
   handleDonation(e){
     e.preventDefault();
     let query = queryString.stringify({
@@ -309,7 +312,7 @@ class CampaignShow extends React.Component {
             this.story = data.campaign.story;
             this.user = data.campaign.user;
             this.contributions = AllContributions(this.props.match.params.campaignId, data.campaign.goal, data.campaign.end_date);
-            this.perks = CampaignPerks(this.props.match.params.campaignId, this.user);
+            this.perks = CampaignPerks(this.props.match.params.campaignId, this);
             // { title, tagline, overview, story, faq, image_url, category, goal, end_date } = data.campaign;
             return (
               <div>
