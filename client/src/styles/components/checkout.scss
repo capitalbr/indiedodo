@@ -66,6 +66,13 @@
       &-detail{
         margin-top: 20px;
         display: flex;
+        .choose-name{
+          display: flex;
+          .checkbox{
+            width: 20px;
+            position: absolute;
+          }
+        }
       }
       &-subtitle{
         margin-top: 7px;

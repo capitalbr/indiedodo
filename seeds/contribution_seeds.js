@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const db = require("../config/keys.js").MONGO_URI;
+const db = require("../config/keys.js").mongoURI;
 
 mongoose.connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
