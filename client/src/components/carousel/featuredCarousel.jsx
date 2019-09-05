@@ -25,7 +25,9 @@ export default class Carousel extends React.Component{
     const featured = this.props.campaigns.slice(0,4);
     return featured.map((camp, i) => { 
         return (
-          <div className='featured-campaign'>
+          <Link 
+            className='featured-campaign'
+            to={`/campaigns/${camp._id}`}>
               <div className='featured-frame'>
                 <img  className="featured-background" src={camp.image_url} alt={camp.title}/>
               </div>
@@ -33,14 +35,14 @@ export default class Carousel extends React.Component{
                 <span className='featured-label'>Featured</span>
                 <h1 className='featured-title'>{camp.title}</h1>
                 <h1 className='featured-tagline'>{camp.tagline}</h1>
-                <Link className='featured-link' to={`/campaigns/${camp._id}`}> SEE CAMPAIGN</Link>
+                <div className='featured-link'> SEE CAMPAIGN</div>
                 <div className='carousel-control'>
                   <button className="carousel-btn" onClick={() => this.slidePrev()}><FaChevronLeft/></button>
                   <button className="carousel-btn" onClick={() => this.slideNext()}><FaChevronRight/></button>
                   <span>{ (i + 1) + ' / ' + featured.length}</span>
                 </div>
               </div>
-          </div>
+          </Link>
         )
     });
   }

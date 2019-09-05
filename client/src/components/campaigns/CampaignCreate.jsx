@@ -68,57 +68,13 @@ class CampaignCreate extends Component {
 
   //END WYSIWYG
 
-  // handleUpdate(e) {
-  //   e.preventDefault();
-  //   this.setState({ [e.target.name]: e.target.value });
-  // }
-
   update(field) {
     return e => this.setState({ [field]: e.target.value });
   }
 
-  // updateCache(cache, { data }) {
-  //   let campaigns;
-  //   try {
-  //     campaigns = cache.readQuery({ query: FETCH_CAMPAIGNS });
-  //   } catch (err) {
-  //     return;
-  //   }
-
-  //   if (campaigns) {
-  //     let campaignArray = campaigns.campaigns;
-  //     let newCampaign = data.newCampaign;
-  //     cache.writeQuery({
-  //       query: FETCH_CAMPAIGNS,
-  //       data: { campaigns: campaignArray.concat(newCampaign) }
-  //     });
-  //   }
-  // }
-
-  // handleSubmit(e, newCampaign) {
-  //   e.preventDefault();
-  //   // let title = this.state.title;
-  //   newCampaign({
-  //     variables: {
-  //       title: "",
-  //       tagline: "",
-  //       overview: "",
-  //       story: "",
-  //       faq: "",
-  //       image_url: "",
-  //       category: "",
-  //       goal: "",
-  //       end_date: "",
-  //       user: ""
-  //     }
-  //   });
-  // }
-
   verifyUser(token, client){
     client.query({query: CURRENT_USER, variables: {token}})
     .then(({data}) => {
-      // this.setState({user: user._id})
-
       this.temp = data.currentUser
     })
   }
@@ -129,7 +85,6 @@ class CampaignCreate extends Component {
   }
 
   updateCache(cache, {data}){
-    // 
     let campaigns;
     try {
       campaigns = cache.readQuery({ query: FETCH_CAMPAIGNS })
@@ -147,7 +102,7 @@ class CampaignCreate extends Component {
   }
 
   render() {
-    const { contentState } = this.state;
+    // const { contentState } = this.state;
     return <ApolloConsumer>
     {(client) => {
       const token = localStorage.getItem("auth-token");

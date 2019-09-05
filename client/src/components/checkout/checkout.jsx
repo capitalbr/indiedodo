@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa"; 
 import {Link} from "react-router-dom";
 const { CREATE_CONTRIBUTION } = Mutations;
-const { FETCH_USER, FETCH_CAMPAIGN, IS_LOGGED_IN, CURRENT_USER, FETCH_CAMPAIGN_CONTRIBUTIONS } = Queries;
+const { FETCH_USER, FETCH_CAMPAIGN, IS_LOGGED_IN, CURRENT_USER } = Queries;
 
 export default class Checkout extends React.Component {
   constructor(props){
