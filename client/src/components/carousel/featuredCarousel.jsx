@@ -50,7 +50,7 @@ export default class Carousel extends React.Component{
   render(){
     const { featuredCampaigns, responsive, currentIndex } = this.state
     return (
-      <div>
+      <div className="carousel-container">
         <AliceCarousel
           autoPlayInterval={10000}
           autoPlayDirection="rtl"

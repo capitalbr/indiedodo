@@ -806,11 +806,11 @@ h2 {
 .featured-campaign {
   height: 468px;
   width: 100%;
-  background: inear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.95)); }
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.95)); }
   .featured-campaign .featured-frame {
     height: 468px;
     width: 100%;
-    z-index: -1;
+    z-index: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.95)); }
     .featured-campaign .featured-frame .featured-background {
       height: 468px;
@@ -818,14 +818,15 @@ h2 {
       object-fit: cover;
       z-index: -1;
       background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.95)); }
-    .featured-campaign .featured-frame .featured-background::after {
-      display: block;
-      position: relative;
-      background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.95));
-      margin-top: -150px;
-      height: 468px;
-      width: 100%;
-      content: ''; }
+
+.featured-frame::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+  height: 100%;
+  width: 100%;
+  content: ''; }
 
 .featured-controls {
   height: 40%;
@@ -877,6 +878,7 @@ h2 {
       justify-content: center;
       align-items: center;
       font-size: 16px;
+      z-index: 9;
       cursor: pointer; }
       .featured-controls .carousel-control .carousel-btn:hover {
         color: white;
