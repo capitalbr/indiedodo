@@ -1,5 +1,4 @@
 import React from "react";
-import { FaChevronRight } from "react-icons/fa"
 import { Query } from "react-apollo";
 import Queries from "../../graphql/queries";
 const { GET_NEWS } = Queries;
@@ -19,16 +18,18 @@ const News = () => {
               let randNews = data.getArticles.sort(() => .5 - Math.random());
               let news = randNews.slice(0,3);
               return news.map(({ title, description, url, urlToImage }, i) => (
-                <article className='news-article' key={i}>
-                  <div className='image-frame'>
-                    <img className='article-image'src={urlToImage} alt={title}/>
-                  </div>
-                  <h1 className='article-title'>{title}</h1>
-                  <p className='article-description'>{description}</p>
-                  <a className='article-link' href={url}>
-                    Read Article >
-                  </a>
-                </article>
+                <a className='article-link' href={url}>
+                  <article className='news-article' key={i}>
+                    <div className='image-frame'>
+                      <img className='article-image'src={urlToImage} alt={title}/>
+                    </div>
+                    <h1 className='article-title'>{title}</h1>
+                    <p className='article-description'>{description}</p>
+                    <div className='article-link-title'>
+                      Read Article >
+                    </div>
+                  </article>
+                </a>
               ));
             }}
           </Query>

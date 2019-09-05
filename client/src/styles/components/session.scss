@@ -42,6 +42,7 @@
     flex-direction: column;
     justify-content: center;
     button{
+        cursor: pointer;
         height: 25px;
         margin: 5px;
     }
@@ -66,9 +67,11 @@
     }
     .login-button{
         background-color: $dodo-blue;
+        cursor: pointer;
     }
     .fb-button{
         background-color: $fb-blue;
+        cursor: pointer;
     }
 }
 

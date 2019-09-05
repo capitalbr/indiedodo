@@ -21,7 +21,6 @@ const AllContributions = (campaign_id, goal, end_date) => {
         const { campaignContributions } = data;
         let total = 0;
         let numContributions = 0;
-        let backerText = (numContributions > 0) ? "backers" : "backer";
         campaignContributions.forEach((contribution) => {
           total = total + Number(contribution.amount)
           numContributions = numContributions + 1;

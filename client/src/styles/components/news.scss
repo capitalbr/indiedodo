@@ -21,6 +21,9 @@
     .news-body{
         display: flex;
         justify-content: space-evenly;
+        .article-link{
+            text-decoration: none;
+        }
         .news-article{
             display: flex;
             flex-direction: column;
@@ -44,7 +47,7 @@
                 color: $indiegray;
                 font-size: 14px;
             }
-            .article-link{
+            .article-link-title{
                 color: black;
                 text-decoration: none;
                 &:hover{

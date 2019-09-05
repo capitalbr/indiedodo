@@ -9,12 +9,11 @@ import {
   FaDollarSign,
 } from "react-icons/fa"; 
 import Queries from "../../graphql/queries";
-import { Link } from "react-router-dom";
+
 
 import queryString from 'query-string';
 
 //WYSIWYG
-import { convertFromRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 
 import $ from 'jquery';

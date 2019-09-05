@@ -10,12 +10,10 @@ import { createHttpLink } from "apollo-link-http";
 import { ApolloProvider } from "react-apollo";
 import { ApolloLink } from "apollo-link";
 import { onError } from "apollo-link-error";
-import Queries from "./graphql/queries";
 import Mutations from "./graphql/mutations";
 
 import './styles/output.css';
 
-const {CURRENT_USER} = Queries;
 const { VERIFY_USER } = Mutations;
 
 const cache = new InMemoryCache({
@@ -65,22 +63,6 @@ if(token){
       });
   })
 }
-
-// if(verified) {
-//   const currentUser = client.query({query: CURRENT_USER, variables: {token}});
-//   ;
-//   client
-//     .mutate({ mutation: CURRENT_USER, variables: { token } })
-//     .then(({ data }) => {
-//       cache.writeData({
-//           data: {
-//             isLoggedIn: data.currentUser.loggedIn,
-//             currentUser: Object.assign(currentUser, {__typename: "user"}),
-//             cart: []
-//           }
-//       });
-//     });
-// }
 
 const Root = () => {
   return (

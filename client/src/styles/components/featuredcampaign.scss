@@ -52,6 +52,9 @@
         font-size: 16px;
         font-weight: 900;
     }
+    .featured-link:hover{
+        text-decoration: underline;
+    }
     .featured-tagline{
         font-size: 14px;
         font-weight: 400;
@@ -78,6 +81,7 @@
             justify-content: center;
             align-items: center;
             font-size: 16px;
+            cursor: pointer;
             &:hover{
                 color: white;
                 background: rgba(0, 0, 0, 0.55);

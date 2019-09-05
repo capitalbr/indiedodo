@@ -206,6 +206,7 @@ h2 {
   flex-direction: column;
   justify-content: center; }
   .register-buttons button {
+    cursor: pointer;
     height: 25px;
     margin: 5px; }
 
@@ -225,9 +226,11 @@ h2 {
     height: 25px;
     margin: 5px; }
   .login-buttons .login-button {
-    background-color: #4e7a8f; }
+    background-color: #4e7a8f;
+    cursor: pointer; }
   .login-buttons .fb-button {
-    background-color: #4266B2; }
+    background-color: #4266B2;
+    cursor: pointer; }
 
 .login-header {
   text-align: center; }
@@ -422,7 +425,8 @@ h2 {
         border-radius: 20px;
         justify-content: center;
         align-items: center;
-        font-size: 16px; }
+        font-size: 16px;
+        cursor: pointer; }
         .carousel .carousel-header .carousel-control .carousel-button:hover {
           color: white;
           background: black; }
@@ -448,6 +452,8 @@ h2 {
   .news-container .news-body {
     display: flex;
     justify-content: space-evenly; }
+    .news-container .news-body .article-link {
+      text-decoration: none; }
     .news-container .news-body .news-article {
       display: flex;
       flex-direction: column;
@@ -467,10 +473,10 @@ h2 {
       .news-container .news-body .news-article .article-description {
         color: #6A6A6A;
         font-size: 14px; }
-      .news-container .news-body .news-article .article-link {
+      .news-container .news-body .news-article .article-link-title {
         color: black;
         text-decoration: none; }
-        .news-container .news-body .news-article .article-link:hover {
+        .news-container .news-body .news-article .article-link-title:hover {
           color: #4e7a8f; }
 
 .campaign-listing {
@@ -845,6 +851,8 @@ h2 {
   .featured-controls .featured-title {
     font-size: 16px;
     font-weight: 900; }
+  .featured-controls .featured-link:hover {
+    text-decoration: underline; }
   .featured-controls .featured-tagline {
     font-size: 14px;
     font-weight: 400; }
@@ -868,7 +876,8 @@ h2 {
       border-radius: 20px;
       justify-content: center;
       align-items: center;
-      font-size: 16px; }
+      font-size: 16px;
+      cursor: pointer; }
       .featured-controls .carousel-control .carousel-btn:hover {
         color: white;
         background: rgba(0, 0, 0, 0.55); }

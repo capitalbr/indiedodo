@@ -1,5 +1,4 @@
 import React from "react";
-import CampaignIndex from '../campaigns/CampaignIndex';
 import CategoryIndex from '../categories/CategoryIndex';
 import Carousel from '../carousel/carousel';
 import FeaturedCarousel from "../carousel/featuredCarousel";

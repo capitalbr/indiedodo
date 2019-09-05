@@ -12,7 +12,7 @@ const app = express();
 
 const keys = require('../config/keys');
 let db = keys.mongoURI;
-aws.config.update({ "accessKeyId": keys.accessKeyId, "secretAccessKey": keys.secretAccessKey, "region": "us-east-1" });
+aws.config.update({ "accessKeyId": keys.awsAccessKeyId, "secretAccessKey": keys.awsSecretAccessKey, "region": "us-east-1" });
 const s3 = new aws.S3({ /* ... */ });
 
 const upload = multer({
