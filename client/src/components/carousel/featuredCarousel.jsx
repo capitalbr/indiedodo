@@ -25,9 +25,9 @@ export default class Carousel extends React.Component{
     const featured = this.props.campaigns.slice(0,4);
     return featured.map((camp, i) => { 
         return (
-          <Link 
+          <div
             className='featured-campaign'
-            to={`/campaigns/${camp._id}`}>
+            onClick={e => this.handleClick(e,)}>
               <div className='featured-frame'>
                 <img  className="featured-background" src={camp.image_url} alt={camp.title}/>
               </div>
@@ -42,9 +42,17 @@ export default class Carousel extends React.Component{
                   <span>{ (i + 1) + ' / ' + featured.length}</span>
                 </div>
               </div>
-          </Link>
+          </div>
         )
     });
+  }
+
+  handleClick(e, camp) {
+    e.preventDefault();
+    if (e.target.nodeName === "BUTTON" || e.target.nodeName === "svg" || e.target.nodeName === "path") {
+      return;
+    }
+    this.props.history.push(`/campaigns/${camp._id}`)
   }
 
   render(){
