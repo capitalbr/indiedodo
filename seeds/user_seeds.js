@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
-const db = require("../config/keys.js").MONGO_URI;
+const db = require("../config/keys.js").mongoURI;
 const AuthService = require("../server/services/auth");
 
 
