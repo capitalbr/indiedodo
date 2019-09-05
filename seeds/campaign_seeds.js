@@ -14,7 +14,7 @@ const seedCampaigns = () => {
     User.findOne({ name: "Africa Wildlife Foundation" })
       .then(user => {
         let endDate = new Date();
-        endDate.setDate(38);
+        endDate.setDate(108);
         newCampaign = new Campaign({
           title: "Ruaha Carnivore Project",
           tagline: "Protecting Africa's Most Threatened Species",
@@ -48,7 +48,7 @@ const seedCampaigns = () => {
     User.findOne({ name: "Albus Dumbledore" })
       .then(user => {
         let endDate = new Date();
-        endDate.setDate(38);
+        endDate.setDate(12);
         newCampaign = new Campaign({
           title: "Lion brush initiative",
           tagline: "Lion mane",
@@ -70,7 +70,7 @@ const seedCampaigns = () => {
     User.findOne({ name: "Stephen Curry" })
       .then(user => {
         let endDate = new Date();
-        endDate.setDate(38);
+        endDate.setDate(201);
         newCampaign = new Campaign({
           title: "They hunt crocodiles",
           tagline: "Black Panther",
@@ -92,7 +92,7 @@ const seedCampaigns = () => {
     User.findOne({ name: "Stephen Curry" })
       .then(user => {
         let endDate = new Date();
-        endDate.setDate(38);
+        endDate.setDate(77);
         newCampaign = new Campaign({
           title: "Zebra traingle offense",
           tagline: "3 heads are better than 2",
@@ -114,7 +114,7 @@ const seedCampaigns = () => {
       User.findOne({ name: "Albus Dumbledore" })
       .then(user => {
         let endDate = new Date();
-        endDate.setDate(38);
+        endDate.setDate(11);
         newCampaign = new Campaign({
           title: "Golden Dorado Conservation Research",
           tagline: "Fund research on Golden Dorado in Argentina to develop more effective management strategies",
@@ -180,7 +180,41 @@ const seedCampaigns = () => {
           console.log(`Success: ${campaign.title} was created`);
         }, err => { console.log(`${campaign.title} was unable to save due to: ${err}`) })
       })
+      // User.findOne({ name: "American Bird Conservancy" })
+      // .then(user => {
+      //   let endDate = new Date();
+      //   endDate.setDate(75);
+      //   newCampaign = new Campaign({
+      //     title: "American Bird Conservancy",
+      //     tagline: "With our partners, we're protecting places migratory birds need most.",
+      //     overview: "We’ve made significant strides to safeguard rare birds, conserve important bird habitat, reduce top threats to birds, and build an Americas-wide community of bird conservationists.",
+      //     story: JSON.stringify({ "blocks": [{ "key": "34fik", "text": "Conserving amphibians has never been more important. Around half of all amphibian species are declining, and the proportion threatened with extinction is thought to be over 40%, making amphibians the most threatened vertebrate group. Once a sanctuary for over 8,000 species, we now live in a world that is increasingly unsafe for amphibians. A world that is unsafe for amphibians is unsafe for other species, not least humankind. The intensifying plight of amphibians mirrors our own struggle, as we try to protect natural resources and bring about a sustainable future for all life on our shared planet.", "type": "unstyled", "depth": 0, "inlineStyleRanges": [{ "offset": 0, "length": 604, "style": "color-rgb(0,0,0)" }, { "offset": 0, "length": 604, "style": "bgcolor-transparent" }, { "offset": 0, "length": 604, "style": "fontsize-11pt" }, { "offset": 0, "length": 604, "style": "fontfamily-Arial" }], "entityRanges": [], "data": {} }, { "key": "7vk8a", "text": "", "type": "unstyled", "depth": 0, "inlineStyleRanges": [], "entityRanges": [], "data": {} }, { "key": "cibpr", "text": "", "type": "unstyled", "depth": 0, "inlineStyleRanges": [], "entityRanges": [], "data": {} }, { "key": "21cvi", "text": " ", "type": "atomic", "depth": 0, "inlineStyleRanges": [], "entityRanges": [{ "offset": 0, "length": 1, "key": 0 }], "data": {} }, { "key": "4pqr8", "text": "", "type": "unstyled", "depth": 0, "inlineStyleRanges": [], "entityRanges": [], "data": {} }, { "key": "8jtm7", "text": "", "type": "unstyled", "depth": 0, "inlineStyleRanges": [], "entityRanges": [], "data": {} }, { "key": "4eccg", "text": " The needs of amphibians are no different from our own, so the issues they face ─ such as inadequate freshwater management, habitat destruction, climate change, pollution, unregulated use and trade of species, disease dynamics in a shifting world, invasive species, and the unsustainable exploitation of natural resources ─ are extremely pertinent to us, and to all species.These issues, both separately and together, demand the development of collaborative solutions to improve the management of our one and only Earth. The Amphibian Survival Alliance(ASA) officially launched in 2011, and has since built a committed global alliance of Partners, dedicated to developing a better world for amphibians through coordinated conservation action.ASA promotes and coordinates the implementation of conservation actions for amphibians through an active, growing, engaged, committed, and collaborative partnership around the world.The great need for this endeavour is reflected in the rate of loss of amphibian populations globally, and we face a challenging future as we strive to reverse these trajectories.", "type": "unstyled", "depth": 0, "inlineStyleRanges": [{ "offset": 0, "length": 1102, "style": "color-rgb(0,0,0)" }, { "offset": 0, "length": 1102, "style": "bgcolor-transparent" }, { "offset": 0, "length": 1102, "style": "fontsize-11pt" }, { "offset": 0, "length": 1102, "style": "fontfamily-Arial" }], "entityRanges": [], "data": {} }, { "key": "5oblg", "text": "", "type": "unstyled", "depth": 0, "inlineStyleRanges": [], "entityRanges": [], "data": {} }, { "key": "8dkc5", "text": "", "type": "unstyled", "depth": 0, "inlineStyleRanges": [], "entityRanges": [], "data": {} }, { "key": "7k5sj", "text": " ", "type": "atomic", "depth": 0, "inlineStyleRanges": [], "entityRanges": [{ "offset": 0, "length": 1, "key": 1 }], "data": {} }, { "key": "d6o58", "text": "\n", "type": "unstyled", "depth": 0, "inlineStyleRanges": [], "entityRanges": [], "data": {} }], "entityMap": { "0": { "type": "IMAGE", "mutability": "MUTABLE", "data": { "src": "https://www.nwf.org/-/media/NEW-WEBSITE/Shared-Folder/Wildlife/Amphibians/amphibian_tiger-salamander_600x300.ashx", "height": "auto", "width": "auto" } }, "1": { "type": "IMAGE", "mutability": "MUTABLE", "data": { "src": "https://www.nhm.ac.uk/content/dam/nhmwww/discover/amphibian-disease/frogs-stock-full-width.jpg.thumb.768.768.png", "height": "80%", "width": "80%" } } } }),
+      //     faq: "Simple yet successful, our Bird Conservation Strategic Framework — summed up in the ABC pyramid — shows how we approach bird conservation."+
+      //     "We innovate, build on sound science, and work in partnership to achieve four goals: halt extinctions, protect habitats, eliminate threats, and build capacity for bird conservation.",
+      //     image_url: "https://indiedodo-dev.s3-us-west-1.amazonaws.com/amphibian4.jpg",
+      //     youtube_url: "https://www.youtube.com/embed/Jg6lJUNffV4",
+      //     real_url:"https://abcbirds.org/",
+      //     category: "Amphibian",
+      //     goal: 20000,
+      //     end_date: endDate,
+      //     user: user._id,
+      //   })
+      //   newCampaign.save().then(campaign => {
+      //     console.log(`Success: ${campaign.title} was created`);
+      //   }, err => { console.log(`${campaign.title} was unable to save due to: ${err}`) })
+      // })
   })
 }
 
 seedCampaigns().then((res) => { mongoose.connection.close() });
+
+
+// Fearless Approach to Bird Conservation
+// American Bird Conservancy was born in 1994, based on the need our founder, George Fenwick, saw for a fearless bird conservation group — one that wasn't afraid to take on difficult issues like free-roaming cats and pesticides.
+
+// Choosing the small but feisty hummingbird as its symbol, ABC has gone on to become known for our results and ability to leverage still great accomplishments through partnerships.
+
+// A Future Where Birds are Valued
+// In our 20 + years, we have found that when it comes to bird conservation, fearlessness and persistence pay off.Today, we can imagine a world in which our Vision Statement becomes reality:
+
+// “An Americas - wide landscape where diverse interests collaborate to ensure that native bird species and their habitats are protected … where their protection is valued by society … and where they are routinely considered in all land - use and policy decision - making.”

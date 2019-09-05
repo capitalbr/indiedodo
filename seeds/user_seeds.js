@@ -58,6 +58,17 @@ const seedUsers = () => {
         console.log(`Success: ${user.name} was created`);
       }
     })
+    AuthService.register({
+      name: "American Bird Conservancy",
+      email: "abc@123.org",
+      bio_header: "Our fearless approach to conservation drives all that we do, and the results are measurable.",
+      bio: "20+ years of bold action, focus on results, and partnership are bringing back the birds across the Western Hemisphere.Our mission is clear: to conserve native birds and their habitats across the Americas.In doing so, we benefit not only American birds but all other species as well.",
+      password: "12345678"
+    }).then(user => {
+      if (user.name) {
+        console.log(`Success: ${user.name} was created`);
+      }
+    })
   })
 }
 seedUsers().then((res) => { mongoose.connection.close() });
