@@ -1,23 +1,23 @@
 .featured-campaign{
     height: 468px;
     width: 100%;
-    background: inear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+    background: inear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.95));
     .featured-frame{
         height: 468px;
         width: 100%; 
         z-index: -1;
-        background: inear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+        background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.95));
         .featured-background{
             height: 468px;
             width: 100%;
             object-fit: cover;
             z-index: -1;
-            background: inear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.95));
         }
         .featured-background::after{
             display: block;
             position: relative;
-            background: inear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.95));
             margin-top: -150px;
             height: 468px;
             width: 100%;
@@ -25,7 +25,6 @@
         }
     }
 }
-
 .featured-controls{
     height: 40%;
     display: flex;

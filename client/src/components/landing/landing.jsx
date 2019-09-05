@@ -33,7 +33,7 @@ class Landing extends React.Component{
                 <div className='banner-container'>
                   <div className='image-frame'>
                     <a href="http://lovewildlife.org">
-                      <img src="http://lovewildlife.org/wp-content/uploads/2017/02/Save-the-Loris-Banner-01_web-940x350.png" alt="#savetheloris"/>
+                      <img src="https://i.imgur.com/eJkLE8l.png" alt="#savetheloris"/>
                     </a>
                   </div>
                 </div>

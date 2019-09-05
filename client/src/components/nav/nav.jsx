@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Query, ApolloConsumer } from "react-apollo";
-import {FaSearch, FaAngleDown} from "react-icons/fa";
+// import {FaSearch, FaAngleDown} from "react-icons/fa";
 import logo from "../../logo.png";
 import NavUser from "./NavUser";
 import Queries from "../../graphql/queries";
@@ -22,13 +22,13 @@ const Nav = props => {
                                             <img  className="logo" src={logo} alt="IndieDodo"/>
                                             <p className="wordmark">INDIEDODO</p>
                                         </Link>
-                                        <div className='search-container'>
+                                        {/* <div className='search-container'>
                                             <div className='explore-container'>
                                                 <span>Explore <FaAngleDown /></span>
                                             </div>
                                             <Link to='/about'>What We Do</Link>
                                             <FaSearch />
-                                        </div>
+                                        </div> */}
                                     </div>
                                     <div className='nav-right'>
                                         <div className='new-campaign'>
@@ -46,13 +46,13 @@ const Nav = props => {
                                             <img  className="logo" src={logo} alt="IndieDodo"/>
                                             <p className="wordmark">INDIEDODO</p>
                                         </Link>
-                                        <div className='search-container'>
+                                        {/* <div className='search-container'>
                                             <div className='explore-container'>
                                                 <span>Explore <FaAngleDown /></span>
                                             </div>
                                             <Link to='/about'>What We Do</Link>
                                             <FaSearch />
-                                        </div>
+                                        </div> */}
                                     </div>
                                     <div className='nav-right'>
                                         <div className='new-campaign'>
