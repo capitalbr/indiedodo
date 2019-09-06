@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { Mutation } from "react-apollo";
+import { Mutation, ApolloConsumer } from "react-apollo";
 import Mutations from "../../graphql/mutations";
+import { withRouter } from 'react-router-dom';
+
 
 const { LOGIN_USER } = Mutations;
 
@@ -20,10 +22,21 @@ class Login extends Component {
     return e => this.setState({ [field]: e.target.value });
   }
 
-  updateCache(client, { data }) {
-    client.writeData({
-      data: { isLoggedIn: data.login.loggedIn }
-    });
+  updateCache(client, { data }, type) {
+    if (data) {
+      client.writeData({
+        data: { 
+          isLoggedIn: data.login.loggedIn,
+          modalType: type
+         }
+      });
+    } else {
+      client.writeData({
+        data: {
+          modalType: type
+        }
+      });
+    }
   }
 
   demoLogin(e){
@@ -44,7 +57,7 @@ class Login extends Component {
           localStorage.setItem("current-user", name);
           this.props.history.push("/landing");
         }}
-        update={(client, data) => this.updateCache(client, data)}
+        update={(client, data) => this.updateCache(client, data, false)}
       >
         {loginUser => (
           <div className='login-container'>
@@ -82,12 +95,21 @@ class Login extends Component {
               <div className='login-buttons'>
                 <button className='login-button' type="submit">Log In</button>
                 <button className='fb-button' onClick={this.demoLogin}> 
-                  <i class="fab fa-facebook-f"></i>Demo Login
+                  <i className="fab fa-facebook-f"></i>Demo Login
                 </button>
               </div>
             </form>
             <footer className='session-switch'>
-              <span>New to IndieDodo? <a href="#/register">Register</a></span>
+              <ApolloConsumer>
+                {client => (
+                  <span>New to IndieDodo? 
+                    <div 
+                      onClick={() => this.updateCache(client, {data: null}, "register")}>
+                      Register
+                    </div>
+                  </span>
+                )}
+              </ApolloConsumer>
             </footer>
           </div>
         )}
@@ -96,4 +118,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

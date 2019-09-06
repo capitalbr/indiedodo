@@ -16,7 +16,7 @@ import './styles/output.css';
 
 const { VERIFY_USER } = Mutations;
 
-const cache = new InMemoryCache({
+export const cache = new InMemoryCache({
   dataIdFromObject: object => object._id || null
 });
 
@@ -46,6 +46,7 @@ cache.writeData({
   data: {
     isLoggedIn: Boolean(token),
     currentUser: null,
+    modalType: false,
     cart: []
   }
 });

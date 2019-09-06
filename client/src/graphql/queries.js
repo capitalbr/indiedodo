@@ -6,6 +6,11 @@ export default {
       isLoggedIn @client
     }
   `,
+  MODAL_TYPE: gql`
+    query modalType {
+      modalType @client
+    }
+  `,
   FETCH_USER: gql`
     query fetchUser($id: ID!) {
       user(_id: $id){

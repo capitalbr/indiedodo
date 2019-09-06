@@ -11,6 +11,7 @@ import Landing from "./landing/landing";
 import Footer from "./footer/footer";
 import Test from "./test"
 import Checkout from "./checkout/checkout"
+import SessionModal from "./modals/session";
 
 const App = () => {
 //   return (
@@ -19,6 +20,7 @@ const App = () => {
 // }
   return (
     <div>
+      <Route path="/" component={SessionModal}/>
       <Route path="/" component={Nav} />
       <Switch>
         <Route exact path="/" component={Landing} />
@@ -27,8 +29,6 @@ const App = () => {
         <AuthRoute exact path="/new-campaign" component={CampaignCreate} routeType="protected" />
         <Route exact path="/campaigns/:campaignId" component={CampaignShow} />
         <Route exact path="/checkout" component={Checkout} />
-        <AuthRoute exact path="/login" component={Login} routeType="auth" />
-        <AuthRoute exact path="/register" component={Register} routeType="auth" />
         <Route path="/" component={oops} />
       </Switch>
       <Route path="/" component={Footer} />

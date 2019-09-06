@@ -176,39 +176,110 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  margin: 30px; }
-
-.register-form button {
-  background-color: #4e7a8f;
-  height: 25px;
-  margin: 5px; }
+  width: 100%; }
 
 .register-header {
   text-align: center;
   margin: 10px; }
   .register-header h1 {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 42px; }
+    font-size: 35px;
+    padding-top: 4px;
+    padding-bottom: 6px; }
+  .register-header p {
+    padding: 10px;
+    color: gray;
+    font-weight: 300;
+    padding-bottom: 14px; }
 
 .register-inputs {
   display: flex;
   flex-direction: column;
-  justify-content: center; }
-  .register-inputs input {
-    height: 25px;
-    margin: 5px; }
+  justify-content: center;
+  align-items: center; }
+  .register-inputs .input-container input {
+    height: 42px;
+    margin: 5px;
+    width: 352px;
+    font-family: "Roboto", sans-serif;
+    padding-left: 16px;
+    font-size: 14px; }
+    .register-inputs .input-container input::placeholder {
+      color: #9D9D9D; }
+  .register-inputs-title {
+    margin-left: 5px;
+    font-weight: 300;
+    margin-bottom: 3px;
+    margin-top: 16px; }
   .register-inputs span {
     font-size: 12px; }
+  .register-inputs .checkbox-container {
+    width: 100%;
+    margin-top: 14px;
+    display: flex;
+    align-items: center; }
+    .register-inputs .checkbox-container span {
+      font-size: 15px;
+      color: #545454;
+      font-weight: 400; }
+      .register-inputs .checkbox-container span a {
+        color: black; }
+        .register-inputs .checkbox-container span a:hover {
+          color: #0f79aa; }
+  .register-inputs .session-checkbox {
+    display: none; }
+  .register-inputs .session-checkbox + label {
+    margin-right: 14px;
+    border: 1px solid #cacece;
+    padding: 9px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+    display: inline-block;
+    border-radius: 3px;
+    position: relative;
+    background-color: white; }
+  .register-inputs .session-checkbox + label:active, .register-inputs .session-checkbox:checked + label:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1); }
+  .register-inputs .session-checkbox:checked + label {
+    border: 1px solid black;
+    background-color: black; }
+  .register-inputs .session-checkbox:checked + label:after {
+    content: '\2714';
+    position: absolute;
+    top: 0px;
+    align-self: flex-end;
+    left: 3px;
+    transform: translate(1px, 2px);
+    font-size: 14px;
+    color: white; }
+  .register-inputs .checkbox-label {
+    display: inline; }
 
 .register-buttons {
+  margin-top: 13px;
   display: flex;
   flex-direction: column;
   justify-content: center; }
   .register-buttons button {
     cursor: pointer;
-    height: 25px;
-    margin: 5px; }
+    height: 41px;
+    margin: 5px;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase; }
+  .register-buttons .create-account {
+    background-color: #4e7a8f; }
+  .register-buttons .guest-login {
+    background-color: #FB3922; }
+  .register-buttons p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-weight: 300;
+    font-size: 14.9px;
+    color: #6b6363; }
 
 .login-container {
   display: flex;
@@ -248,7 +319,17 @@ h2 {
     margin: 5px; }
 
 .session-switch {
-  font-size: 12px; }
+  font-size: 15px;
+  color: #1d1c1c;
+  font-weight: 300;
+  margin-top: 25px; }
+  .session-switch span div {
+    display: inline;
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer; }
+    .session-switch span div:hover {
+      color: #0f79aa; }
 
 .login-links {
   font-size: 12px;
@@ -2201,5 +2282,30 @@ h2 {
   counter-reset: ol4; }
 
 /*# sourceMappingURL=react-draft-wysiwyg.css.map*/
+.modal-container {
+  z-index: 2000000001;
+  transition: all 0.3s cubic-bezier(0.16, 0.8, 0.45, 1);
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  overflow: scroll; }
+
+.modal-component {
+  margin-top: 100px;
+  position: relative;
+  width: 420px;
+  height: 625px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px -4px rgba(0, 0, 0, 0.2), 0 8px 10px -4px rgba(0, 0, 0, 0.14), 0 8px 12px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  padding: 30px; }
 
 /*# sourceMappingURL=output.css.map */

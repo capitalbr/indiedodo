@@ -52,7 +52,6 @@ class Carousel extends React.Component{
   }
 
   handleClick(e, camp) {
-    debugger
     e.preventDefault();
     if (e.target.nodeName === "BUTTON" || e.target.nodeName === "svg" || e.target.nodeName === "path") {
       return;
