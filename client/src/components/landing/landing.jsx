@@ -8,6 +8,10 @@ import { Query } from "react-apollo";
 import Queries from "../../graphql/queries";
 const { FETCH_CAMPAIGNS } = Queries;
 class Landing extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = ""
+  }
   render(){
     return (
         <Query query={FETCH_CAMPAIGNS}>

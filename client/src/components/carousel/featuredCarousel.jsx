@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import {FaChevronLeft, FaChevronRight} from "react-icons/fa";
 import AliceCarousel from 'react-alice-carousel'
 // import "react-alice-carousel/lib/alice-carousel.css"
-export default class Carousel extends React.Component{
+import { withRouter } from 'react-router-dom';
+
+
+
+class Carousel extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -27,7 +31,7 @@ export default class Carousel extends React.Component{
         return (
           <div
             className='featured-campaign'
-            onClick={e => this.handleClick(e,)}>
+            onClick={e => this.handleClick(e, camp)}>
               <div className='featured-frame'>
                 <img  className="featured-background" src={camp.image_url} alt={camp.title}/>
               </div>
@@ -48,6 +52,7 @@ export default class Carousel extends React.Component{
   }
 
   handleClick(e, camp) {
+    debugger
     e.preventDefault();
     if (e.target.nodeName === "BUTTON" || e.target.nodeName === "svg" || e.target.nodeName === "path") {
       return;
@@ -76,3 +81,5 @@ export default class Carousel extends React.Component{
   }
 }
 
+
+export default withRouter(Carousel);

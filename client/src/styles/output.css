@@ -806,7 +806,8 @@ h2 {
 .featured-campaign {
   height: 468px;
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.95)); }
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.95));
+  cursor: pointer; }
   .featured-campaign .featured-frame {
     height: 468px;
     width: 100%;
