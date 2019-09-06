@@ -6,6 +6,156 @@ mongoose.connect(db, { useNewUrlParser: true })
   .catch(err => console.log(`${err}: Cannot connect to MongoDB`));
 
 const Campaign = require('../server/models/Campaign');
+const User = require('../server/models/User');
+const Contribution = require('../server/models/Contribution');
+
+const seedContributions = () => {
+  Contribution.deleteMany({}, (err) => { console.log(err) });
+  return new Promise((res, rej) => {
+    Campaign.findOne({ title: "Lion brush initiative" })
+      .then(campaign => {
+        User.findOne({ name: "Albus Dumbledore" })
+          .then(user => {
+            newContribution = new Contribution({
+              amount: 1111,
+              user: user._id,
+              campaign: campaign._id
+            })
+            newContribution.save().then(contribution => {
+              console.log(`Success: ${contribution.amount} was paid`);
+            }, err => { console.log(`${contribution.amount} was unable to save due to: ${err}`) })
+          })
+      })
+
+    Campaign.findOne({ title: "Lion brush initiative" })
+      .then(campaign => {
+        User.findOne({ name: "Albus Dumbledore" })
+          .then(user => {
+            newContribution = new Contribution({
+              amount: 1111,
+              user: user._id,
+              campaign: campaign._id
+            })
+            newContribution.save().then(contribution => {
+              console.log(`Success: ${contribution.amount} was paid`);
+            }, err => { console.log(`${contribution.amount} was unable to save due to: ${err}`) })
+          })
+      })
+
+    Campaign.findOne({ title: "Lion brush initiative" })
+      .then(campaign => {
+        User.findOne({ name: "Stephen Curry" })
+          .then(user => {
+            newContribution = new Contribution({
+              amount: 3333,
+              user: user._id,
+              campaign: campaign._id
+            })
+            newContribution.save().then(contribution => {
+              console.log(`Success: ${contribution.amount} was paid`);
+            }, err => { console.log(`${contribution.amount} was unable to save due to: ${err}`) })
+          })
+      })
+
+    Campaign.findOne({ title: "Zebra traingle offense" })
+      .then(campaign => {
+        User.findOne({ name: "Stephen Curry" })
+          .then(user => {
+            newContribution = new Contribution({
+              amount: 4444,
+              user: user._id,
+              campaign: campaign._id
+            })
+            newContribution.save().then(contribution => {
+              console.log(`Success: ${contribution.amount} was paid`);
+            }, err => { console.log(`${contribution.amount} was unable to save due to: ${err}`) })
+          })
+      })
+
+    Campaign.findOne({ title: "Ruaha Carnivore Project" })
+      .then(campaign => {
+        User.findOne({ name: "Stephen Curry" })
+          .then(user => {
+            newContribution = new Contribution({
+              amount: 333333,
+              user: user._id,
+              campaign: campaign._id
+            })
+            newContribution.save().then(contribution => {
+              console.log(`Success: ${contribution.amount} was paid`);
+            }, err => { console.log(`${contribution.amount} was unable to save due to: ${err}`) })
+          })
+      })
+
+    Campaign.findOne({ title: "Ruaha Carnivore Project" })
+      .then(campaign => {
+        User.findOne({ name: "Albus Dumbledore" })
+          .then(user => {
+            newContribution = new Contribution({
+              amount: 400000,
+              user: user._id,
+              campaign: campaign._id
+            })
+            newContribution.save().then(contribution => {
+              console.log(`Success: ${contribution.amount} was paid`);
+            }, err => { console.log(`${contribution.amount} was unable to save due to: ${err}`) })
+          })
+      })
+
+  })
+}
+
+seedContributions().then((res) => { mongoose.connection.close() });
+
+mongoose.connect(db, { useNewUrlParser: true })
+  .then(() => console.log("Connected to MongoDB successfully"))
+  .catch(err => console.log(`${err}: Cannot connect to MongoDB`));
+
+const Comment = require('../server/models/Comment');
+
+const seedComments = () => {
+  Comment.deleteMany({}, (err) => { console.log(err) });
+  return new Promise((res, rej) => {
+    Campaign.findOne({ title: "Lion brush initiative" })
+      .then(campaign => {
+        User.findOne({ name: "Albus Dumbledore" })
+          .then(user => {
+            newComment = new Comment({
+              body: "What a great campaign I have created!",
+              user: user._id,
+              campaign: campaign._id
+            })
+            newComment.save().then(comment => {
+              console.log(`Success: ${comment.body} was created`);
+            }, err => { console.log(`${comment.body} was unable to save due to: ${err}`) })
+          })
+      })
+
+    Campaign.findOne({ title: "Lion brush initiative" })
+      .then(campaign => {
+        User.findOne({ name: "Stephen Curry" })
+          .then(user => {
+            newComment = new Comment({
+              body: "Keep it raining Dumbledore!",
+              user: user._id,
+              campaign: campaign._id
+            })
+            newComment.save().then(comment => {
+              console.log(`Success: ${comment.body} was created`);
+            }, err => { console.log(`${comment.body} was unable to save due to: ${err}`) })
+          })
+      })
+
+
+  })
+}
+
+seedComments().then((res) => { mongoose.connection.close() });
+
+mongoose.connect(db, { useNewUrlParser: true })
+  .then(() => console.log("Connected to MongoDB successfully"))
+  .catch(err => console.log(`${err}: Cannot connect to MongoDB`));
+
 const Perk = require('../server/models/Perk');
 
 const seedPerks = () => {
@@ -165,3 +315,38 @@ const seedPerks = () => {
 }
 
 seedPerks().then((res) => { mongoose.connection.close() });
+
+mongoose.connect(db, { useNewUrlParser: true })
+  .then(() => console.log("Connected to MongoDB successfully"))
+  .catch(err => console.log(`${err}: Cannot connect to MongoDB`));
+
+const Update = require('../server/models/Update');
+
+const seedUpdates = () => {
+  Update.deleteMany({}, (err) => { console.log(err) });
+  return new Promise((res, rej) => {
+    Campaign.findOne({ title: "Lion brush initiative" })
+      .then(campaign => {
+        newUpdate = new Update({
+          campaign: campaign._id,
+          body: "Lion manes mane. Kind brushes and combs for cuddly lions",
+        })
+        newUpdate.save().then(update => {
+          console.log(`Success: ${update.body} was created`);
+        }, err => { console.log(`${update.body} was unable to save due to: ${err}`) })
+      })
+
+    Campaign.findOne({ title: "Lion brush initiative" })
+      .then(campaign => {
+        newUpdate = new Update({
+          campaign: campaign._id,
+          body: "Brushed a lot of lions today oooweee!",
+        })
+        newUpdate.save().then(update => {
+          console.log(`Success: ${update.body} was created`);
+        }, err => { console.log(`${update.body} was unable to save due to: ${err}`) })
+      })
+  })
+}
+
+seedUpdates().then((res) => { mongoose.connection.close() });
