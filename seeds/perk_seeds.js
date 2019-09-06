@@ -113,22 +113,6 @@ const seedPerks = () => {
         }, err => { console.log(`${perk.title} was unable to save due to: ${err}`) })
       })
 
-    Campaign.findOne({ title: "They hunt crocodiles" })
-      .then(campaign => {
-        newPerk = new Perk({
-          campaign: campaign._id,
-          cost: 123,
-          title: "They hunt crocodiles",
-          description: "They hunt crocodiles, big ones.",
-          inventory_info: "E pluribus. Out of many, one from latin.",
-          shipping_info: "E pluribus. Out of many, one from latin.",
-          est_shipping: "E pluribus. Out of many, one from latin.",
-          image_url: "https://media.londolozi.com/wp-content/uploads/2016/07/11013916/Panther1.jpg",
-        })
-        newPerk.save().then(perk => {
-          console.log(`Success: ${perk.title} was created`);
-        }, err => { console.log(`${perk.title} was unable to save due to: ${err}`) })
-      })
     Campaign.findOne({ title: "Amphibian Survival Alliance" })
       .then(campaign => {
         newPerk = new Perk({
