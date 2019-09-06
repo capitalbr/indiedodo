@@ -31,9 +31,6 @@ class NavUser extends React.Component {
                                 <FaChevronDown className="dropdown-btn"/>
                             </div>
                             <div className='dropdown-content'>
-                                <a href="">My Profile</a>
-                                <a href="">My Campaigns</a>
-                                <a href="">My Contributions</a>
                                 <button
                                     className='logout'
                                     onClick={e => {

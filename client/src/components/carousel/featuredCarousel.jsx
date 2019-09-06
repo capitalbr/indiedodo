@@ -1,11 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {FaChevronLeft, FaChevronRight} from "react-icons/fa";
 import AliceCarousel from 'react-alice-carousel'
-// import "react-alice-carousel/lib/alice-carousel.css"
 import { withRouter } from 'react-router-dom';
-
-
 
 class Carousel extends React.Component{
   constructor(props){

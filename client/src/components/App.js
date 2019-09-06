@@ -3,8 +3,6 @@ import { Switch, Route } from "react-router-dom";
 import AuthRoute from "../util/route_util";
 import oops from "./404"
 import Nav from "./nav/nav";
-import Login from "./session/login";
-import Register from "./session/register";
 import CampaignShow from "./campaigns/CampaignShow";
 import CampaignCreate from "./campaigns/CampaignCreate";
 import Landing from "./landing/landing";
