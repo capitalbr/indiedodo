@@ -177,6 +177,11 @@ h2 {
   justify-content: center;
   align-items: center;
   width: 100%; }
+  .register-container #forgot-password {
+    display: flex;
+    text-decoration: underline;
+    justify-content: flex-end;
+    padding: 14px 4.5px 30px; }
 
 .register-header {
   text-align: center;
@@ -281,14 +286,6 @@ h2 {
     font-size: 14.9px;
     color: #6b6363; }
 
-.login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 30px; }
-
 .login-buttons {
   display: flex;
   flex-direction: column;
@@ -302,12 +299,6 @@ h2 {
   .login-buttons .fb-button {
     background-color: #4266B2;
     cursor: pointer; }
-
-.login-header {
-  text-align: center; }
-  .login-header h1 {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 42px; }
 
 .login-inputs {
   display: flex;
@@ -2302,7 +2293,7 @@ h2 {
   margin-top: 100px;
   position: relative;
   width: 420px;
-  height: 625px;
+  height: fit-content;
   background-color: #fff;
   box-shadow: 0 2px 6px -4px rgba(0, 0, 0, 0.2), 0 8px 10px -4px rgba(0, 0, 0, 0.14), 0 8px 12px 4px rgba(0, 0, 0, 0.05);
   border-radius: 2px;

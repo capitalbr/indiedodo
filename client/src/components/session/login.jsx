@@ -60,7 +60,7 @@ class Login extends Component {
         update={(client, data) => this.updateCache(client, data, false)}
       >
         {loginUser => (
-          <div className='login-container'>
+          <div className='register-container'>
             
             <form
               className='login-form'
@@ -74,35 +74,48 @@ class Login extends Component {
                 });
               }}
             >
-              <div className='login-header'>
+              <div className='register-header'>
                   <h1>Welcome Back!</h1>
                   <p>Log in to continue.</p>
               </div>
-              <div className='login-inputs'>
-                <input
-                  value={this.state.email}
-                  onChange={this.update("email")}
-                  placeholder="Email"
-                />
-                <input
-                  value={this.state.password}
-                  onChange={this.update("password")}
-                  type="password"
-                  placeholder="Password"
-                />
-                <a className='login-links' href="/register">Forgot your password?</a>
+              <div className='register-inputs'>
+                <div className="input-container">
+                  <div className="register-inputs-title">
+                    Email
+                  </div>
+                  <input
+                    value={this.state.email}
+                    onChange={this.update("email")}
+                    placeholder="Your Email"
+                  />
+                </div>
+                <div className="input-container">
+                  <div className="register-inputs-title">
+                    Password
+                  </div>
+                  <input
+                    value={this.state.password}
+                    onChange={this.update("password")}
+                    type="password"
+                    placeholder="Password"
+                  />
+                </div>
               </div>
-              <div className='login-buttons'>
-                <button className='login-button' type="submit">Log In</button>
-                <button className='fb-button' onClick={this.demoLogin}> 
-                  <i className="fab fa-facebook-f"></i>Demo Login
+              <span id="forgot-password">
+                <div>Forgot your password?</div>
+              </span>
+              <div className='register-buttons'>
+                <button className='create-account' type="submit">Log In</button>
+                <p>OR</p>
+                <button className='guest-login' onClick={this.demoLogin}> 
+                  GUEST LOGIN
                 </button>
               </div>
             </form>
             <footer className='session-switch'>
               <ApolloConsumer>
                 {client => (
-                  <span>New to IndieDodo? 
+                  <span>New to IndieDodo? &nbsp;
                     <div 
                       onClick={() => this.updateCache(client, {data: null}, "register")}>
                       Register
