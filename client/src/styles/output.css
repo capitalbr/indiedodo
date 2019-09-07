@@ -181,7 +181,9 @@ h2 {
     display: flex;
     text-decoration: underline;
     justify-content: flex-end;
-    padding: 14px 4.5px 30px; }
+    padding: 14px 4.5px 19px;
+    font-size: 12px;
+    cursor: pointer; }
 
 .register-header {
   text-align: center;
