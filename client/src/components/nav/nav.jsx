@@ -65,11 +65,23 @@ class Nav extends React.Component{
                       </div>
                       <div className='nav-right'>
                         <div className='new-campaign'>
-                          <Link to='/new-campaign'>Start a new Campaign</Link>
+                          <Link 
+                            className='new-campaign-link'
+                            to='/new-campaign'>
+                            Start a Campaign
+                          </Link>
                         </div>
                         <div className='login-signup'>
-                          <button onClick={e => this.session(e, "login", client)}>Login</button>
-                          <button onClick={e => this.session(e, "register", client)}>Sign Up</button>
+                          <div 
+                            id="login-nav-button"
+                            onClick={e => this.session(e, "login", client)}>
+                            Log In
+                          </div>
+                          <div 
+                            id="signup-nav-button"
+                            onClick={e => this.session(e, "register", client)}>
+                            Sign Up
+                          </div>
                         </div>
                       </div>
                     </nav>

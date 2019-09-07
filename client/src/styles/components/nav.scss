@@ -1,4 +1,5 @@
 .nav-container{
+    margin: 15px 4px 12px 16px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -42,17 +43,28 @@
     color: $dodo-blue;
 }
 
+.nav-right {
+    transform: translate(0px, -1px);
+    font-size: 14.5px;
+    font-weight: 500;
+    letter-spacing: .4px;
+}
 .nav-right * {
     padding: 6px;
 }
 
-.new-campaign * {
-    border-right: .75px solid rgb(142, 142, 142);
-    padding-right: 6px;
+.new-campaign {
+    border-right: .75px solid rgb(197, 195, 195);
+    &-link{
+        margin-right: 12px;
+    }
 }
 
-.login-signup * {
-    padding-left: 0px;
+.login-signup{
+    padding-left: 17px;
+    #login-nav-button{
+        margin-right: 12px;
+    }
 }
 
 .new-link{

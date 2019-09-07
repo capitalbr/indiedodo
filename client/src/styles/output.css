@@ -331,6 +331,7 @@ h2 {
   text-align: right; }
 
 .nav-container {
+  margin: 15px 4px 12px 16px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -366,15 +367,24 @@ h2 {
 .explore-container:hover * {
   color: #4e7a8f; }
 
+.nav-right {
+  transform: translate(0px, -1px);
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: .4px; }
+
 .nav-right * {
   padding: 6px; }
 
-.new-campaign * {
-  border-right: 0.75px solid #8e8e8e;
-  padding-right: 6px; }
+.new-campaign {
+  border-right: 0.75px solid #c5c3c3; }
+  .new-campaign-link {
+    margin-right: 12px; }
 
-.login-signup * {
-  padding-left: 0px; }
+.login-signup {
+  padding-left: 17px; }
+  .login-signup #login-nav-button {
+    margin-right: 12px; }
 
 .new-link {
   padding-right: 12px; }
@@ -451,9 +461,6 @@ h2 {
     font-size: 10em; }
   .oops h2 {
     font-size: 2em; }
-
-.landing-main {
-  margin: 6px; }
 
 .featured-container {
   width: 100%;
@@ -572,7 +579,7 @@ h2 {
   .campaign-listing .campaign-image {
     width: 100%;
     height: 275px;
-    object-fit: fill; }
+    object-fit: cover; }
   .campaign-listing .campaign-summary {
     text-decoration: none;
     padding: 12px; }
