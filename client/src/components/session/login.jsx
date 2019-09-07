@@ -12,7 +12,8 @@ class Login extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      forgotPWordText: false
     };
 
     this.demoLogin = this.demoLogin.bind(this);
@@ -47,6 +48,10 @@ class Login extends Component {
   }
 
   render() {
+    let forgotPWordText = "Forgot your password?";
+    if (this.state.forgotPWordText) {
+      forgotPWordText = "Thats OK! Logging you in as Guest..."
+    }
     return (
       <Mutation
         mutation={LOGIN_USER}
@@ -101,9 +106,34 @@ class Login extends Component {
                   />
                 </div>
               </div>
-              <span id="forgot-password">
-                <div>Forgot your password?</div>
-              </span>
+              <Mutation
+                mutation={LOGIN_USER}
+                onCompleted={data => {
+                  const { name, token } = data.login;
+                  localStorage.setItem("auth-token", token);
+                  localStorage.setItem("current-user", name);
+                  this.props.history.push("/landing");
+                }}
+                update={(client, data) => this.updateCache(client, data, false)}
+              >
+                {loginUser => (
+                  <span id="forgot-password">
+                    <div onClick={e => {
+                      this.setState({
+                        forgotPWordText: true
+                      })
+                      setTimeout(() => { 
+                        loginUser({
+                          variables: {
+                            email: 'albus@hogwarts.edu',
+                            password: 'Qwerty1234!'
+                          }
+                        }) 
+                      }, 3000);
+                    }}>{forgotPWordText}</div>
+                  </span>
+                )}
+              </Mutation>
               <div className='register-buttons'>
                 <button className='create-account' type="submit">Log In</button>
                 <p>OR</p>

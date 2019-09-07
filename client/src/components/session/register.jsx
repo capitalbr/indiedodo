@@ -4,6 +4,7 @@ import Mutations from "../../graphql/mutations";
 import { withRouter } from 'react-router-dom';
 
 const { REGISTER_USER } = Mutations;
+const { LOGIN_USER } = Mutations;
 
 class Register extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class Register extends Component {
     if (data) {
       client.writeData({
         data: { 
-          isLoggedIn: data.register.loggedIn,
+          isLoggedIn: data.register ? data.register.loggedIn : data.login.loggedIn,
           modalType: false
          }
       });
@@ -62,6 +63,16 @@ class Register extends Component {
         }
       });
     }
+  }
+
+  demoLogin(e, query){
+    e.preventDefault();
+    query({
+      variables: {
+        email: 'albus@hogwarts.edu',
+        password: 'Qwerty1234!'
+      }
+    })
   }
 
   render() {
@@ -180,12 +191,27 @@ class Register extends Component {
                     Create Account
                 </button>
                 <p>OR</p>
-                <button
-                  className="guest-login"
-                  type="submit"
-                  >
-                  GUEST LOGIN
-                </button>
+                <Mutation
+                  mutation={LOGIN_USER}
+                  onCompleted={data => {
+                    const { name, token } = data.login;
+
+                    localStorage.setItem("auth-token", token);
+                    localStorage.setItem("current-user", name);
+                    this.props.history.push("/landing");
+                  }}
+                  update={(client, data) => this.updateCache(client, data, false)}
+                >
+                  {loginUser => (
+                    <button
+                      className="guest-login"
+                      type="submit"
+                      onClick={ e => this.demoLogin(e, loginUser)}
+                      >
+                      GUEST LOGIN
+                    </button>
+                  )}
+                </Mutation>
               </div>
             </form>
 
