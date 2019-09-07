@@ -134,7 +134,7 @@ export default class Checkout extends React.Component {
                                                   <div className="user-details">{data.currentUser.email}</div>
                                                   <div className="user-details">
                                                   <span>Not You? </span>
-                                                  <a href="#" onClick={(e) => this.logout(e, this.client)}>Logout</a>
+                                                  <button onClick={(e) => this.logout(e, this.client)}>Logout</button>
                                                   </div>
                                                 </div>
                                               </div>

@@ -18,8 +18,8 @@ const News = () => {
               let randNews = data.getArticles.sort(() => .5 - Math.random());
               let news = randNews.slice(0,3);
               return news.map(({ title, description, url, urlToImage }, i) => (
-                <a className='article-link' href={url}>
-                  <article className='news-article' key={i}>
+                <a className='article-link' href={url} key={i}>
+                  <article className='news-article'>
                     <div className='image-frame'>
                       <img className='article-image'src={urlToImage} alt={title}/>
                     </div>
