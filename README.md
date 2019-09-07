@@ -12,6 +12,14 @@ An Indiegogo clone that uses a rewards-based system by giving ‘perks’ to cus
   <img src="https://user-images.githubusercontent.com/48269593/64215459-812c3200-ce7a-11e9-8607-38e263e16e96.png"        width="48%">
 </p>
 
+# Technologies
+* **Backend:** MongoDB/Express/GraphQL
+* **Frontend:** React/Node.js/Apollo
+* **Hosting:** Heroku
+* BCrypt for user authentication
+* AWS S3 for storage of images/videos
+* Docker for images and containers
+* Material UI for frontend design
 
 # Functionality
 ## User Authentication
@@ -31,34 +39,4 @@ An Indiegogo clone that uses a rewards-based system by giving ‘perks’ to cus
 ## Checkout Page
 * Enter payment information (not accepting real payments at this time!)
 * Review contribution summary and submit.
-
-
-## Technologies
-
-* **Backend:** MongoDB/Express/GraphQL
-* **Frontend:** React/Node.js/Apollo
-* **Hosting:** Heroku
-* BCrypt for user authentication
-* AWS S3 for storage of images/videos
-* Docker for images and containers
-* Material UI for frontend design
-
-## Coming Soon
-* Login with facebook / chrome
-* Flex goals
-* Images sourced through api
-* GraphQL scraper
-* Collections of campaigns
-* Shopping Cart functionality
-* FAQ Q/A Submisson fields 
-* Guest Checkout
-* Capcha
-* Robust inventory remaining/claimed
-* Cancel contribution functionality
-
-## Group Members
-
-* Brad Barnes
-* Josh Burnwatt
-* Zach Oliver
 
