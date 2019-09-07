@@ -65,11 +65,11 @@ class Nav extends React.Component{
                       </div>
                       <div className='nav-right'>
                         <div className='new-campaign'>
-                          <Link 
+                          <div 
                             className='new-campaign-link'
-                            to='/new-campaign'>
+                            onClick={e => this.session(e, "login", client)}>
                             Start a Campaign
-                          </Link>
+                          </div>
                         </div>
                         <div className='login-signup'>
                           <div 
