@@ -184,6 +184,8 @@ h2 {
     padding: 14px 4.5px 19px;
     font-size: 12px;
     cursor: pointer; }
+    .register-container #forgot-password:hover {
+      color: #0f79aa; }
 
 .register-header {
   text-align: center;
