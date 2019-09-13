@@ -897,13 +897,11 @@ h2 {
   .featured-campaign .featured-frame {
     height: 468px;
     width: 100%;
-    z-index: 0;
     background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.95)); }
     .featured-campaign .featured-frame .featured-background {
       height: 468px;
       width: 100%;
       object-fit: cover;
-      z-index: -1;
       background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.95)); }
 
 .featured-frame::after {
@@ -965,7 +963,6 @@ h2 {
       justify-content: center;
       align-items: center;
       font-size: 16px;
-      z-index: 9;
       cursor: pointer; }
       .featured-controls .carousel-control .carousel-btn:hover {
         color: white;

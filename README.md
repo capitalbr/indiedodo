@@ -32,6 +32,14 @@ An Indiegogo clone that uses a rewards-based system by giving ‘perks’ to cus
 * Modal to choose perks or pledge specified amount to a campaign.
 * Track campaigns owner and funding status.
 
+``` javascript
+const youtubeURLHelper = (url) => {
+  const idx = url.indexOf("v=") + 2;
+  const query = url.slice(idx);
+  let embeddedUrl = "https://www.youtube.com/embed/" + query;
+  return (embeddedUrl)
+}
+```
 ## Landing Page
 * Multiple Carosels for featured, trending, and recent campaigns.
 * News API displaying conservation stories across the globe related to the campaigns.
