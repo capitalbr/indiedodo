@@ -50,8 +50,8 @@ class CampaignCreate extends Component {
       youtube_url: "",
       real_url: "",
       category: "",
-      goal: "",
-      end_date: "",
+      goal: "1000",
+      end_date: "2099-12-31",
       contentState
     };
     this.temp = "";
@@ -193,7 +193,10 @@ class CampaignCreate extends Component {
                       onChange={this.update("overview")}
                     />
                     <h3 className="create-subhead">Story</h3>
-                      <h6 className="create-input-txt">Tell potential contributors more about your campaign. Provide details that will motivate people to contribute. A good pitch is compelling, informative, and easy to digest.</h6> 
+                      <h6 className="create-input-txt">Tell potential 
+                        contributors more about your campaign. Provide details 
+                        that will motivate people to contribute. A good pitch 
+                        is compelling, informative, and easy to digest.</h6> 
                       <div className="create-story-editor">
                         <Editor
                           wrapperClassName="wrapper-class"

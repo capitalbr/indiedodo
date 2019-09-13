@@ -44,8 +44,8 @@ export default {
       $youtube_url: String
       $real_url: String
       $category: String!
-      $goal: Float!
-      $end_date: Date!
+      $goal: Float
+      $end_date: Date
       $user: ID!
     ) {
       newCampaign(title: $title, tagline: $tagline, overview: $overview, story: $story, faq: $faq, image_url: $image_url, youtube_url: $youtube_url, real_url: $real_url, category: $category, goal: $goal, end_date: $end_date, user: $user) {
