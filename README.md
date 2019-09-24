@@ -19,7 +19,6 @@ An Indiegogo clone that uses a rewards-based system by giving ‘perks’ to cus
 * BCrypt for user authentication
 * AWS S3 for storage of images/videos
 * Docker for images and containers
-* Material UI for frontend design
 
 # Functionality
 ## User Authentication
