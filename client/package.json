@@ -24,7 +24,7 @@
     "react-apollo": "^2.5.8",
     "react-bootstrap": "^1.0.0-beta.10",
     "react-dom": "^16.8.6",
-    "react-draft-wysiwyg": "^1.13.2",
+    "react-draft-wysiwyg": "^1.14.6",
     "react-icons": "^3.7.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
