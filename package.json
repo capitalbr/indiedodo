@@ -43,6 +43,6 @@
     "nodemon": "^1.19.1",
     "query-string": "^6.8.3",
     "uuid": "^3.3.2",
-    "validator": "^11.1.0"
+    "validator": "^13.7.0"
   }
 }
