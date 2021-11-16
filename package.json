@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/capitalbr/indiedodo#readme",
   "dependencies": {
-    "aws-sdk": "^2.502.0",
+    "aws-sdk": "^2.814.0",
     "axios": "^0.21.2",
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
