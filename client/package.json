@@ -17,7 +17,7 @@
     "graphql-tag": "^2.10.1",
     "graphql-tools": "^4.0.5",
     "jquery": "^3.5.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "query-string": "^6.8.3",
     "react": "^16.8.6",
     "react-alice-carousel": "^1.15.2",
